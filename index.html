@@ -84,6 +84,10 @@
             cursor: pointer;
             color: #aaa;
         }
+        .error {
+            color: red;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -92,7 +96,6 @@
         <label for="missionFilter">Select Mission Set:</label>
         <select id="missionFilter">
             <option value="main">Main Overview</option>
-            <!-- Options populated dynamically -->
         </select>
     </div>
     <div id="container">
@@ -122,8 +125,14 @@
         let currentMission = 'main';
 
         Promise.all([
-            fetch('entities.json').then(res => res.json()),
-            fetch('missions.json').then(res => res.json())
+            fetch('entities.json').then(res => {
+                if (!res.ok) throw new Error('Failed to load entities.json');
+                return res.json();
+            }),
+            fetch('missions.json').then(res => {
+                if (!res.ok) throw new Error('Failed to load missions.json');
+                return res.json();
+            })
         ]).then(([entitiesData, missionsData]) => {
             entities = entitiesData;
             missions = missionsData;
@@ -139,6 +148,9 @@
 
             // Initialize visualization
             renderVisualization();
+        }).catch(error => {
+            console.error('Error loading data:', error);
+            document.getElementById('graph').innerHTML = `<p class="error">Error loading data: ${error.message}. Please ensure entities.json and missions.json are present.</p>`;
         });
 
         // Helper functions for layout
@@ -186,36 +198,36 @@
                 nodes = entities.map(e => ({ ...e }));
                 links = [];
 
-                // Group entities by type
-                const fighters = nodes.filter(n => n.type === 'Fighter' || n.type === 'Multirole Fighter');
-                const ucavs = nodes.filter(n => n.type === 'UCAV' || n.type === 'Attritable');
-                const tankers = nodes.filter(n => n.type === 'Tanker');
-                const hypersonics = nodes.filter(n => n.type === 'Hypersonic');
+                // Group entities by type (approximate grouping based on provided entities)
+                const ccav = nodes.filter(n => ['xq67', 'fury', 'xq58'].includes(n.id));
+                const tankers = nodes.filter(n => ['mq25', 'ngas', 'x47'].includes(n.id));
+                const hypersonics = nodes.filter(n => ['quarterhorse0', 'quarterhorse1'].includes(n.id));
+                const c2 = nodes.filter(n => ['link16', 'cjadc2'].includes(n.id));
 
                 // Layout groups
-                arrangeMatrix(fighters, 2, Math.ceil(fighters.length / 2), width * 0.1, height * 0.1, 150, 150);
-                arrangeMatrix(ucavs, 2, Math.ceil(ucavs.length / 2), width * 0.6, height * 0.1, 150, 150);
+                arrangeMatrix(ccav, 1, ccav.length, width * 0.1, height * 0.2, 150, 150);
                 arrangeCircle(tankers, width * 0.3, height * 0.7, 100);
                 arrangeCircle(hypersonics, width * 0.7, height * 0.7, 100);
+                arrangeMatrix(c2, 1, c2.length, width * 0.5, height * 0.3, 150, 150);
 
-                // Add some example links (e.g., Link 16 between fighters and UCAVs)
-                fighters.forEach(f => {
-                    ucavs.forEach(u => {
-                        links.push({ source: f.id, target: u.id, type: 'Link16' });
+                // Add example links (e.g., Link 16 between CCAV and C2)
+                ccav.forEach(f => {
+                    c2.forEach(c => {
+                        links.push({ source: f.id, target: c.id, type: 'Link16' });
                     });
                 });
             } else {
                 // Mission-specific layout
                 const mission = missions.find(m => m.id === currentMission);
-                nodes = mission.layout.map(l => ({
-                    ...entities.find(e => e.id === l.id),
-                    x: l.x,
-                    y: l.y
-                }));
+                if (!mission) return; // Skip if mission not found
+                nodes = mission.layout.map(l => {
+                    const entity = entities.find(e => e.id === l.id);
+                    return entity ? { ...entity, x: l.x, y: l.y } : null;
+                }).filter(n => n); // Remove nulls
                 links = mission.links.map(l => ({
                     source: l.source,
                     target: l.target,
-                    type: 'Link16' // Assume mission links are datalinks
+                    type: 'Link16'
                 }));
 
                 // Update left sidebar
@@ -239,10 +251,22 @@
                 .enter()
                 .append('line')
                 .attr('class', d => `link ${d.type === 'Link16' ? 'link16' : ''}`)
-                .attr('x1', d => nodes.find(n => n.id === d.source).x)
-                .attr('y1', d => nodes.find(n => n.id === d.source).y)
-                .attr('x2', d => nodes.find(n => n.id === d.target).x)
-                .attr('y2', d => nodes.find(n => n.id === d.target).y);
+                .attr('x1', d => {
+                    const source = nodes.find(n => n.id === d.source);
+                    return source ? source.x : 0;
+                })
+                .attr('y1', d => {
+                    const source = nodes.find(n => n.id === d.source);
+                    return source ? source.y : 0;
+                })
+                .attr('x2', d => {
+                    const target = nodes.find(n => n.id === d.target);
+                    return target ? target.x : 0;
+                })
+                .attr('y2', d => {
+                    const target = nodes.find(n => n.id === d.target);
+                    return target ? target.y : 0;
+                });
 
             // Draw nodes
             const nodeSelection = zoomGroup.selectAll('.node')
@@ -250,15 +274,15 @@
                 .enter()
                 .append('g')
                 .attr('class', 'node')
-                .attr('transform', d => `translate(${d.x},${d.y})`);
+                .attr('transform', d => `translate(${d.x || 0},${d.y || 0})`);
 
             nodeSelection.append('image')
-                .attr('xlink:href', d => d.image)
+                .attr('xlink:href', d => d.image || 'https://via.placeholder.com/60')
                 .attr('width', 60)
                 .attr('height', 60)
                 .attr('x', -30)
                 .attr('y', -30)
-                .on('click', showEntityDetails);
+                .on('click', (event, d) => showEntityDetails(event, d));
 
             nodeSelection.append('text')
                 .attr('y', 40)
@@ -275,16 +299,17 @@
 
         // Show entity details in right sidebar
         function showEntityDetails(event, d) {
+            if (!d) return; // Guard against null data
             const sidebar = document.getElementById('right-sidebar');
             sidebar.classList.add('open');
 
-            document.getElementById('entity-title').textContent = d.name;
-            document.getElementById('entity-description').textContent = d.description;
-            document.getElementById('entity-image').src = d.image;
+            document.getElementById('entity-title').textContent = d.name || 'Unknown';
+            document.getElementById('entity-description').textContent = d.description || 'No description available.';
+            document.getElementById('entity-image').src = d.image || 'https://via.placeholder.com/100';
 
             const capList = document.getElementById('entity-capabilities');
             capList.innerHTML = '';
-            d.capabilities.forEach(cap => {
+            (d.capabilities || []).forEach(cap => {
                 const li = document.createElement('li');
                 li.textContent = cap;
                 capList.appendChild(li);
@@ -292,7 +317,7 @@
 
             const missionList = document.getElementById('entity-missions');
             missionList.innerHTML = '';
-            d.missions.forEach(m => {
+            (d.missions || []).forEach(m => {
                 const li = document.createElement('li');
                 li.textContent = missions.find(mission => mission.id === m)?.name || m;
                 missionList.appendChild(li);
@@ -306,45 +331,38 @@
 
         // Role descriptions for missions
         function getRoleDescription(entityId, missionId) {
-            const entity = entities.find(e => e.id === entityId);
             switch (missionId) {
                 case 'isr':
-                    if (entityId === 'xq58a') return 'Conducts forward reconnaissance and transmits data via Link 16.';
-                    if (entityId === 'f35') return 'Processes real-time ISR data and coordinates strike planning.';
-                    if (entityId === 'x47') return 'Provides stealth ISR support in contested areas.';
+                    if (entityId === 'xq67') return 'Conducts stealth reconnaissance and shares data via Link 16.';
+                    if (entityId === 'xq58') return 'Performs forward ISR in high-threat environments.';
                     break;
                 case 'strike':
-                    if (entityId.startsWith('quarterhorse')) return 'Delivers rapid precision strikes on high-value targets.';
-                    if (entityId === 'f22') return 'Provides air superiority and escorts strike assets.';
-                    if (entityId === 'mq25') return 'Extends mission range through aerial refueling.';
+                    if (entityId === 'quarterhorse0' || entityId === 'quarterhorse1') return 'Delivers rapid precision strikes on high-value targets.';
+                    if (entityId === 'xq58') return 'Supports strike missions with attritable assets.';
                     break;
                 case 'cas':
-                    if (entityId === 'f16') return 'Executes precision strikes based on ground targeting data.';
-                    if (entityId === 'f35') return 'Coordinates CAS operations and provides ISR overwatch.';
-                    if (entityId === 'mq25') return 'Sustains long-duration CAS missions with refueling.';
-                    break;
-                case 'oca':
-                    if (entityId === 'f22') return 'Maintains air superiority and engages enemy aircraft.';
-                    if (entityId === 'f15') return 'Supports air superiority with long-range engagements.';
-                    if (entityId === 'quarterhorse0') return 'Intercepts threats at hypersonic speeds.';
-                    if (entityId === 'x47') return 'Jams enemy radar and provides ISR.';
-                    break;
-                case 'ew':
-                    if (entityId === 'xq58a') return 'Jams enemy radar and communications systems.';
-                    if (entityId === 'f35') return 'Coordinates EW operations and processes real-time data.';
+                    if (entityId === 'xq67') return 'Provides ISR overwatch for ground forces.';
+                    if (entityId === 'fury') return 'Delivers rapid, networked strikes on targets.';
                     break;
                 case 'refuel':
                     if (entityId === 'mq25') return 'Provides carrier-based autonomous refueling.';
                     if (entityId === 'x47') return 'Extends mission duration with stealth refueling.';
                     if (entityId === 'ngas') return 'Integrates next-gen refueling for unmanned platforms.';
                     break;
+                case 'ew':
+                    if (entityId === 'xq58') return 'Jams enemy radar and communications systems.';
+                    break;
                 case 'decoy':
-                    if (entityId === 'xq58a') return 'Simulates high-value targets to draw enemy fire.';
-                    if (entityId === 'f35') return 'Coordinates deception operations and processes feedback.';
+                    if (entityId === 'xq58') return 'Simulates high-value targets to draw enemy fire.';
+                    break;
+                case 'oca':
+                    if (entityId === 'quarterhorse0') return 'Intercepts threats at hypersonic speeds.';
+                    if (entityId === 'x47') return 'Jams enemy radar and provides ISR.';
                     break;
                 default:
                     return 'Supports mission objectives with core capabilities.';
             }
+            return 'Supports mission objectives with core capabilities.';
         }
     </script>
 </body>
