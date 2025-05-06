@@ -1,0 +1,98 @@
+[
+  {
+    "id": "isr",
+    "name": "Intelligence, Surveillance, and Reconnaissance (ISR)",
+    "description": "Autonomous CCAs and Valkyrie units conduct pre-strike reconnaissance and transmit real-time data through Link 16 to CJADC2. Target tracking and dynamic retasking ensure the strike force has continuous intel updates.",
+    "layout": [
+      { "id": "xq58a", "x": 600, "y": 80 },
+      { "id": "f35", "x": 450, "y": 250 },
+      { "id": "x47", "x": 300, "y": 420 }
+    ],
+    "links": [
+      { "source": "xq58a", "target": "f35" },
+      { "source": "f35", "target": "x47" }
+    ]
+  },
+  {
+    "id": "strike",
+    "name": "Precision Strike Missions",
+    "description": "CCAs and high-speed Quarterhorse aircraft coordinate to strike high-value targets with real-time networked control via CJADC2 and Link 16. Refuelers maintain endurance in high-threat environments.",
+    "layout": [
+      { "id": "quarterhorse0", "x": 520, "y": 100 },
+      { "id": "quarterhorse1", "x": 700, "y": 120 },
+      { "id": "f22", "x": 460, "y": 280 },
+      { "id": "mq25", "x": 280, "y": 460 }
+    ],
+    "links": [
+      { "source": "quarterhorse0", "target": "f22" },
+      { "source": "f22", "target": "mq25" }
+    ]
+  },
+  {
+    "id": "cas",
+    "name": "Close Air Support (CAS)",
+    "description": "Ground forces send targeting updates into CJADC2. CCAs conduct ISR overwatch while manned fighters execute precision attacks. Refuelers sustain operations for long-duration support.",
+    "layout": [
+      { "id": "f16", "x": 500, "y": 260 },
+      { "id": "f35", "x": 620, "y": 200 },
+      { "id": "mq25", "x": 340, "y": 440 }
+    ],
+    "links": [
+      { "source": "f16", "target": "f35" },
+      { "source": "f35", "target": "mq25" }
+    ]
+  },
+  {
+    "id": "oca",
+    "name": "Offensive Counter Air and Air Superiority",
+    "description": "Fighters and CCAs maintain combat air patrol. Quarterhorse intercepts threats using CJADC2 data, while EW-equipped CCAs jam enemy systems and refuelers ensure operational longevity.",
+    "layout": [
+      { "id": "f22", "x": 420, "y": 200 },
+      { "id": "f15", "x": 580, "y": 220 },
+      { "id": "quarterhorse0", "x": 700, "y": 140 },
+      { "id": "x47", "x": 320, "y": 420 }
+    ],
+    "links": [
+      { "source": "f22", "target": "quarterhorse0" },
+      { "source": "f22", "target": "x47" }
+    ]
+  },
+  {
+    "id": "ew",
+    "name": "Electronic Warfare and Cyber Dominance",
+    "description": "EW-equipped CCAs jam radar and communications. Link 16 and CJADC2 allow real-time tactical updates and frequency adaptation to maintain air dominance.",
+    "layout": [
+      { "id": "f35", "x": 480, "y": 180 },
+      { "id": "xq58a", "x": 620, "y": 160 }
+    ],
+    "links": [
+      { "source": "xq58a", "target": "f35" }
+    ]
+  },
+  {
+    "id": "refuel",
+    "name": "Autonomous Aerial Refueling and Sustainment",
+    "description": "X-47 Pegasus and MQ-25 Stingray extend mission duration. NGAS provides modern refueling integration for unmanned and stealth platforms.",
+    "layout": [
+      { "id": "mq25", "x": 400, "y": 200 },
+      { "id": "x47", "x": 600, "y": 240 },
+      { "id": "ngas", "x": 500, "y": 400 }
+    ],
+    "links": [
+      { "source": "mq25", "target": "ngas" },
+      { "source": "x47", "target": "ngas" }
+    ]
+  },
+  {
+    "id": "decoy",
+    "name": "Decoy and Attritable Missions",
+    "description": "XQ-58A Valkyries draw fire from enemy defenses, simulate high-value targets, and feed deception data back to CJADC2 for future targeting refinement.",
+    "layout": [
+      { "id": "xq58a", "x": 580, "y": 100 },
+      { "id": "f35", "x": 420, "y": 250 }
+    ],
+    "links": [
+      { "source": "xq58a", "target": "f35" }
+    ]
+  }
+]

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexGen Air Battlespace</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            margin: 10px 0;
+        }
+        #controls {
+            text-align: center;
+            margin: 10px 0;
+        }
+        #container {
+            display: flex;
+            height: calc(100vh - 80px);
+        }
+        #left-sidebar {
+            width: 0;
+            background: #fff;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+            transition: width 0.3s;
+            padding: 0;
+        }
+        #left-sidebar.open {
+            width: 300px;
+            padding: 20px;
+        }
+        #right-sidebar {
+            width: 0;
+            background: #fff;
+            border-left: 1px solid #ccc;
+            overflow-y: auto;
+            transition: width 0.3s;
+            padding: 0;
+        }
+        #right-sidebar.open {
+            width: 300px;
+            padding: 20px;
+        }
+        #right-sidebar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        #graph {
+            flex-grow: 1;
+            height: 100%;
+            border: 1px solid #ccc;
+            background: #fff;
+            position: relative;
+        }
+        .node text {
+            font-size: 12px;
+            fill: #000;
+            text-anchor: middle;
+        }
+        .node image {
+            cursor: pointer;
+        }
+        .link {
+            stroke: #999;
+            stroke-width: 2;
+        }
+        .link.link16 {
+            stroke: blue;
+            stroke-width: 3;
+        }
+        .close-btn {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <h1>NexGen Air Battlespace</h1>
+    <div id="controls">
+        <label for="missionFilter">Select Mission Set:</label>
+        <select id="missionFilter">
+            <option value="main">Main Overview</option>
+            <!-- Options populated dynamically -->
+        </select>
+    </div>
+    <div id="container">
+        <div id="left-sidebar">
+            <span class="close-btn" onclick="closeSidebar('left-sidebar')">&times;</span>
+            <h2 id="mission-title"></h2>
+            <p id="mission-description"></p>
+            <h3>Entity Roles</h3>
+            <div id="mission-roles"></div>
+        </div>
+        <div id="graph"></div>
+        <div id="right-sidebar">
+            <span class="close-btn" onclick="closeSidebar('right-sidebar')">&times;</span>
+            <img id="entity-image" src="" alt="Entity image">
+            <h2 id="entity-title"></h2>
+            <p id="entity-description"></p>
+            <h3>Capabilities</h3>
+            <ul id="entity-capabilities"></ul>
+            <h3>Missions</h3>
+            <ul id="entity-missions"></ul>
+        </div>
+    </div>
+    <script>
+        // Load data
+        let entities = [];
+        let missions = [];
+        let currentMission = 'main';
+
+        Promise.all([
+            fetch('entities.json').then(res => res.json()),
+            fetch('missions.json').then(res => res.json())
+        ]).then(([entitiesData, missionsData]) => {
+            entities = entitiesData;
+            missions = missionsData;
+
+            // Populate mission filter
+            const missionFilter = document.getElementById('missionFilter');
+            missions.forEach(m => {
+                const option = document.createElement('option');
+                option.value = m.id;
+                option.textContent = m.name;
+                missionFilter.appendChild(option);
+            });
+
+            // Initialize visualization
+            renderVisualization();
+        });
+
+        // Helper functions for layout
+        function arrangeCircle(nodes, cx, cy, radius) {
+            const angleStep = (2 * Math.PI) / nodes.length;
+            nodes.forEach((node, i) => {
+                node.x = cx + radius * Math.cos(i * angleStep);
+                node.y = cy + radius * Math.sin(i * angleStep);
+            });
+        }
+
+        function arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY) {
+            nodes.forEach((node, i) => {
+                const row = Math.floor(i / cols);
+                const col = i % cols;
+                node.x = startX + col * spacingX;
+                node.y = startY + row * spacingY;
+            });
+        }
+
+        // Main rendering function
+        function renderVisualization() {
+            const graphDiv = document.getElementById('graph');
+            const width = graphDiv.clientWidth;
+            const height = graphDiv.clientHeight;
+
+            // Clear previous SVG
+            d3.select('#graph').selectAll('*').remove();
+
+            const svg = d3.select('#graph')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            const zoomGroup = svg.append('g');
+            svg.call(d3.zoom().scaleExtent([0.5, 2]).on('zoom', (event) => {
+                zoomGroup.attr('transform', event.transform);
+            }));
+
+            let nodes = [];
+            let links = [];
+
+            if (currentMission === 'main') {
+                // Main page: Group by type
+                nodes = entities.map(e => ({ ...e }));
+                links = [];
+
+                // Group entities by type
+                const fighters = nodes.filter(n => n.type === 'Fighter' || n.type === 'Multirole Fighter');
+                const ucavs = nodes.filter(n => n.type === 'UCAV' || n.type === 'Attritable');
+                const tankers = nodes.filter(n => n.type === 'Tanker');
+                const hypersonics = nodes.filter(n => n.type === 'Hypersonic');
+
+                // Layout groups
+                arrangeMatrix(fighters, 2, Math.ceil(fighters.length / 2), width * 0.1, height * 0.1, 150, 150);
+                arrangeMatrix(ucavs, 2, Math.ceil(ucavs.length / 2), width * 0.6, height * 0.1, 150, 150);
+                arrangeCircle(tankers, width * 0.3, height * 0.7, 100);
+                arrangeCircle(hypersonics, width * 0.7, height * 0.7, 100);
+
+                // Add some example links (e.g., Link 16 between fighters and UCAVs)
+                fighters.forEach(f => {
+                    ucavs.forEach(u => {
+                        links.push({ source: f.id, target: u.id, type: 'Link16' });
+                    });
+                });
+            } else {
+                // Mission-specific layout
+                const mission = missions.find(m => m.id === currentMission);
+                nodes = mission.layout.map(l => ({
+                    ...entities.find(e => e.id === l.id),
+                    x: l.x,
+                    y: l.y
+                }));
+                links = mission.links.map(l => ({
+                    source: l.source,
+                    target: l.target,
+                    type: 'Link16' // Assume mission links are datalinks
+                }));
+
+                // Update left sidebar
+                const sidebar = document.getElementById('left-sidebar');
+                sidebar.classList.add('open');
+                document.getElementById('mission-title').textContent = mission.name;
+                document.getElementById('mission-description').textContent = mission.description;
+
+                const rolesDiv = document.getElementById('mission-roles');
+                rolesDiv.innerHTML = '';
+                nodes.forEach(n => {
+                    const role = document.createElement('div');
+                    role.innerHTML = `<strong>${n.name}:</strong> ${getRoleDescription(n.id, mission.id)}`;
+                    rolesDiv.appendChild(role);
+                });
+            }
+
+            // Draw links
+            const linkSelection = zoomGroup.selectAll('.link')
+                .data(links)
+                .enter()
+                .append('line')
+                .attr('class', d => `link ${d.type === 'Link16' ? 'link16' : ''}`)
+                .attr('x1', d => nodes.find(n => n.id === d.source).x)
+                .attr('y1', d => nodes.find(n => n.id === d.source).y)
+                .attr('x2', d => nodes.find(n => n.id === d.target).x)
+                .attr('y2', d => nodes.find(n => n.id === d.target).y);
+
+            // Draw nodes
+            const nodeSelection = zoomGroup.selectAll('.node')
+                .data(nodes)
+                .enter()
+                .append('g')
+                .attr('class', 'node')
+                .attr('transform', d => `translate(${d.x},${d.y})`);
+
+            nodeSelection.append('image')
+                .attr('xlink:href', d => d.image)
+                .attr('width', 60)
+                .attr('height', 60)
+                .attr('x', -30)
+                .attr('y', -30)
+                .on('click', showEntityDetails);
+
+            nodeSelection.append('text')
+                .attr('y', 40)
+                .text(d => d.name);
+
+            // Mission filter event
+            document.getElementById('missionFilter').onchange = function() {
+                currentMission = this.value;
+                document.getElementById('left-sidebar').classList.remove('open');
+                document.getElementById('right-sidebar').classList.remove('open');
+                renderVisualization();
+            };
+        }
+
+        // Show entity details in right sidebar
+        function showEntityDetails(event, d) {
+            const sidebar = document.getElementById('right-sidebar');
+            sidebar.classList.add('open');
+
+            document.getElementById('entity-title').textContent = d.name;
+            document.getElementById('entity-description').textContent = d.description;
+            document.getElementById('entity-image').src = d.image;
+
+            const capList = document.getElementById('entity-capabilities');
+            capList.innerHTML = '';
+            d.capabilities.forEach(cap => {
+                const li = document.createElement('li');
+                li.textContent = cap;
+                capList.appendChild(li);
+            });
+
+            const missionList = document.getElementById('entity-missions');
+            missionList.innerHTML = '';
+            d.missions.forEach(m => {
+                const li = document.createElement('li');
+                li.textContent = missions.find(mission => mission.id === m)?.name || m;
+                missionList.appendChild(li);
+            });
+        }
+
+        // Close sidebar
+        function closeSidebar(id) {
+            document.getElementById(id).classList.remove('open');
+        }
+
+        // Role descriptions for missions
+        function getRoleDescription(entityId, missionId) {
+            const entity = entities.find(e => e.id === entityId);
+            switch (missionId) {
+                case 'isr':
+                    if (entityId === 'xq58a') return 'Conducts forward reconnaissance and transmits data via Link 16.';
+                    if (entityId === 'f35') return 'Processes real-time ISR data and coordinates strike planning.';
+                    if (entityId === 'x47') return 'Provides stealth ISR support in contested areas.';
+                    break;
+                case 'strike':
+                    if (entityId.startsWith('quarterhorse')) return 'Delivers rapid precision strikes on high-value targets.';
+                    if (entityId === 'f22') return 'Provides air superiority and escorts strike assets.';
+                    if (entityId === 'mq25') return 'Extends mission range through aerial refueling.';
+                    break;
+                case 'cas':
+                    if (entityId === 'f16') return 'Executes precision strikes based on ground targeting data.';
+                    if (entityId === 'f35') return 'Coordinates CAS operations and provides ISR overwatch.';
+                    if (entityId === 'mq25') return 'Sustains long-duration CAS missions with refueling.';
+                    break;
+                case 'oca':
+                    if (entityId === 'f22') return 'Maintains air superiority and engages enemy aircraft.';
+                    if (entityId === 'f15') return 'Supports air superiority with long-range engagements.';
+                    if (entityId === 'quarterhorse0') return 'Intercepts threats at hypersonic speeds.';
+                    if (entityId === 'x47') return 'Jams enemy radar and provides ISR.';
+                    break;
+                case 'ew':
+                    if (entityId === 'xq58a') return 'Jams enemy radar and communications systems.';
+                    if (entityId === 'f35') return 'Coordinates EW operations and processes real-time data.';
+                    break;
+                case 'refuel':
+                    if (entityId === 'mq25') return 'Provides carrier-based autonomous refueling.';
+                    if (entityId === 'x47') return 'Extends mission duration with stealth refueling.';
+                    if (entityId === 'ngas') return 'Integrates next-gen refueling for unmanned platforms.';
+                    break;
+                case 'decoy':
+                    if (entityId === 'xq58a') return 'Simulates high-value targets to draw enemy fire.';
+                    if (entityId === 'f35') return 'Coordinates deception operations and processes feedback.';
+                    break;
+                default:
+                    return 'Supports mission objectives with core capabilities.';
+            }
+        }
+    </script>
+</body>
+</html>

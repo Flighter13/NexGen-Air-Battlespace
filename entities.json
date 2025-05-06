@@ -1,0 +1,161 @@
+[
+  {
+    "id": "f15",
+    "name": "F-15 Eagle",
+    "type": "Fighter",
+    "image": "images/f15.png",
+    "capabilities": [
+      "Air superiority",
+      "Speed and range",
+      "Payload capacity"
+    ],
+    "description": "A versatile, long-serving fighter aircraft known for its power and precision.",
+    "missions": [
+      "OCA",
+      "Escort"
+    ]
+  },
+  {
+    "id": "f16",
+    "name": "F-16 Fighting Falcon",
+    "type": "Fighter",
+    "image": "images/f16.png",
+    "capabilities": [
+      "Agility",
+      "Multirole capability",
+      "Cost effectiveness"
+    ],
+    "description": "The F-16 is a compact, multi-role fighter aircraft that has proven itself in air-to-air combat and air-to-surface attack.",
+    "missions": [
+      "CAS",
+      "Escort"
+    ]
+  },
+  {
+    "id": "f22",
+    "name": "F-22 Raptor",
+    "type": "Fighter",
+    "image": "images/f22.png",
+    "capabilities": [
+      "Stealth",
+      "Supercruise",
+      "Integrated avionics"
+    ],
+    "description": "Fifth-generation air superiority fighter with unmatched stealth and combat performance.",
+    "missions": [
+      "Air Superiority",
+      "OCA"
+    ]
+  },
+  {
+    "id": "f35",
+    "name": "F-35 Lightning II",
+    "type": "Multirole Fighter",
+    "image": "images/f35.png",
+    "capabilities": [
+      "Stealth",
+      "Multirole",
+      "Networked warfare"
+    ],
+    "description": "Advanced fifth-generation multirole fighter used by multiple U.S. services and allies.",
+    "missions": [
+      "ISR",
+      "Strike",
+      "CAS"
+    ]
+  },
+  {
+    "id": "mq25",
+    "name": "MQ-25 Stingray",
+    "type": "Tanker",
+    "image": "images/mq25.png",
+    "capabilities": [
+      "Autonomous refueling",
+      "Carrier-based",
+      "Extended range"
+    ],
+    "description": "Unmanned aerial tanker developed by Boeing to extend the range of carrier-based fighters.",
+    "missions": [
+      "Refueling"
+    ]
+  },
+  {
+    "id": "ngas",
+    "name": "Next Gen Aerial Refueling (NGAS)",
+    "type": "Tanker",
+    "image": "images/ngas.png",
+    "capabilities": [
+      "Fuel efficiency",
+      "Autonomous integration",
+      "Future compatibility"
+    ],
+    "description": "An advanced refueling concept supporting next-generation combat operations.",
+    "missions": [
+      "Refueling"
+    ]
+  },
+  {
+    "id": "quarterhorse0",
+    "name": "Quarterhorse Mk 0",
+    "type": "Hypersonic",
+    "image": "images/quarterhorse0.png",
+    "capabilities": [
+      "Speed",
+      "Reconnaissance",
+      "Strike delivery"
+    ],
+    "description": "Initial model in Hermeus' high-speed Quarterhorse platform for rapid ISR and strike.",
+    "missions": [
+      "ISR",
+      "Strike"
+    ]
+  },
+  {
+    "id": "quarterhorse1",
+    "name": "Quarterhorse Mk 1",
+    "type": "Hypersonic",
+    "image": "images/quarterhorse1.png",
+    "capabilities": [
+      "Hypersonic capability",
+      "Strike readiness",
+      "Disruption"
+    ],
+    "description": "Follow-up to Mk 0, engineered for hypersonic penetration of contested airspace.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "x47",
+    "name": "X-47 Pegasus",
+    "type": "UCAV",
+    "image": "images/x47.png",
+    "capabilities": [
+      "Autonomous carrier operations",
+      "Refueling",
+      "Stealth"
+    ],
+    "description": "A next-gen UCAV from Northrop Grumman built for refueling and ISR missions from naval platforms.",
+    "missions": [
+      "Refueling",
+      "ISR"
+    ]
+  },
+  {
+    "id": "xq58a",
+    "name": "XQ-58A Valkyrie",
+    "type": "Attritable",
+    "image": "images/xq-58.png",
+    "capabilities": [
+      "Low-cost",
+      "Forward ISR",
+      "Strike capability"
+    ],
+    "description": "An attritable unmanned combat drone designed to operate in high-risk, high-threat environments.",
+    "missions": [
+      "Decoy",
+      "Strike",
+      "ISR"
+    ]
+  }
+]
