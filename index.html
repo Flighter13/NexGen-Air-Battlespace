@@ -42,19 +42,23 @@
             width: 0;
             background: #fff;
             border-left: 1px solid #ccc;
-            overflow-y: auto;
+            overflow-y: auto; /* Enable scrolling */
             transition: width 0.3s;
-            padding: 0;
+            padding: 0 20px; /* Add padding for better readability */
         }
         #right-sidebar.open {
             width: 400px;
-            padding: 20px;
+            padding: 20px; /* Ensure padding is applied when open */
         }
         #right-sidebar img {
             width: 100px;
             height: 100px;
             border-radius: 4px;
             margin-bottom: 10px;
+        }
+        #right-sidebar p, #right-sidebar ul {
+            margin: 10px 0;
+            line-height: 1.5; /* Improve text readability */
         }
         #graph {
             flex-grow: 1;
@@ -375,7 +379,7 @@
                 .attr('y', -30)
                 .on('click', (event, d) => {
                     console.log('Clicked node:', d);
-                    renderSidebarProfile(d);
+                    renderSidebarProfile(d); // Open the profile in the right sidebar
                 });
 
             nodeSelection.append('text')
