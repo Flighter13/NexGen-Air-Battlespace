@@ -310,6 +310,9 @@
             let links = [];
 
             if (currentMission === 'main') {
+                // Close the left sidebar for the main overview
+                document.getElementById('left-sidebar').classList.remove('open');
+
                 // Main page: Group by type
                 nodes = entities.map(e => ({ ...e }));
                 links = [...customLinks];
@@ -339,7 +342,10 @@
                     });
                 });
             } else {
-                // Mission-specific layout
+                // Open the left sidebar for mission sets
+                const sidebar = document.getElementById('left-sidebar');
+                sidebar.classList.add('open');
+
                 const mission = missions.find(m => m.id === currentMission);
                 if (!mission) return;
                 nodes = mission.layout.map(l => {
@@ -352,9 +358,7 @@
                     type: 'Link16'
                 }));
 
-                // Update left sidebar
-                const sidebar = document.getElementById('left-sidebar');
-                sidebar.classList.add('open');
+                // Update left sidebar content
                 document.getElementById('mission-title').textContent = mission.name;
                 document.getElementById('mission-description').textContent = mission.description;
 
