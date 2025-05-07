@@ -441,47 +441,16 @@
 
         // Role descriptions for missions
         function getRoleDescription(entityId, missionId) {
-            switch (missionId) {
-                case 'isr':
-                    if (entityId === 'f35') return 'Processes real-time ISR data and coordinates strike planning.';
-                    if (entityId === 'xq58a') return 'Conducts forward reconnaissance and transmits data via Link 16.';
-                    if (entityId === 'x47') return 'Provides stealth ISR support in contested areas.';
-                    if (entityId === 'link16') return 'Facilitates real-time data exchange for ISR coordination.';
-                    break;
-                case 'strike':
-                    if (entityId === 'quarterhorse0') return 'Delivers rapid precision strikes on high-value targets.';
-                    if (entityId === 'quarterhorse1') return 'Penetrates contested airspace for strike missions.';
-                    if (entityId === 'f22') return 'Provides air superiority and escorts strike assets.';
-                    if (entityId === 'mq25') return 'Extends mission range through aerial refueling.';
-                    break;
-                case 'cas':
-                    if (entityId === 'f16') return 'Executes precision strikes based on ground targeting data.';
-                    if (entityId === 'f35') return 'Coordinates CAS operations and provides ISR overwatch.';
-                    if (entityId === 'mq25') return 'Sustains long-duration CAS missions with refueling.';
-                    break;
-                case 'oca':
-                    if (entityId === 'f22') return 'Maintains air superiority and engages enemy aircraft.';
-                    if (entityId === 'f15') return 'Supports air superiority with long-range engagements.';
-                    if (entityId === 'quarterhorse0') return 'Intercepts threats at hypersonic speeds.';
-                    if (entityId === 'x47') return 'Jams enemy radar and provides ISR.';
-                    break;
-                case 'ew':
-                    if (entityId === 'xq58a') return 'Jams enemy radar and communications systems.';
-                    if (entityId === 'f35') return 'Coordinates EW operations and processes real-time data.';
-                    break;
-                case 'refuel':
-                    if (entityId === 'mq25') return 'Provides carrier-based autonomous refueling.';
-                    if (entityId === 'x47') return 'Extends mission duration with stealth refueling.';
-                    if (entityId === 'ngas') return 'Integrates next-gen refueling for unmanned platforms.';
-                    break;
-                case 'decoy':
-                    if (entityId === 'xq58a') return 'Simulates high-value targets to draw enemy fire.';
-                    if (entityId === 'f35') return 'Coordinates deception operations and processes feedback.';
-                    break;
-                default:
-                    return 'Supports mission objectives with core capabilities.';
+            // Find the entity in the entities array
+            const entity = entities.find(e => e.id === entityId);
+
+            // If the entity exists, return its description
+            if (entity) {
+                return entity.description || 'No description available.';
             }
-            return 'Supports mission objectives with core capabilities.';
+
+            // If the entity is not found, return a default message
+            return 'Entity description not found.';
         }
 
         // Example usage of modular functions (uncomment to test)
