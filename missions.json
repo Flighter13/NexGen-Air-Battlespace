@@ -18,13 +18,11 @@
     "name": "Precision Strike Missions",
     "description": "CCAs and high-speed Quarterhorse aircraft coordinate to strike high-value targets with real-time networked control via CJADC2 and Link 16. Refuelers maintain endurance in high-threat environments.",
     "layout": [
-      { "id": "quarterhorse0", "x": 520, "y": 100 },
-      { "id": "quarterhorse1", "x": 700, "y": 120 },
       { "id": "f22", "x": 460, "y": 280 },
       { "id": "mq25", "x": 280, "y": 460 }
     ],
     "links": [
-      { "source": "quarterhorse0", "target": "f22" },
+      
       { "source": "f22", "target": "mq25" }
     ]
   },
@@ -49,11 +47,9 @@
     "layout": [
       { "id": "f22", "x": 420, "y": 200 },
       { "id": "f15", "x": 580, "y": 220 },
-      { "id": "quarterhorse0", "x": 700, "y": 140 },
       { "id": "x47", "x": 320, "y": 420 }
     ],
     "links": [
-      { "source": "f22", "target": "quarterhorse0" },
       { "source": "f22", "target": "x47" }
     ]
   },
