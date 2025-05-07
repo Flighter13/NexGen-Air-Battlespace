@@ -34,8 +34,9 @@
             padding: 0;
         }
         #left-sidebar.open {
-            width: 300px;
+            width: 400px;
             padding: 20px;
+            word-wrap: break-word;
         }
         #right-sidebar {
             width: 0;
@@ -46,7 +47,7 @@
             padding: 0;
         }
         #right-sidebar.open {
-            width: 300px;
+            width: 400px;
             padding: 20px;
         }
         #right-sidebar img {
@@ -100,7 +101,7 @@
     </div>
     <div id="container">
         <div id="left-sidebar">
-            <span class="close-btn" onclick="closeSidebar('left-sidebar')">&times;</span>
+            <span class="close-btn" onclick="closeSidebar('left-sidebar')">×</span>
             <h2 id="mission-title"></h2>
             <p id="mission-description"></p>
             <h3>Entity Roles</h3>
@@ -108,7 +109,7 @@
         </div>
         <div id="graph"></div>
         <div id="right-sidebar">
-            <span class="close-btn" onclick="closeSidebar('right-sidebar')">&times;</span>
+            <span class="close-btn" onclick="closeSidebar('right-sidebar')">×</span>
             <img id="entity-image" src="" alt="Entity image">
             <h2 id="entity-title"></h2>
             <p id="entity-description"></p>
@@ -116,14 +117,96 @@
             <ul id="entity-capabilities"></ul>
             <h3>Missions</h3>
             <ul id="entity-missions"></ul>
+            <div id="entity-extra"></div>
         </div>
     </div>
     <script>
-        // Load data
+        // Data storage
         let entities = [];
         let missions = [];
         let currentMission = 'main';
+        let customLinks = [];
 
+        // Modular function to add a new node
+        function addNode({ id, name, type, image, capabilities, description, missions, extra = {} }) {
+            entities.push({
+                id,
+                name,
+                type: type || 'Unknown',
+                image: image || 'https://via.placeholder.com/100',
+                capabilities: capabilities || [],
+                description: description || 'No description available.',
+                missions: missions || [],
+                extra
+            });
+        }
+
+        // Modular function to define custom layout
+        function setLayout(missionId, layoutType, options = {}) {
+            const mission = missions.find(m => m.id === missionId) || { id: missionId, layout: [] };
+            let nodes = mission.layout.map(l => entities.find(e => e.id === l.id)).filter(Boolean);
+            if (missionId === 'main') nodes = entities;
+
+            if (layoutType === 'circle') {
+                const { cx, cy, radius } = options;
+                arrangeCircle(nodes, cx, cy, radius);
+            } else if (layoutType === 'matrix') {
+                const { rows, cols, startX, startY, spacingX, spacingY } = options;
+                arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY);
+            } else if (layoutType === 'custom') {
+                nodes.forEach((node, i) => {
+                    if (options.positions && options.positions[i]) {
+                        node.x = options.positions[i].x;
+                        node.y = options.positions[i].y;
+                    }
+                });
+            }
+            mission.layout = nodes.map(n => ({ id: n.id, x: n.x, y: n.y }));
+            if (!missions.find(m => m.id === missionId)) missions.push(mission);
+        }
+
+        // Modular function to add inter-node connections
+        function addLink(sourceId, targetId, type = 'normal') {
+            customLinks.push({ source: sourceId, target: targetId, type });
+        }
+
+        // Modular function to customize sidebar profile
+        function renderSidebarProfile(d) {
+            const sidebar = document.getElementById('right-sidebar');
+            sidebar.classList.add('open');
+
+            document.getElementById('entity-title').textContent = d.name || 'Unknown';
+            document.getElementById('entity-description').textContent = d.description || 'No description available.';
+            document.getElementById('entity-image').src = d.image || 'https://via.placeholder.com/100';
+
+            const capList = document.getElementById('entity-capabilities');
+            capList.innerHTML = '';
+            (d.capabilities || []).forEach(cap => {
+                const li = document.createElement('li');
+                li.textContent = cap;
+                capList.appendChild(li);
+            });
+
+            const missionList = document.getElementById('entity-missions');
+            missionList.innerHTML = '';
+            (d.missions || []).forEach(m => {
+                const li = document.createElement('li');
+                li.textContent = missions.find(mission => mission.id === m)?.name || m;
+                missionList.appendChild(li);
+            });
+
+            const extraDiv = document.getElementById('entity-extra');
+            extraDiv.innerHTML = '';
+            if (d.extra) {
+                Object.entries(d.extra).forEach(([key, value]) => {
+                    const p = document.createElement('p');
+                    p.innerHTML = `<strong>${key}:</strong> ${value}`;
+                    extraDiv.appendChild(p);
+                });
+            }
+        }
+
+        // Load data
         Promise.all([
             fetch('entities.json').then(res => {
                 if (!res.ok) throw new Error('Failed to load entities.json');
@@ -155,6 +238,7 @@
 
         // Helper functions for layout
         function arrangeCircle(nodes, cx, cy, radius) {
+            if (!nodes.length) return;
             const angleStep = (2 * Math.PI) / nodes.length;
             nodes.forEach((node, i) => {
                 node.x = cx + radius * Math.cos(i * angleStep);
@@ -163,6 +247,7 @@
         }
 
         function arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY) {
+            if (!nodes.length) return;
             nodes.forEach((node, i) => {
                 const row = Math.floor(i / cols);
                 const col = i % cols;
@@ -196,34 +281,40 @@
             if (currentMission === 'main') {
                 // Main page: Group by type
                 nodes = entities.map(e => ({ ...e }));
-                links = [];
+                links = [...customLinks];
 
-                // Group entities by type (approximate grouping based on provided entities)
-                const ccav = nodes.filter(n => ['xq67', 'fury', 'xq58'].includes(n.id));
-                const tankers = nodes.filter(n => ['mq25', 'ngas', 'x47'].includes(n.id));
-                const hypersonics = nodes.filter(n => ['quarterhorse0', 'quarterhorse1'].includes(n.id));
-                const c2 = nodes.filter(n => ['link16', 'cjadc2'].includes(n.id));
+                // Group entities by type
+                const types = [...new Set(entities.map(e => e.type))];
+                const groups = types.map(t => nodes.filter(n => n.type === t));
 
-                // Layout groups
-                arrangeMatrix(ccav, 1, ccav.length, width * 0.1, height * 0.2, 150, 150);
-                arrangeCircle(tankers, width * 0.3, height * 0.7, 100);
-                arrangeCircle(hypersonics, width * 0.7, height * 0.7, 100);
-                arrangeMatrix(c2, 1, c2.length, width * 0.5, height * 0.3, 150, 150);
+                // Layout groups dynamically
+                groups.forEach((group, i) => {
+                    if (group.length === 0) return;
+                    const cols = Math.ceil(Math.sqrt(group.length));
+                    const rows = Math.ceil(group.length / cols);
+                    const startX = width * (0.1 + (i % 3) * 0.3);
+                    const startY = height * (0.2 + Math.floor(i / 3) * 0.4);
+                    arrangeMatrix(group, rows, cols, startX, startY, 200, 200);
+                });
 
-                // Add example links (e.g., Link 16 between CCAV and C2)
-                ccav.forEach(f => {
-                    c2.forEach(c => {
-                        links.push({ source: f.id, target: c.id, type: 'Link16' });
+                // Add example links (e.g., Link 16 between C2 and others)
+                const c2Nodes = nodes.filter(n => n.type === 'C2');
+                const otherNodes = nodes.filter(n => n.type !== 'C2');
+                c2Nodes.forEach(c => {
+                    otherNodes.forEach(o => {
+                        if (!links.some(l => l.source === o.id && l.target === c.id)) {
+                            links.push({ source: o.id, target: c.id, type: 'Link16' });
+                        }
                     });
                 });
             } else {
                 // Mission-specific layout
                 const mission = missions.find(m => m.id === currentMission);
-                if (!mission) return; // Skip if mission not found
+                if (!mission) return;
                 nodes = mission.layout.map(l => {
                     const entity = entities.find(e => e.id === l.id);
                     return entity ? { ...entity, x: l.x, y: l.y } : null;
-                }).filter(n => n); // Remove nulls
+                }).filter(n => n);
                 links = mission.links.map(l => ({
                     source: l.source,
                     target: l.target,
@@ -282,7 +373,10 @@
                 .attr('height', 60)
                 .attr('x', -30)
                 .attr('y', -30)
-                .on('click', (event, d) => showEntityDetails(event, d));
+                .on('click', (event, d) => {
+                    console.log('Clicked node:', d);
+                    renderSidebarProfile(d);
+                });
 
             nodeSelection.append('text')
                 .attr('y', 40)
@@ -297,33 +391,6 @@
             };
         }
 
-        // Show entity details in right sidebar
-        function showEntityDetails(event, d) {
-            if (!d) return; // Guard against null data
-            const sidebar = document.getElementById('right-sidebar');
-            sidebar.classList.add('open');
-
-            document.getElementById('entity-title').textContent = d.name || 'Unknown';
-            document.getElementById('entity-description').textContent = d.description || 'No description available.';
-            document.getElementById('entity-image').src = d.image || 'https://via.placeholder.com/100';
-
-            const capList = document.getElementById('entity-capabilities');
-            capList.innerHTML = '';
-            (d.capabilities || []).forEach(cap => {
-                const li = document.createElement('li');
-                li.textContent = cap;
-                capList.appendChild(li);
-            });
-
-            const missionList = document.getElementById('entity-missions');
-            missionList.innerHTML = '';
-            (d.missions || []).forEach(m => {
-                const li = document.createElement('li');
-                li.textContent = missions.find(mission => mission.id === m)?.name || m;
-                missionList.appendChild(li);
-            });
-        }
-
         // Close sidebar
         function closeSidebar(id) {
             document.getElementById(id).classList.remove('open');
@@ -333,37 +400,72 @@
         function getRoleDescription(entityId, missionId) {
             switch (missionId) {
                 case 'isr':
-                    if (entityId === 'xq67') return 'Conducts stealth reconnaissance and shares data via Link 16.';
-                    if (entityId === 'xq58') return 'Performs forward ISR in high-threat environments.';
+                    if (entityId === 'f35') return 'Processes real-time ISR data and coordinates strike planning.';
+                    if (entityId === 'xq58a') return 'Conducts forward reconnaissance and transmits data via Link 16.';
+                    if (entityId === 'x47') return 'Provides stealth ISR support in contested areas.';
+                    if (entityId === 'link16') return 'Facilitates real-time data exchange for ISR coordination.';
                     break;
                 case 'strike':
-                    if (entityId === 'quarterhorse0' || entityId === 'quarterhorse1') return 'Delivers rapid precision strikes on high-value targets.';
-                    if (entityId === 'xq58') return 'Supports strike missions with attritable assets.';
+                    if (entityId === 'quarterhorse0') return 'Delivers rapid precision strikes on high-value targets.';
+                    if (entityId === 'quarterhorse1') return 'Penetrates contested airspace for strike missions.';
+                    if (entityId === 'f22') return 'Provides air superiority and escorts strike assets.';
+                    if (entityId === 'mq25') return 'Extends mission range through aerial refueling.';
                     break;
                 case 'cas':
-                    if (entityId === 'xq67') return 'Provides ISR overwatch for ground forces.';
-                    if (entityId === 'fury') return 'Delivers rapid, networked strikes on targets.';
+                    if (entityId === 'f16') return 'Executes precision strikes based on ground targeting data.';
+                    if (entityId === 'f35') return 'Coordinates CAS operations and provides ISR overwatch.';
+                    if (entityId === 'mq25') return 'Sustains long-duration CAS missions with refueling.';
+                    break;
+                case 'oca':
+                    if (entityId === 'f22') return 'Maintains air superiority and engages enemy aircraft.';
+                    if (entityId === 'f15') return 'Supports air superiority with long-range engagements.';
+                    if (entityId === 'quarterhorse0') return 'Intercepts threats at hypersonic speeds.';
+                    if (entityId === 'x47') return 'Jams enemy radar and provides ISR.';
+                    break;
+                case 'ew':
+                    if (entityId === 'xq58a') return 'Jams enemy radar and communications systems.';
+                    if (entityId === 'f35') return 'Coordinates EW operations and processes real-time data.';
                     break;
                 case 'refuel':
                     if (entityId === 'mq25') return 'Provides carrier-based autonomous refueling.';
                     if (entityId === 'x47') return 'Extends mission duration with stealth refueling.';
                     if (entityId === 'ngas') return 'Integrates next-gen refueling for unmanned platforms.';
                     break;
-                case 'ew':
-                    if (entityId === 'xq58') return 'Jams enemy radar and communications systems.';
-                    break;
                 case 'decoy':
-                    if (entityId === 'xq58') return 'Simulates high-value targets to draw enemy fire.';
-                    break;
-                case 'oca':
-                    if (entityId === 'quarterhorse0') return 'Intercepts threats at hypersonic speeds.';
-                    if (entityId === 'x47') return 'Jams enemy radar and provides ISR.';
+                    if (entityId === 'xq58a') return 'Simulates high-value targets to draw enemy fire.';
+                    if (entityId === 'f35') return 'Coordinates deception operations and processes feedback.';
                     break;
                 default:
                     return 'Supports mission objectives with core capabilities.';
             }
             return 'Supports mission objectives with core capabilities.';
         }
+
+        // Example usage of modular functions (uncomment to test)
+        /*
+        addNode({
+            id: 'newdrone',
+            name: 'New Drone',
+            type: 'UCAV',
+            image: 'https://via.placeholder.com/100',
+            capabilities: ['Stealth', 'Surveillance'],
+            description: 'A new experimental drone.',
+            missions: ['ISR'],
+            extra: { Status: 'Prototype', Range: '2000 miles' }
+        });
+
+        setLayout('main', 'matrix', {
+            rows: 2,
+            cols: 5,
+            startX: 100,
+            startY: 100,
+            spacingX: 200,
+            spacingY: 200
+        });
+
+        addLink('newdrone', 'link16', 'Link16');
+        renderVisualization();
+        */
     </script>
 </body>
 </html>
