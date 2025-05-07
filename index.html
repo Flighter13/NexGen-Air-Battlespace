@@ -36,7 +36,6 @@
         #left-sidebar.open {
             width: 400px;
             padding: 20px;
-            word-wrap: break-word;
         }
         #right-sidebar {
             width: 0;
@@ -48,7 +47,7 @@
         }
         #right-sidebar.open {
             width: 400px;
-            padding: 20px; /* Ensure padding is applied when open */
+            padding: 20px;
         }
         #right-sidebar img {
             width: 100px;
@@ -434,7 +433,10 @@
 
         // Close sidebar
         function closeSidebar(id) {
-            document.getElementById(id).classList.remove('open');
+            const sidebar = document.getElementById(id);
+            if (sidebar) {
+                sidebar.classList.remove('open');
+            }
         }
 
         // Role descriptions for missions
