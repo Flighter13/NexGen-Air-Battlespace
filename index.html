@@ -93,6 +93,31 @@
             color: red;
             text-align: center;
         }
+        #left-sidebar, #right-sidebar {
+            position: relative;
+            resize: horizontal; /* Allow horizontal resizing */
+            overflow: auto; /* Ensure content is scrollable */
+            min-width: 200px; /* Set a minimum width */
+            max-width: 600px; /* Set a maximum width */
+        }
+
+        #left-sidebar {
+            border-right: 1px solid #ccc;
+        }
+
+        #right-sidebar {
+            border-left: 1px solid #ccc;
+        }
+
+        .resize-handle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            cursor: ew-resize; /* Horizontal resize cursor */
+            background: rgba(0, 0, 0, 0.1); /* Optional: Visual indicator */
+        }
     </style>
 </head>
 <body>
@@ -110,6 +135,7 @@
             <p id="mission-description"></p>
             <h3>Entity Roles</h3>
             <div id="mission-roles"></div>
+            <div class="resize-handle"></div>
         </div>
         <div id="graph"></div>
         <div id="right-sidebar">
@@ -122,6 +148,7 @@
             <h3>Missions</h3>
             <ul id="entity-missions"></ul>
             <div id="entity-extra"></div>
+            <div class="resize-handle"></div>
         </div>
     </div>
     <script>
@@ -470,6 +497,33 @@
         addLink('newdrone', 'link16', 'Link16');
         renderVisualization();
         */
+
+        // Resize sidebar functionality
+        document.querySelectorAll('.resize-handle').forEach(handle => {
+            handle.addEventListener('mousedown', (event) => {
+                const sidebar = handle.parentElement;
+                const isLeftSidebar = sidebar.id === 'left-sidebar';
+                const startX = event.clientX;
+                const startWidth = sidebar.offsetWidth;
+
+                function onMouseMove(e) {
+                    const delta = e.clientX - startX;
+                    if (isLeftSidebar) {
+                        sidebar.style.width = `${startWidth + delta}px`;
+                    } else {
+                        sidebar.style.width = `${startWidth - delta}px`;
+                    }
+                }
+
+                function onMouseUp() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+        });
     </script>
 </body>
 </html>
