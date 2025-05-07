@@ -310,8 +310,10 @@
             let links = [];
 
             if (currentMission === 'main') {
-                // Close the left sidebar for the main overview
+                // hide the left sidebar and remove the 'entity roles'
                 document.getElementById('left-sidebar').classList.remove('open');
+                document.getElementById('mission-roles').innerHTML = '';
+               
 
                 // Main page: Group by type
                 nodes = entities.map(e => ({ ...e }));
