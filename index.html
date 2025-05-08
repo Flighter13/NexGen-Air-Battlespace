@@ -309,104 +309,34 @@
             let links = [];
 
             if (currentMission === 'main') {
-                // hide the left sidebar and remove the 'entity roles'
+                // Hide the left sidebar
                 document.getElementById('left-sidebar').classList.remove('open');
                 document.getElementById('mission-roles').innerHTML = '';
-                // make the left sidebar width 0
                 document.getElementById('left-sidebar').style.width = '0';
 
-
-                // Main page: Group by type
-
-                // put fighter jets and CCAs in matrix layout
+                // Arrange nodes by type
                 const fighterJets = entities.filter(e => e.type === 'Fighter' || e.type === 'CCA');
                 const fighterCols = Math.ceil(Math.sqrt(fighterJets.length));
                 const fighterRows = Math.ceil(fighterJets.length / fighterCols);
                 arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.1, height * 0.1, 200, 200);
                 nodes.push(...fighterJets);
-                links.push(...customLinks.filter(l => fighterJets.some(n => n.id === l.source || n.id === l.target)));
-                customLinks = customLinks.filter(l => !fighterJets.some(n => n.id === l.source || n.id === l.target));
-                // put UCAVs in circle layout
+
                 const ucavs = entities.filter(e => e.type === 'UCAV');
                 const ucavRadius = Math.min(width, height) * 0.2;
                 arrangeCircle(ucavs, width * 0.5, height * 0.5, ucavRadius);
                 nodes.push(...ucavs);
-                links.push(...customLinks.filter(l => ucavs.some(n => n.id === l.source || n.id === l.target)));
-                customLinks = customLinks.filter(l => !ucavs.some(n => n.id === l.source || n.id === l.target));
-                // put C2s in linear layout
+
                 const c2s = entities.filter(e => e.type === 'C2');
                 const c2Cols = Math.ceil(Math.sqrt(c2s.length));
                 const c2Rows = Math.ceil(c2s.length / c2Cols);
                 arrangeMatrix(c2s, c2Rows, c2Cols, width * 0.1, height * 0.5, 200, 200);
                 nodes.push(...c2s);
-                links.push(...customLinks.filter(l => c2s.some(n => n.id === l.source || n.id === l.target)));
-                customLinks = customLinks.filter(l => !c2s.some(n => n.id === l.source || n.id === l.target));
 
-                // put other entities in matrix layout
                 const otherEntities = entities.filter(e => e.type !== 'Fighter' && e.type !== 'CCA' && e.type !== 'UCAV' && e.type !== 'C2');
                 const otherCols = Math.ceil(Math.sqrt(otherEntities.length));
                 const otherRows = Math.ceil(otherEntities.length / otherCols);
                 arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.1, height * 0.9, 200, 200);
                 nodes.push(...otherEntities);
-                // no links
-                
-
-
-
-
-
-                // Group entities by type
-                const types = [...new Set(entities.map(e => e.type))];
-                const groups = types.map(t => nodes.filter(n => n.type === t));
-
-                // Layout groups dynamically
-                groups.forEach((group, i) => {
-                    if (group.length === 0) return;
-                    const cols = Math.ceil(Math.sqrt(group.length));
-                    const rows = Math.ceil(group.length / cols);
-                    const startX = width * (0.1 + (i % 3) * 0.3);
-                    const startY = height * (0.2 + Math.floor(i / 3) * 0.4);
-                    arrangeMatrix(group, rows, cols, startX, startY, 200, 200);
-                });
-
-                // Add example links (e.g., Link 16 between C2 and others)
-                const c2Nodes = nodes.filter(n => n.type === 'C2');
-                const otherNodes = nodes.filter(n => n.type !== 'C2');
-                c2Nodes.forEach(c => {
-                    otherNodes.forEach(o => {
-                        if (!links.some(l => l.source === o.id && l.target === c.id)) {
-                            links.push({ source: o.id, target: c.id, type: 'Link16' });
-                        }
-                    });
-                });
-            } else {
-                // Open the left sidebar for mission sets
-                const sidebar = document.getElementById('left-sidebar');
-                sidebar.classList.add('open');
-
-                const mission = missions.find(m => m.id === currentMission);
-                if (!mission) return;
-                nodes = mission.layout.map(l => {
-                    const entity = entities.find(e => e.id === l.id);
-                    return entity ? { ...entity, x: l.x, y: l.y } : null;
-                }).filter(n => n);
-                links = mission.links.map(l => ({
-                    source: l.source,
-                    target: l.target,
-                    type: 'Link16'
-                }));
-
-                // Update left sidebar content
-                document.getElementById('mission-title').textContent = mission.name;
-                document.getElementById('mission-description').textContent = mission.description;
-
-                const rolesDiv = document.getElementById('mission-roles');
-                rolesDiv.innerHTML = '';
-                nodes.forEach(n => {
-                    const role = document.createElement('div');
-                    role.innerHTML = `<strong>${n.name}:</strong> ${getRoleDescription(n.id, mission.id)}`;
-                    rolesDiv.appendChild(role);
-                });
             }
 
             // Draw links
@@ -448,20 +378,12 @@
                 .attr('y', -30)
                 .on('click', (event, d) => {
                     console.log('Clicked node:', d);
-                    renderSidebarProfile(d); // Open the profile in the right sidebar
+                    renderSidebarProfile(d);
                 });
 
             nodeSelection.append('text')
                 .attr('y', 40)
                 .text(d => d.name);
-
-            // Mission filter event
-            document.getElementById('missionFilter').onchange = function() {
-                currentMission = this.value;
-                document.getElementById('left-sidebar').classList.remove('open');
-                document.getElementById('right-sidebar').classList.remove('open');
-                renderVisualization();
-            };
         }
 
         // Close sidebar
