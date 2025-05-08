@@ -279,6 +279,9 @@
         function arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY, drawBox = false) {
             if (!nodes.length) return;
 
+            // Ensure the zoomGroup is globally accessible
+            const zoomGroup = d3.select('g'); // Select the zoomable group
+
             // Calculate positions for each node
             nodes.forEach((node, i) => {
                 const row = Math.floor(i / cols);
@@ -295,9 +298,8 @@
                 const boxX = startX - margin; // Top-left x-coordinate of the box
                 const boxY = startY - margin; // Top-left y-coordinate of the box
 
-                // Append the box to the SVG
-                d3.select('svg')
-                    .append('rect')
+                // Append the box to the zoomGroup
+                zoomGroup.append('rect')
                     .attr('x', boxX)
                     .attr('y', boxY)
                     .attr('width', boxWidth)
@@ -335,6 +337,11 @@
                 document.getElementById('left-sidebar').classList.remove('open');
                 document.getElementById('mission-roles').innerHTML = '';
                 document.getElementById('left-sidebar').style.width = '0';
+                document.getElementById('left-sidebar').style.padding = '0';
+                document.getElementById('mission-title').textContent = '';
+                document.getElementById('mission-description').textContent = '';
+                
+
 
                 // Arrange nodes by type
                 const fighterJets = entities.filter(e => e.type === 'Fighter' || e.type === 'CCA');
@@ -342,14 +349,12 @@
                 const fighterRows = Math.ceil(fighterJets.length / fighterCols);
                 arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.05, height * 0.05, 150, 100, true);
                 nodes.push(...fighterJets);
-            
 
                 const ucavs = entities.filter(e => e.type === 'UCAV');
                 const ucavCols = Math.ceil(Math.sqrt(ucavs.length));
                 const ucavRows = Math.ceil(ucavs.length / ucavCols);
                 arrangeMatrix(ucavs, ucavRows, ucavCols, width * 0.6, height * 0.05, 125, 75, true);
                 nodes.push(...ucavs);
-                               
 
                 const c2s = entities.filter(e => e.type === 'C2');
                 const c2Cols = Math.ceil(Math.sqrt(c2s.length));
@@ -360,7 +365,7 @@
                 const otherEntities = entities.filter(e => e.type !== 'Fighter' && e.type !== 'CCA' && e.type !== 'UCAV' && e.type !== 'C2');
                 const otherCols = Math.ceil(Math.sqrt(otherEntities.length));
                 const otherRows = Math.ceil(otherEntities.length / otherCols);
-                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.4, height * 0.5, 175, 125);
+                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.4, height * 0.5, 175, 125, false);
                 nodes.push(...otherEntities);
             }
 
