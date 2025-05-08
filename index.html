@@ -46,7 +46,7 @@
             padding: 0 20px; /* Add padding for better readability */
         }
         #right-sidebar.open {
-            width: 400px;
+            width: 500px;
             padding: 20px;
         }
         #right-sidebar img {
@@ -333,16 +333,15 @@
             let links = [];
 
             if (currentMission === 'main') {
-                // Remove the left sidebar entirely
+                // Hide the left sidebar
                 const leftSidebar = document.getElementById('left-sidebar');
                 leftSidebar.classList.remove('open');
-                leftSidebar.style.width = '0'; // Hide the sidebar
-                leftSidebar.style.padding = '0'; // Remove padding
-                leftSidebar.innerHTML = ''; // Clear content
-                leftSidebar.style.borderRight = 'none'; // Remove border
-                leftSidebar.style.overflowY = 'hidden'; // Disable scrolling
-                                        
-                // Arrange nodes by type
+                leftSidebar.style.width = '0'; // Collapse the sidebar
+                document.getElementById('mission-title').textContent = '';
+                document.getElementById('mission-description').textContent = '';
+                document.getElementById('mission-roles').innerHTML = '';
+
+                // Main overview logic
                 const fighterJets = entities.filter(e => e.type === 'Fighter' || e.type === 'CCA');
                 const fighterCols = Math.ceil(Math.sqrt(fighterJets.length));
                 const fighterRows = Math.ceil(fighterJets.length / fighterCols);
@@ -366,6 +365,40 @@
                 const otherRows = Math.ceil(otherEntities.length / otherCols);
                 arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.4, height * 0.5, 175, 125, false);
                 nodes.push(...otherEntities);
+            } else {
+                // Show the left sidebar for mission sets
+                const leftSidebar = document.getElementById('left-sidebar');
+                leftSidebar.classList.add('open');
+                leftSidebar.style.width = '400px'; // Default width for the sidebar
+
+                // Mission-specific logic
+                const mission = missions.find(m => m.id === currentMission);
+                if (!mission) {
+                    console.error('Mission not found:', currentMission);
+                    return;
+                }
+
+                nodes = mission.layout.map(l => {
+                    const entity = entities.find(e => e.id === l.id);
+                    return entity ? { ...entity, x: l.x, y: l.y } : null;
+                }).filter(Boolean);
+
+                links = mission.links.map(l => ({
+                    source: l.source,
+                    target: l.target,
+                    type: l.type || 'normal'
+                }));
+
+                // Update the left sidebar with mission details
+                document.getElementById('mission-title').textContent = mission.name || 'Unknown Mission';
+                document.getElementById('mission-description').textContent = mission.description || 'No description available.';
+                const rolesDiv = document.getElementById('mission-roles');
+                rolesDiv.innerHTML = '';
+                nodes.forEach(n => {
+                    const role = document.createElement('div');
+                    role.innerHTML = `<strong>${n.name}:</strong> ${getRoleDescription(n.id, currentMission)}`;
+                    rolesDiv.appendChild(role);
+                });
             }
 
             // Draw links
@@ -374,22 +407,10 @@
                 .enter()
                 .append('line')
                 .attr('class', d => `link ${d.type === 'Link16' ? 'link16' : ''}`)
-                .attr('x1', d => {
-                    const source = nodes.find(n => n.id === d.source);
-                    return source ? source.x : 0;
-                })
-                .attr('y1', d => {
-                    const source = nodes.find(n => n.id === d.source);
-                    return source ? source.y : 0;
-                })
-                .attr('x2', d => {
-                    const target = nodes.find(n => n.id === d.target);
-                    return target ? target.x : 0;
-                })
-                .attr('y2', d => {
-                    const target = nodes.find(n => n.id === d.target);
-                    return target ? target.y : 0;
-                });
+                .attr('x1', d => nodes.find(n => n.id === d.source)?.x || 0)
+                .attr('y1', d => nodes.find(n => n.id === d.source)?.y || 0)
+                .attr('x2', d => nodes.find(n => n.id === d.target)?.x || 0)
+                .attr('y2', d => nodes.find(n => n.id === d.target)?.y || 0);
 
             // Draw nodes
             const nodeSelection = zoomGroup.selectAll('.node')
@@ -474,9 +495,9 @@
                 function onMouseMove(e) {
                     const delta = e.clientX - startX;
                     if (isLeftSidebar) {
-                        sidebar.style.width = `${startWidth + delta}px`;
+                        sidebar.style.width = `${Math.max(200, startWidth + delta)}px`; // Minimum width of 200px
                     } else {
-                        sidebar.style.width = `${startWidth - delta}px`;
+                        sidebar.style.width = `${Math.max(200, startWidth - delta)}px`; // Minimum width of 200px
                     }
                 }
 
@@ -488,6 +509,13 @@
                 document.addEventListener('mousemove', onMouseMove);
                 document.addEventListener('mouseup', onMouseUp);
             });
+        });
+
+        // Mission filter change event
+        document.getElementById('missionFilter').addEventListener('change', (event) => {
+            currentMission = event.target.value; // Update the current mission
+            console.log('Selected Mission:', currentMission); // Debugging
+            renderVisualization(); // Re-render the visualization
         });
     </script>
 </body>
