@@ -181,8 +181,8 @@
                 const { cx, cy, radius } = options;
                 arrangeCircle(nodes, cx, cy, radius);
             } else if (layoutType === 'matrix') {
-                const { rows, cols, startX, startY, spacingX, spacingY } = options;
-                arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY);
+                const { rows, cols, startX, startY, spacingX, spacingY, drawBox } = options;
+                arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY, drawBox);
             } else if (layoutType === 'custom') {
                 nodes.forEach((node, i) => {
                     if (options.positions && options.positions[i]) {
@@ -276,14 +276,36 @@
             });
         }
 
-        function arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY) {
+        function arrangeMatrix(nodes, rows, cols, startX, startY, spacingX, spacingY, drawBox = false) {
             if (!nodes.length) return;
+
+            // Calculate positions for each node
             nodes.forEach((node, i) => {
                 const row = Math.floor(i / cols);
                 const col = i % cols;
                 node.x = startX + col * spacingX;
                 node.y = startY + row * spacingY;
             });
+
+            // Draw a light box around the matrix if drawBox is true
+            if (drawBox) {
+                const margin = 50; // Margin around the nodes
+                const boxWidth = (cols - 1) * spacingX + margin * 2; // Total width of the matrix
+                const boxHeight = (rows - 1) * spacingY + margin * 2; // Total height of the matrix
+                const boxX = startX - margin; // Top-left x-coordinate of the box
+                const boxY = startY - margin; // Top-left y-coordinate of the box
+
+                // Append the box to the SVG
+                d3.select('svg')
+                    .append('rect')
+                    .attr('x', boxX)
+                    .attr('y', boxY)
+                    .attr('width', boxWidth)
+                    .attr('height', boxHeight)
+                    .attr('fill', 'none') // Transparent fill
+                    .attr('stroke', '#ccc') // Light gray border
+                    .attr('stroke-width', 2); // Border thickness
+            }
         }
 
         // Main rendering function
@@ -318,20 +340,21 @@
                 const fighterJets = entities.filter(e => e.type === 'Fighter' || e.type === 'CCA');
                 const fighterCols = Math.ceil(Math.sqrt(fighterJets.length));
                 const fighterRows = Math.ceil(fighterJets.length / fighterCols);
-                arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.05, height * 0.05, 150, 100);
+                arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.05, height * 0.05, 150, 100, true);
                 nodes.push(...fighterJets);
+            
 
                 const ucavs = entities.filter(e => e.type === 'UCAV');
                 const ucavCols = Math.ceil(Math.sqrt(ucavs.length));
                 const ucavRows = Math.ceil(ucavs.length / ucavCols);
-                arrangeMatrix(ucavs, ucavRows, ucavCols, width * 0.6, height * 0.05, 125, 75);
+                arrangeMatrix(ucavs, ucavRows, ucavCols, width * 0.6, height * 0.05, 125, 75, true);
                 nodes.push(...ucavs);
                                
 
                 const c2s = entities.filter(e => e.type === 'C2');
                 const c2Cols = Math.ceil(Math.sqrt(c2s.length));
                 const c2Rows = Math.ceil(c2s.length / c2Cols);
-                arrangeMatrix(c2s, c2Rows, c2Cols, width * 0.05, height * 0.5, 100, 75);
+                arrangeMatrix(c2s, c2Rows, c2Cols, width * 0.05, height * 0.5, 100, 75, true);
                 nodes.push(...c2s);
 
                 const otherEntities = entities.filter(e => e.type !== 'Fighter' && e.type !== 'CCA' && e.type !== 'UCAV' && e.type !== 'C2');
