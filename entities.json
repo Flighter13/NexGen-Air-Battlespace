@@ -177,7 +177,7 @@
   },
   {
     "id": "x47",
-    "name": "Northrop Grumman X-47 Pegasus",
+    "name": "X-47 Pegasus",
     "type": "UCAV",
     "image": "images/x47.png",
     "capabilities": [
