@@ -50,7 +50,7 @@
   {
     "id": "f35",
     "name": "F-35 Lightning II",
-    "type": "Multirole Fighter",
+    "type": "Fighter",
     "image": "images/f35.png",
     "capabilities": [
       "Stealth",
@@ -62,6 +62,56 @@
       "ISR",
       "Strike",
       "CAS"
+    ]
+  },
+  {
+    "id": "yfq42a",
+    "name": "YFQ-42A",
+    "type": "CCA",
+    "image": "images/yfq-42.png",
+    "capabilities": [
+      "Autonomous operations",
+      "Air-to-air combat",
+      "Crewed-uncrewed teaming"
+    ],
+    "description": "An unmanned combat aerial vehicle designed for air superiority, integrating with crewed fighters to enhance mission effectiveness.",
+    "missions": [
+      "OCA",
+      "Escort",
+      "ISR"
+    ]
+  },
+  {
+    "id": "yfq44a",
+    "name": "YFQ-44A Fury",
+    "type": "CCA",
+    "image": "images/yfq-44.png",
+    "capabilities": [
+      "High maneuverability",
+      "Mass-producible design",
+      "Sensor augmentation"
+    ],
+    "description": "A semi-autonomous fighter drone optimized for air-to-air missions, supporting crewed aircraft with cost-effective scalability.",
+    "missions": [
+      "OCA",
+      "Escort",
+      "Electronic Warfare"
+    ]
+  },
+  {
+    "id": "mq9",
+    "name": "MQ-9 Reaper",
+    "type": "UCAV",
+    "image": "images/mq9.png",
+    "capabilities": [
+      "Long endurance",
+      "Intelligence gathering",
+      "Precision strikes"
+    ],
+    "description": "A remotely piloted aircraft designed for long-endurance, high-altitude surveillance and reconnaissance.",
+    "missions": [
+      "ISR",
+      "Strike"
     ]
   },
   {
@@ -144,7 +194,7 @@
   {
     "id": "xq58a",
     "name": "XQ-58A Valkyrie",
-    "type": "Attritable",
+    "type": "UCAV",
     "image": "images/xq-58.png",
     "capabilities": [
       "Low-cost",
