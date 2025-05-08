@@ -337,7 +337,7 @@
                 const otherEntities = entities.filter(e => e.type !== 'Fighter' && e.type !== 'CCA' && e.type !== 'UCAV' && e.type !== 'C2');
                 const otherCols = Math.ceil(Math.sqrt(otherEntities.length));
                 const otherRows = Math.ceil(otherEntities.length / otherCols);
-                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.4, height * 0.5, 125, 125);
+                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.4, height * 0.5, 175, 125);
                 nodes.push(...otherEntities);
             }
 
