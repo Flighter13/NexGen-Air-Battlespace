@@ -333,16 +333,15 @@
             let links = [];
 
             if (currentMission === 'main') {
-                // Hide the left sidebar
-                document.getElementById('left-sidebar').classList.remove('open');
-                document.getElementById('mission-roles').innerHTML = '';
-                document.getElementById('left-sidebar').style.width = '0';
-                document.getElementById('left-sidebar').style.padding = '0';
-                document.getElementById('mission-title').textContent = '';
-                document.getElementById('mission-description').textContent = '';
-                
-
-
+                // Remove the left sidebar entirely
+                const leftSidebar = document.getElementById('left-sidebar');
+                leftSidebar.classList.remove('open');
+                leftSidebar.style.width = '0'; // Hide the sidebar
+                leftSidebar.style.padding = '0'; // Remove padding
+                leftSidebar.innerHTML = ''; // Clear content
+                leftSidebar.style.borderRight = 'none'; // Remove border
+                leftSidebar.style.overflowY = 'hidden'; // Disable scrolling
+                                        
                 // Arrange nodes by type
                 const fighterJets = entities.filter(e => e.type === 'Fighter' || e.type === 'CCA');
                 const fighterCols = Math.ceil(Math.sqrt(fighterJets.length));
