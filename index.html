@@ -318,7 +318,7 @@
                 const fighterJets = entities.filter(e => e.type === 'Fighter' || e.type === 'CCA');
                 const fighterCols = Math.ceil(Math.sqrt(fighterJets.length));
                 const fighterRows = Math.ceil(fighterJets.length / fighterCols);
-                arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.02, height * 0.02, 100, 200);
+                arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.02, height * 0.005, 200, 150);
                 nodes.push(...fighterJets);
 
                 const ucavs = entities.filter(e => e.type === 'UCAV');
@@ -329,13 +329,13 @@
                 const c2s = entities.filter(e => e.type === 'C2');
                 const c2Cols = Math.ceil(Math.sqrt(c2s.length));
                 const c2Rows = Math.ceil(c2s.length / c2Cols);
-                arrangeMatrix(c2s, c2Rows, c2Cols, width * 0.1, height * 0.5, 250, 100);
+                arrangeMatrix(c2s, c2Rows, c2Cols, width * 0.1, height * 0.5, 200, 50);
                 nodes.push(...c2s);
 
                 const otherEntities = entities.filter(e => e.type !== 'Fighter' && e.type !== 'CCA' && e.type !== 'UCAV' && e.type !== 'C2');
                 const otherCols = Math.ceil(Math.sqrt(otherEntities.length));
                 const otherRows = Math.ceil(otherEntities.length / otherCols);
-                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.1, height * 0.9, 300, 200);
+                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.01, height * 0.2, 200, 200);
                 nodes.push(...otherEntities);
             }
 

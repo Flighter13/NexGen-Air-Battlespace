@@ -102,7 +102,7 @@
     "id": "mq9",
     "name": "MQ-9 Reaper",
     "type": "UCAV",
-    "image": "images/mq9.png",
+    "image": "images/mq-9.png",
     "capabilities": [
       "Long endurance",
       "Intelligence gathering",
