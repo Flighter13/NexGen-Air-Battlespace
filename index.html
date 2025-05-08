@@ -318,24 +318,26 @@
                 const fighterJets = entities.filter(e => e.type === 'Fighter' || e.type === 'CCA');
                 const fighterCols = Math.ceil(Math.sqrt(fighterJets.length));
                 const fighterRows = Math.ceil(fighterJets.length / fighterCols);
-                arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.02, height * 0.005, 200, 150);
+                arrangeMatrix(fighterJets, fighterRows, fighterCols, width * 0.05, height * 0.05, 75, 75);
                 nodes.push(...fighterJets);
 
                 const ucavs = entities.filter(e => e.type === 'UCAV');
-                const ucavRadius = Math.min(width, height) * 0.2;
-                arrangeCircle(ucavs, width * 0.5, height * 0.5, ucavRadius);
+                const ucavCols = Math.ceil(Math.sqrt(ucavs.length));
+                const ucavRows = Math.ceil(ucavs.length / ucavCols);
+                arrangeMatrix(ucavs, ucavRows, ucavCols, width * 0.5, height * 0.02, 75, 75);
                 nodes.push(...ucavs);
+                               
 
                 const c2s = entities.filter(e => e.type === 'C2');
                 const c2Cols = Math.ceil(Math.sqrt(c2s.length));
                 const c2Rows = Math.ceil(c2s.length / c2Cols);
-                arrangeMatrix(c2s, c2Rows, c2Cols, width * 0.1, height * 0.5, 200, 50);
+                arrangeMatrix(c2s, c2Rows, c2Cols, width * 0.05, height * 0.5, 75, 50);
                 nodes.push(...c2s);
 
                 const otherEntities = entities.filter(e => e.type !== 'Fighter' && e.type !== 'CCA' && e.type !== 'UCAV' && e.type !== 'C2');
                 const otherCols = Math.ceil(Math.sqrt(otherEntities.length));
                 const otherRows = Math.ceil(otherEntities.length / otherCols);
-                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.01, height * 0.2, 200, 200);
+                arrangeMatrix(otherEntities, otherRows, otherCols, width * 0.4, height * 0.5, 75, 75);
                 nodes.push(...otherEntities);
             }
 
