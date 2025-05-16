@@ -23,13 +23,32 @@ const roles = {
 
 // Load data
 async function loadData() {
-    const entities = await d3.json("entities.json");
-    const missions = await d3.json("missions.json");
-    return { entities, missions };
+    try {
+        const entities = await d3.json("entities.json");
+        const missions = await d3.json("missions.json");
+        const mapData = await d3.json("indo-pacific.json");
+
+        // Render the map
+        svg.append("g")
+            .selectAll("path")
+            .data(mapData.features)
+            .enter()
+            .append("path")
+            .attr("d", d3.geoPath().projection(projection))
+            .attr("fill", "#ccc")
+            .attr("stroke", "#000");
+
+        return { entities, missions };
+    } catch (error) {
+        console.error("Error loading data:", error);
+        return { entities: [], missions: [] };
+    }
 }
 
 // Render visualization
 function renderVisualization(nodes, links, threatZones) {
+    console.log("Rendering nodes:", nodes); // Debug: Check if nodes are being passed correctly
+
     svg.selectAll(".threat-zone").remove();
     svg.selectAll(".link").remove();
     svg.selectAll(".node").remove();
@@ -42,7 +61,9 @@ function renderVisualization(nodes, links, threatZones) {
         .attr("class", "threat-zone")
         .attr("cx", d => projection([d.center.lon, d.center.lat])[0])
         .attr("cy", d => projection([d.center.lon, d.center.lat])[1])
-        .attr("r", d => d.radius * 2); // Scale radius to pixels
+        .attr("r", d => d.radius * 2)
+        .attr("fill", "red")
+        .attr("fill-opacity", 0.2);
 
     // Draw links
     const link = svg.selectAll(".link")
@@ -65,7 +86,7 @@ function renderVisualization(nodes, links, threatZones) {
         .on("click", (event, d) => updateEntityDetails(d));
 
     node.append("image")
-        .attr("xlink:href", d => d.image)
+        .attr("xlink:href", d => d.image || "https://via.placeholder.com/40") // Fallback to placeholder
         .attr("x", -20)
         .attr("y", -20)
         .attr("width", 40)
@@ -95,24 +116,6 @@ function renderVisualization(nodes, links, threatZones) {
         node
             .attr("transform", d => `translate(${d.x},${d.y})`);
     });
-
-    // Drag functions
-    function dragStarted(event, d) {
-        if (!event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-    }
-
-    function dragged(event, d) {
-        d.fx = event.x;
-        d.fy = event.y;
-    }
-
-    function dragEnded(event, d) {
-        if (!event.active) simulation.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-    }
 
     return simulation;
 }
@@ -153,8 +156,21 @@ function transitionPhase(phase, nodes, links, threatZones) {
 
 // Main initialization
 loadData().then(({ entities, missions }) => {
+    if (!entities.length || !missions.length) {
+        console.error("No data loaded. Check JSON files and paths.");
+        return;
+    }
+
     const missionSelect = d3.select("#mission");
     const phaseSelect = d3.select("#phase");
+
+    // Populate mission dropdown (optional, since it's already in HTML)
+    missionSelect.selectAll("option")
+        .data(missions)
+        .enter()
+        .append("option")
+        .attr("value", d => d.id)
+        .text(d => d.name);
 
     missionSelect.on("change", function() {
         const missionId = this.value;
@@ -203,13 +219,3 @@ loadData().then(({ entities, missions }) => {
     // Initialize with first mission and phase
     missionSelect.dispatch("change");
 });
-
-const mapData = await d3.json("indo-pacific.json");
-svg.append("g")
-    .selectAll("path")
-    .data(mapData.features)
-    .enter()
-    .append("path")
-    .attr("d", d3.geoPath().projection(projection))
-    .attr("fill", "#ccc")
-    .attr("stroke", "#000");
