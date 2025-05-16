@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#mission-selector {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+#left-sidebar {
+    left: 0;
+}
+
+#right-sidebar {
+    right: 0;
+}
+
+#graph {
+    width: 100%;
+    height: 100vh;
+}
+
+.node {
+    cursor: pointer;
+}
+
+.node image {
+    width: 40px;
+    height: 40px;
+}
+
+.link {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.threat-zone {
+    fill: red;
+    fill-opacity: 0.2;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+#entity-details, #mission-details {
+    font-size: 0.9em;
+}
