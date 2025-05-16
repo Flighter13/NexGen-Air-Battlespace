@@ -203,3 +203,13 @@ loadData().then(({ entities, missions }) => {
     // Initialize with first mission and phase
     missionSelect.dispatch("change");
 });
+
+const mapData = await d3.json("indo-pacific.json");
+svg.append("g")
+    .selectAll("path")
+    .data(mapData.features)
+    .enter()
+    .append("path")
+    .attr("d", d3.geoPath().projection(projection))
+    .attr("fill", "#ccc")
+    .attr("stroke", "#000");
