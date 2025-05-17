@@ -61,13 +61,23 @@ svg.call(zoom).append("g");
 
 function getPhases(currentMission, entities, width, height) {
     if (!currentMission) {
+        // Grid layout for overview
+        const gridCols = Math.ceil(Math.sqrt(entities.length));
+        const gridRows = Math.ceil(entities.length / gridCols);
+        const cellWidth = width / (gridCols + 1);
+        const cellHeight = height / (gridRows + 1);
+
         return [{
             name: "Overview",
-            positions: entities.map((e, i) => ({
-                id: e.id,
-                x: width / 2 + 100 * Math.cos(i * 2 * Math.PI / entities.length),
-                y: height / 2 + 100 * Math.sin(i * 2 * Math.PI / entities.length)
-            }))
+            positions: entities.map((e, i) => {
+                const col = i % gridCols;
+                const row = Math.floor(i / gridCols);
+                return {
+                    id: e.id,
+                    x: cellWidth * (col + 1),
+                    y: cellHeight * (row + 1)
+                };
+            })
         }];
     }
     return [
