@@ -1,0 +1,38 @@
+
+#mission-map {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+#graph {
+    z-index: 10;
+    pointer-events: none;
+}
+
+#graph .node {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+#graph .link {
+    stroke: #4ade80;
+    stroke-width: 2px;
+}
+
+#left-sidebar, #right-sidebar {
+    max-height: calc(100vh - 64px);
+}
+
+#timeline {
+    z-index: 20;
+}
+
+.node-image {
+    transition: transform 0.2s;
+}
+
+.node-image:hover {
+    transform: scale(1.1);
+}

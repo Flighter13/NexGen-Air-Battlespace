@@ -1,0 +1,271 @@
+[
+  {
+    "id": "f15",
+    "name": "F-15 Eagle",
+    "type": "Fighter",
+    "image": "images/f15.png",
+    "capabilities": [
+      "Air superiority",
+      "Speed and range",
+      "Payload capacity"
+    ],
+    "description": "A versatile, long-serving fighter aircraft known for its power and precision.",
+    "missions": [
+      "OCA",
+      "Escort"
+    ]
+  },
+  {
+    "id": "f22",
+    "name": "F-22 Raptor",
+    "type": "Fighter",
+    "image": "images/f22.png",
+    "capabilities": [
+      "Stealth",
+      "Supercruise",
+      "Integrated avionics"
+    ],
+    "description": "Fifth-generation air superiority fighter with unmatched stealth and combat performance.",
+    "missions": [
+      "Air Superiority",
+      "OCA"
+    ]
+  },
+  {
+    "id": "f35",
+    "name": "F-35 Lightning II",
+    "type": "Fighter",
+    "image": "images/f35.png",
+    "capabilities": [
+      "Stealth",
+      "Multirole",
+      "Networked warfare"
+    ],
+    "description": "Advanced multirole stealth fighter for ISR, precision strike, and command & control.",
+    "missions": [
+      "ISR",
+      "Strike",
+      "CAS"
+    ]
+  },
+  {
+    "id": "e7a",
+    "name": "E-7 Wedgetail",
+    "type": "ISR/C2",
+    "image": "images/e7a.png",
+    "capabilities": [
+      "Battle management",
+      "Long-range surveillance",
+      "Airborne early warning"
+    ],
+    "description": "An advanced airborne early warning and control system providing real-time situational awareness.",
+    "missions": [
+      "C2",
+      "Air Superiority"
+    ]
+  },
+  {
+    "id": "rc135",
+    "name": "RC-135 Rivet Joint",
+    "type": "ISR",
+    "image": "images/rc135.png",
+    "capabilities": [
+      "SIGINT",
+      "Target tracking",
+      "IADS mapping"
+    ],
+    "description": "An electronic surveillance aircraft for real-time detection and geolocation of adversary radar and signals.",
+    "missions": [
+      "SEAD",
+      "ISR"
+    ]
+  },
+  {
+    "id": "cca1",
+    "name": "CCA-1",
+    "type": "CCA",
+    "image": "images/cca1.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Air-to-air"
+    ],
+    "description": "Collaborative Combat Aircraft variant 1, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "OCA",
+      "SEAD",
+      "Escort"
+    ]
+  },
+  {
+    "id": "cca2",
+    "name": "CCA-2",
+    "type": "CCA",
+    "image": "images/cca2.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Air-to-air"
+    ],
+    "description": "Collaborative Combat Aircraft variant 2, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "OCA",
+      "SEAD",
+      "Escort"
+    ]
+  },
+  {
+    "id": "cca3",
+    "name": "CCA-3",
+    "type": "CCA",
+    "image": "images/cca3.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Air-to-air"
+    ],
+    "description": "Collaborative Combat Aircraft variant 3, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "OCA",
+      "SEAD",
+      "Escort"
+    ]
+  },
+  {
+    "id": "cca4",
+    "name": "CCA-4",
+    "type": "CCA",
+    "image": "images/cca4.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Strike"
+    ],
+    "description": "Collaborative Combat Aircraft variant 4, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "cca5",
+    "name": "CCA-5",
+    "type": "CCA",
+    "image": "images/cca5.png",
+    "capabilities": [
+      "Low-cost",
+      "Expendable",
+      "Strike"
+    ],
+    "description": "Collaborative Combat Aircraft variant 5, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "cca6",
+    "name": "CCA-6",
+    "type": "CCA",
+    "image": "images/cca6.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Strike"
+    ],
+    "description": "Collaborative Combat Aircraft variant 6, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "cca7",
+    "name": "CCA-7",
+    "type": "CCA",
+    "image": "images/cca7.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Strike"
+    ],
+    "description": "Collaborative Combat Aircraft variant 7, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "cca8",
+    "name": "CCA-8",
+    "type": "CCA",
+    "image": "images/cca8.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Strike"
+    ],
+    "description": "Collaborative Combat Aircraft variant 8, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "cca9",
+    "name": "CCA-9",
+    "type": "CCA",
+    "image": "images/cca9.png",
+    "capabilities": [
+      "Low-cost",
+      "Expendable",
+      "Strike"
+    ],
+    "description": "Collaborative Combat Aircraft variant 9, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "cca10",
+    "name": "CCA-10",
+    "type": "CCA",
+    "image": "images/cca10.png",
+    "capabilities": [
+      "VLO",
+      "Recoverable",
+      "Strike"
+    ],
+    "description": "Collaborative Combat Aircraft variant 10, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "Strike"
+    ]
+  },
+  {
+    "id": "cca11",
+    "name": "CCA-11",
+    "type": "CCA",
+    "image": "images/cca11.png",
+    "capabilities": [
+      "VLO",
+      "Expendable",
+      "Electronic attack"
+    ],
+    "description": "Collaborative Combat Aircraft variant 11, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "EW",
+      "SEAD"
+    ]
+  },
+  {
+    "id": "cca12",
+    "name": "CCA-12",
+    "type": "CCA",
+    "image": "images/cca12.png",
+    "capabilities": [
+      "Low-cost",
+      "Expendable",
+      "Electronic attack"
+    ],
+    "description": "Collaborative Combat Aircraft variant 12, designed for specific counterair or SEAD mission profiles.",
+    "missions": [
+      "EW",
+      "SEAD"
+    ]
+  }
+]
