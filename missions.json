@@ -2,33 +2,128 @@
   {
     "id": "cca_sweep",
     "name": "CCA Counterair Sweep",
-    "description": "Disruption and deception sweep by CCAs and 5th-gen fighters to create air corridors for follow-on maritime strike surges.",
+    "description": "CCAs and F-22/F-35s conduct airspace denial through distributed formations and electronic deception.",
     "mapImage": "images/map_sweep.jpg",
-    "layout": [
+    "phases": [
       {
-        "id": "f22",
-        "x": 420,
-        "y": 180
+        "name": "Launch",
+        "positions": [
+          {
+            "id": "f22",
+            "x": 200,
+            "y": 400
+          },
+          {
+            "id": "f35",
+            "x": 220,
+            "y": 420
+          },
+          {
+            "id": "cca2",
+            "x": 240,
+            "y": 440
+          },
+          {
+            "id": "cca5",
+            "x": 260,
+            "y": 460
+          },
+          {
+            "id": "cca11",
+            "x": 280,
+            "y": 480
+          }
+        ]
       },
       {
-        "id": "f35",
-        "x": 480,
-        "y": 240
+        "name": "En Route",
+        "positions": [
+          {
+            "id": "f22",
+            "x": 320,
+            "y": 280
+          },
+          {
+            "id": "f35",
+            "x": 360,
+            "y": 320
+          },
+          {
+            "id": "cca2",
+            "x": 380,
+            "y": 340
+          },
+          {
+            "id": "cca5",
+            "x": 400,
+            "y": 360
+          },
+          {
+            "id": "cca11",
+            "x": 420,
+            "y": 380
+          }
+        ]
       },
       {
-        "id": "cca2",
-        "x": 600,
-        "y": 160
+        "name": "Engagement",
+        "positions": [
+          {
+            "id": "f22",
+            "x": 480,
+            "y": 180
+          },
+          {
+            "id": "f35",
+            "x": 500,
+            "y": 200
+          },
+          {
+            "id": "cca2",
+            "x": 520,
+            "y": 160
+          },
+          {
+            "id": "cca5",
+            "x": 560,
+            "y": 300
+          },
+          {
+            "id": "cca11",
+            "x": 600,
+            "y": 220
+          }
+        ]
       },
       {
-        "id": "cca5",
-        "x": 560,
-        "y": 300
-      },
-      {
-        "id": "cca11",
-        "x": 620,
-        "y": 220
+        "name": "Egress",
+        "positions": [
+          {
+            "id": "f22",
+            "x": 360,
+            "y": 260
+          },
+          {
+            "id": "f35",
+            "x": 380,
+            "y": 280
+          },
+          {
+            "id": "cca2",
+            "x": 400,
+            "y": 300
+          },
+          {
+            "id": "cca5",
+            "x": 420,
+            "y": 320
+          },
+          {
+            "id": "cca11",
+            "x": 440,
+            "y": 340
+          }
+        ]
       }
     ],
     "links": [
@@ -49,33 +144,128 @@
   {
     "id": "hvaa_protect",
     "name": "HVAA Protection & Ambush Alert",
-    "description": "Using CCAs and 4th-gen fighters to protect HVAA assets and ambush PLA AEW&C aircraft like the KJ-500.",
+    "description": "CCAs, F-15s, and E-7 provide overwatch and intercept hostile AEW&C threats.",
     "mapImage": "images/map_hvaa.jpg",
-    "layout": [
+    "phases": [
       {
-        "id": "f15",
-        "x": 460,
-        "y": 280
+        "name": "Launch",
+        "positions": [
+          {
+            "id": "f15",
+            "x": 180,
+            "y": 360
+          },
+          {
+            "id": "e7a",
+            "x": 160,
+            "y": 380
+          },
+          {
+            "id": "cca1",
+            "x": 200,
+            "y": 400
+          },
+          {
+            "id": "cca6",
+            "x": 220,
+            "y": 420
+          },
+          {
+            "id": "cca11",
+            "x": 240,
+            "y": 440
+          }
+        ]
       },
       {
-        "id": "e7a",
-        "x": 380,
-        "y": 340
+        "name": "Patrol",
+        "positions": [
+          {
+            "id": "f15",
+            "x": 320,
+            "y": 280
+          },
+          {
+            "id": "e7a",
+            "x": 300,
+            "y": 340
+          },
+          {
+            "id": "cca1",
+            "x": 360,
+            "y": 260
+          },
+          {
+            "id": "cca6",
+            "x": 380,
+            "y": 180
+          },
+          {
+            "id": "cca11",
+            "x": 340,
+            "y": 360
+          }
+        ]
       },
       {
-        "id": "cca1",
-        "x": 540,
-        "y": 260
+        "name": "Ambush",
+        "positions": [
+          {
+            "id": "f15",
+            "x": 460,
+            "y": 280
+          },
+          {
+            "id": "e7a",
+            "x": 380,
+            "y": 340
+          },
+          {
+            "id": "cca1",
+            "x": 540,
+            "y": 260
+          },
+          {
+            "id": "cca6",
+            "x": 620,
+            "y": 180
+          },
+          {
+            "id": "cca11",
+            "x": 500,
+            "y": 360
+          }
+        ]
       },
       {
-        "id": "cca6",
-        "x": 620,
-        "y": 180
-      },
-      {
-        "id": "cca11",
-        "x": 500,
-        "y": 360
+        "name": "RTB",
+        "positions": [
+          {
+            "id": "f15",
+            "x": 300,
+            "y": 300
+          },
+          {
+            "id": "e7a",
+            "x": 240,
+            "y": 360
+          },
+          {
+            "id": "cca1",
+            "x": 280,
+            "y": 380
+          },
+          {
+            "id": "cca6",
+            "x": 260,
+            "y": 320
+          },
+          {
+            "id": "cca11",
+            "x": 220,
+            "y": 340
+          }
+        ]
       }
     ],
     "links": [
@@ -96,33 +286,128 @@
   {
     "id": "sead_wave",
     "name": "SEAD Pressure Waves",
-    "description": "Multi-phase SEAD operations using loitering munitions, EW CCAs, and ISR platforms to degrade coastal IADS and SAGs.",
+    "description": "Multi-phase SEAD operations using loitering munitions, EW CCAs, and ISR platforms to degrade coastal IADS.",
     "mapImage": "images/map_sead.jpg",
-    "layout": [
+    "phases": [
       {
-        "id": "cca4",
-        "x": 480,
-        "y": 160
+        "name": "Staging",
+        "positions": [
+          {
+            "id": "rc135",
+            "x": 160,
+            "y": 360
+          },
+          {
+            "id": "cca4",
+            "x": 180,
+            "y": 160
+          },
+          {
+            "id": "cca7",
+            "x": 200,
+            "y": 240
+          },
+          {
+            "id": "cca9",
+            "x": 220,
+            "y": 320
+          },
+          {
+            "id": "cca12",
+            "x": 240,
+            "y": 400
+          }
+        ]
       },
       {
-        "id": "cca7",
-        "x": 580,
-        "y": 240
+        "name": "Push Forward",
+        "positions": [
+          {
+            "id": "rc135",
+            "x": 300,
+            "y": 280
+          },
+          {
+            "id": "cca4",
+            "x": 380,
+            "y": 160
+          },
+          {
+            "id": "cca7",
+            "x": 420,
+            "y": 240
+          },
+          {
+            "id": "cca9",
+            "x": 460,
+            "y": 320
+          },
+          {
+            "id": "cca12",
+            "x": 480,
+            "y": 400
+          }
+        ]
       },
       {
-        "id": "cca9",
-        "x": 620,
-        "y": 320
+        "name": "Strike",
+        "positions": [
+          {
+            "id": "rc135",
+            "x": 400,
+            "y": 280
+          },
+          {
+            "id": "cca4",
+            "x": 480,
+            "y": 160
+          },
+          {
+            "id": "cca7",
+            "x": 580,
+            "y": 240
+          },
+          {
+            "id": "cca9",
+            "x": 620,
+            "y": 320
+          },
+          {
+            "id": "cca12",
+            "x": 520,
+            "y": 400
+          }
+        ]
       },
       {
-        "id": "cca12",
-        "x": 520,
-        "y": 400
-      },
-      {
-        "id": "rc135",
-        "x": 400,
-        "y": 280
+        "name": "Assess & Exit",
+        "positions": [
+          {
+            "id": "rc135",
+            "x": 300,
+            "y": 260
+          },
+          {
+            "id": "cca4",
+            "x": 360,
+            "y": 180
+          },
+          {
+            "id": "cca7",
+            "x": 380,
+            "y": 240
+          },
+          {
+            "id": "cca9",
+            "x": 400,
+            "y": 320
+          },
+          {
+            "id": "cca12",
+            "x": 420,
+            "y": 380
+          }
+        ]
       }
     ],
     "links": [

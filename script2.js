@@ -1,6 +1,7 @@
 const width = window.innerWidth / 2;
 const height = window.innerHeight - 64;
-let entities = [], missions = [];
+let entities = [];
+let missions = [];
 let currentMission = null;
 let phase = 0;
 
@@ -10,6 +11,7 @@ const svg = d3.select("#graph")
 
 const mapImage = document.getElementById("mission-map");
 
+// Load data
 Promise.all([
     fetch('entities.json').then(res => res.json()),
     fetch('missions.json').then(res => res.json())
@@ -29,12 +31,6 @@ Promise.all([
         currentMission = missionId === "overview" ? null : missions.find(m => m.id === missionId);
         phase = 0;
         d3.select("#timeline-slider").property("value", 0);
-        if (currentMission && currentMission.phases) {
-            d3.select("#timeline-slider").attr("max", currentMission.phases.length - 1);
-        } else {
-            // For overview, only one phase
-            d3.select("#timeline-slider").attr("max", 0);
-        }
         updateVisualization();
     });
 
@@ -70,6 +66,7 @@ function getPhases(currentMission, entities, width, height) {
         const gridRows = Math.ceil(entities.length / gridCols);
         const cellWidth = width / (gridCols + 1);
         const cellHeight = height / (gridRows + 1);
+
         return [{
             name: "Overview",
             positions: entities.map((e, i) => {
@@ -83,7 +80,36 @@ function getPhases(currentMission, entities, width, height) {
             })
         }];
     }
-    return currentMission.phases || [];
+    return [
+        {
+            name: "Deploy",
+            positions: currentMission.layout.map(l => ({
+                id: l.id,
+                x: l.x * 0.8,
+                y: l.y * 0.8
+            }))
+        },
+        {
+            name: "Execute",
+            positions: currentMission.layout
+        },
+        {
+            name: "Sustain",
+            positions: currentMission.layout.map(l => ({
+                id: l.id,
+                x: l.x * 1.1,
+                y: l.y * 1.1
+            }))
+        },
+        {
+            name: "Return",
+            positions: currentMission.layout.map(l => ({
+                id: l.id,
+                x: l.x * 0.9,
+                y: l.y * 0.9
+            }))
+        }
+    ];
 }
 
 function updateVisualization() {
@@ -93,15 +119,15 @@ function updateVisualization() {
         mapImage.src = "";
     }
 
-    const phases = getPhases(currentMission, entities, width, height);
-    const currentPhase = phases[Math.min(phase, phases.length - 1)] || { name: "", positions: [] };
-    d3.select("#phase-label").text(currentPhase.name || "");
-
     const nodes = currentMission
-        ? entities.filter(e => (currentPhase.positions || []).some(l => l.id === e.id))
+        ? entities.filter(e => currentMission.layout.some(l => l.id === e.id))
         : entities;
 
-    const links = currentMission ? (currentMission.links || []) : [];
+    const links = currentMission ? currentMission.links : [];
+
+    const phases = getPhases(currentMission, entities, width, height);
+    const currentPhase = phases[Math.min(phase, phases.length - 1)];
+    d3.select("#phase-label").text(currentPhase.name);
 
     const nodeData = nodes.map(n => {
         const pos = currentPhase.positions.find(p => p.id === n.id) || { x: width / 2, y: height / 2 };
@@ -165,13 +191,14 @@ function updateVisualization() {
             <p>${currentMission.description}</p>
         `);
 
-        const displayed = new Set(currentPhase.positions.map(p => p.id));
         d3.select("#entity-roles").html(`
             <h3 class="text-lg font-semibold">Entity Roles:</h3>
             <ul class="list-disc pl-5">
-                ${[...displayed].map(id => {
-                    const entity = entities.find(e => e.id === id);
-                    return entity ? `<li>${entity.name}: ${entity.type}</li>` : "";
+                ${currentMission.layout.map(l => {
+                    const entity = entities.find(e => e.id === l.id);
+                    return entity
+                        ? `<li>${entity.name}: ${entity.type}</li>`
+                        : `<li>Unknown Entity (ID: ${l.id})</li>`;
                 }).join("")}
             </ul>
         `);
