@@ -122,8 +122,8 @@ function updateVisualization() {
         .attr("xlink:href", d => d.image)
         .attr("x", -25)
         .attr("y", -25)
-        .attr("width", 80)
-        .attr("height", 80)
+        .attr("width", 100)
+        .attr("height", 100)
         .on("click", (event, d) => {
             d3.select("#entity-details").html(`
                 <h2 class="text-xl font-bold">${d.name}</h2>
