@@ -93,6 +93,15 @@ function updateVisualization() {
         mapImage.src = "";
     }
 
+    // Hide map and timeline on overview
+    if (!currentMission) {
+        d3.select("#mission-map").style("display", "none");
+        d3.select("#timeline").style("display", "none");
+    } else {
+        d3.select("#mission-map").style("display", "block");
+        d3.select("#timeline").style("display", "block");
+    }
+
     const phases = getPhases(currentMission, entities, width, height);
     const currentPhase = phases[Math.min(phase, phases.length - 1)] || { name: "", positions: [] };
     d3.select("#phase-label").text(currentPhase.name || "");
