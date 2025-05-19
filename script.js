@@ -1,12 +1,13 @@
-const width = window.innerWidth / 2;
+const width = Math.min(window.innerWidth, 600); // max 600px wide for mobile
 const height = window.innerHeight - 64;
 let entities = [], missions = [];
 let currentMission = null;
 let phase = 0;
 
 const svg = d3.select("#graph")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", "100%")
+    .attr("height", height)
+    .attr("viewBox", `0 0 ${width} ${height}`);
 
 const mapImage = document.getElementById("mission-map");
 
@@ -117,6 +118,9 @@ function updateVisualization() {
         return { ...n, x: pos.x, y: pos.y };
     });
 
+    const isMobile = window.innerWidth < 768;
+    const imageSize = isMobile ? 60 : 100;
+
     // Draw nodes
     const node = svg.selectAll(".node")
         .data(nodeData, d => d.id)
@@ -129,10 +133,10 @@ function updateVisualization() {
         .join("image")
         .attr("class", "node-image")
         .attr("xlink:href", d => d.image)
-        .attr("x", -25)
-        .attr("y", -25)
-        .attr("width", 100)
-        .attr("height", 100)
+        .attr("x", -imageSize / 2)
+        .attr("y", -imageSize / 2)
+        .attr("width", imageSize)
+        .attr("height", imageSize)
         .on("click", (event, d) => {
             d3.select("#entity-details").html(`
                 <h2 class="text-xl font-bold">${d.name}</h2>

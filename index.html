@@ -12,9 +12,9 @@
     <header class="bg-gray-800 p-4 shadow-md">
         <h1 class="text-2xl font-bold">NexGen Air Battlespace</h1>
     </header>
-    <main class="flex h-screen">
+    <main class="flex flex-col md:flex-row h-screen">
         <!-- Left Sidebar -->
-        <div id="left-sidebar" class="w-1/4 bg-gray-800 p-4 overflow-y-auto">
+        <div id="left-sidebar" class="w-full md:w-1/4 bg-gray-800 p-4 overflow-y-auto">
             <label for="mission-select" class="block text-lg font-semibold mb-2">Select Mission Set:</label>
             <select id="mission-select" class="w-full p-2 bg-gray-700 rounded">
                 <option value="overview">Main Overview</option>
@@ -23,7 +23,7 @@
             <div id="entity-roles" class="mt-4"></div>
         </div>
         <!-- Visualization Area -->
-        <div id="visualization" class="w-1/2 relative overflow-hidden">
+        <div id="visualization" class="w-full md:w-1/2 relative overflow-hidden min-h-[300px]">
             <div id="zoom-container" class="absolute inset-0">
                 <img id="mission-map" src="" alt="Mission Map" class="absolute inset-0 w-full h-full object-cover z-0">
                 <svg id="graph" class="absolute inset-0 z-10"></svg>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <!-- Right Sidebar -->
-        <div id="right-sidebar" class="w-1/4 bg-gray-800 p-4 overflow-y-auto hidden">
+        <div id="right-sidebar" class="w-full md:w-1/4 bg-gray-800 p-4 overflow-y-auto hidden">
             <button id="close-right-sidebar" class="text-red-500 float-right">×</button>
             <div id="entity-details"></div>
         </div>
