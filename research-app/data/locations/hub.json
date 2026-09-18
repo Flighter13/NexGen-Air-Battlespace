@@ -1,0 +1,13 @@
+{
+  "id": "hub",
+  "name": "Research hub",
+  "coordinates": [145, 22],
+  "evidence": "illustrative",
+  "notes": "Fictional open-ocean study point; not a real operating site or a report-derived coordinate.",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset assumptions"
+    }
+  ]
+}

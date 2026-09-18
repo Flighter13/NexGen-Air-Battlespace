@@ -1,0 +1,43 @@
+{
+  "id": "01-sweep-north",
+  "scenarioId": "01-sweep",
+  "name": "North CCA group",
+  "role": "Northern study axis",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset: group membership and spacing"
+    }
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "locationId": "north-start"
+    },
+    {
+      "t": 40,
+      "locationId": "north-area"
+    },
+    {
+      "t": 60,
+      "locationId": "north-area"
+    }
+  ],
+  "members": [
+    {
+      "id": "north",
+      "entityId": "cca-concept",
+      "label": "North CCA group 1",
+      "role": "Northern study axis",
+      "offsetKm": [0, 0]
+    },
+    {
+      "id": "north-2",
+      "entityId": "cca-concept",
+      "label": "North CCA group 2",
+      "role": "Northern study axis",
+      "offsetKm": [80, -65]
+    }
+  ]
+}

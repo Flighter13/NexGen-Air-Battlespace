@@ -1,0 +1,26 @@
+{
+  "id": "f35a",
+  "name": "F-35A Lightning II",
+  "shortName": "F-35A",
+  "category": "crewed",
+  "claims": [
+    {
+      "text": "The U.S. Air Force identifies the F-35A as a multirole fighter.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-f35",
+          "locator": "Mission section"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/f35.png",
+    "icon": "assets/entities/fighter.svg",
+    "alt": "F-35A Lightning II \u2014 existing project image",
+    "credit": "Reused from the original NexGen Air Battlespace repository",
+    "rights": "Original upstream creator and license not recorded in the legacy repository. Retained as an existing project asset; no new rights claim is made.",
+    "sourceUrl": "https://github.com/Flighter13/NexGen-Air-Battlespace/blob/main/images/f35.png"
+  }
+}

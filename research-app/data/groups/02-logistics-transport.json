@@ -1,0 +1,40 @@
+{
+  "id": "02-logistics-transport",
+  "scenarioId": "02-logistics",
+  "name": "Support element",
+  "role": "Illustrative replenishment",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset: group membership and spacing"
+    }
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "locationId": "hub"
+    },
+    {
+      "t": 25,
+      "locationId": "north-start"
+    },
+    {
+      "t": 40,
+      "locationId": "south-start"
+    },
+    {
+      "t": 60,
+      "locationId": "hub"
+    }
+  ],
+  "members": [
+    {
+      "id": "transport",
+      "entityId": "support-concept",
+      "label": "Support element 1",
+      "role": "Illustrative replenishment",
+      "offsetKm": [0, 0]
+    }
+  ]
+}
