@@ -1,0 +1,26 @@
+{
+  "id": "yfq44a",
+  "name": "YFQ-44A \u00b7 2025 designation",
+  "shortName": "YFQ-44A",
+  "category": "uncrewed",
+  "claims": [
+    {
+      "text": "On March 3, 2025, the Air Force announced YFQ-44A as the designation for the Anduril CCA prototype.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-cca-2025",
+          "locator": "Designation announcement"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/yfq-44.png",
+    "icon": "assets/entities/uncrewed.svg",
+    "alt": "YFQ-44A \u00b7 2025 designation \u2014 existing project image",
+    "credit": "Reused from the original NexGen Air Battlespace repository",
+    "rights": "Original upstream creator and license not recorded in the legacy repository. Retained as an existing project asset; no new rights claim is made.",
+    "sourceUrl": "https://github.com/Flighter13/NexGen-Air-Battlespace/blob/main/images/yfq-44.png"
+  }
+}

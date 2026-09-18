@@ -1,0 +1,39 @@
+{
+  "id": "01-sweep-south",
+  "scenarioId": "01-sweep",
+  "name": "South CCA group",
+  "role": "Southern study axis",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset: group membership and spacing"
+    }
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "locationId": "south-start"
+    },
+    {
+      "t": 40,
+      "locationId": "south-area"
+    }
+  ],
+  "members": [
+    {
+      "id": "south",
+      "entityId": "cca-concept",
+      "label": "South CCA group 1",
+      "role": "Southern study axis",
+      "offsetKm": [0, 0]
+    },
+    {
+      "id": "south-2",
+      "entityId": "cca-concept",
+      "label": "South CCA group 2",
+      "role": "Southern study axis",
+      "offsetKm": [80, -65]
+    }
+  ]
+}

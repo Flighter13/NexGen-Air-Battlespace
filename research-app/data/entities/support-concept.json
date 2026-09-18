@@ -1,0 +1,25 @@
+{
+  "id": "support-concept",
+  "name": "Logistics support concept",
+  "shortName": "Support",
+  "category": "support",
+  "claims": [
+    {
+      "text": "A generic transport actor illustrates replenishment between distributed sites. It has no modeled capacity or aircraft performance.",
+      "evidence": "illustrative",
+      "citations": [
+        {
+          "sourceId": "editorial",
+          "locator": "Starter dataset assumptions"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/support.svg",
+    "icon": "assets/entities/support.svg",
+    "alt": "Abstract support aircraft symbol; not a specific design",
+    "credit": "NexGen original schematic artwork",
+    "rights": "Original software visualization symbol; does not depict a documented aircraft design."
+  }
+}

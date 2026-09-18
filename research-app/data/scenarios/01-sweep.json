@@ -1,0 +1,44 @@
+{
+  "id": "01-sweep",
+  "title": "CCA sweep \u00b7 concept overview",
+  "subtitle": "Three axes, one shared research view",
+  "description": "A simplified reading of the Mitchell Institute sweep concept. Explore how abstract CCA groups and a crewed element relate across presentation phases.",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "mitchell-summary",
+      "locator": "PDF page 7; three-axis sweep concept"
+    }
+  ],
+  "assumptions": [
+    "All geography, timings, paths and actor counts are editorial illustration, not taken from the source.",
+    "Timeline seconds control the presentation only; they do not represent flight time, speed, range or readiness.",
+    "Lines indicate conceptual relationships, not verified interfaces or actual connectivity.",
+    "No engagement outcomes, targeting, tactics optimization or capability predictions are computed."
+  ],
+  "duration": 60,
+  "phases": [
+    {
+      "id": "introduce",
+      "title": "Introduce",
+      "start": 0,
+      "end": 15,
+      "narrative": "Identify the three abstract CCA groups and the crewed element."
+    },
+    {
+      "id": "compare",
+      "title": "Explore relationships",
+      "start": 15,
+      "end": 40,
+      "narrative": "The published concept combines crewed fighters with CCA on one axis. The displayed links are explanatory."
+    },
+    {
+      "id": "review",
+      "title": "Review",
+      "start": 40,
+      "end": 60,
+      "narrative": "Revisit the concept and inspect provenance. No mission outcome is calculated."
+    }
+  ],
+  "actors": []
+}

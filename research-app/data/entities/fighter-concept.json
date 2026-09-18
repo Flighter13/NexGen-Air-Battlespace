@@ -1,0 +1,25 @@
+{
+  "id": "fighter-concept",
+  "name": "Crewed fighter research group",
+  "shortName": "Fighter",
+  "category": "crewed",
+  "claims": [
+    {
+      "text": "The sweep concept combined CCA and fifth-generation fighters on one of three approach axes. This actor is an abstract group.",
+      "evidence": "analytical",
+      "citations": [
+        {
+          "sourceId": "mitchell-summary",
+          "locator": "PDF page 7"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/fighter.svg",
+    "icon": "assets/entities/fighter.svg",
+    "alt": "Abstract crewed aircraft symbol; not a specific design",
+    "credit": "NexGen original schematic artwork",
+    "rights": "Original software visualization symbol; does not depict a documented aircraft design."
+  }
+}

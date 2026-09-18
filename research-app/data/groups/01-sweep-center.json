@@ -1,0 +1,39 @@
+{
+  "id": "01-sweep-center",
+  "scenarioId": "01-sweep",
+  "name": "Central CCA group",
+  "role": "Central study axis",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset: group membership and spacing"
+    }
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "locationId": "center-start"
+    },
+    {
+      "t": 40,
+      "locationId": "center-area"
+    }
+  ],
+  "members": [
+    {
+      "id": "center",
+      "entityId": "cca-concept",
+      "label": "Central CCA group 1",
+      "role": "Central study axis",
+      "offsetKm": [0, 0]
+    },
+    {
+      "id": "center-2",
+      "entityId": "cca-concept",
+      "label": "Central CCA group 2",
+      "role": "Central study axis",
+      "offsetKm": [80, -65]
+    }
+  ]
+}

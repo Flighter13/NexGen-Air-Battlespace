@@ -1,0 +1,35 @@
+{
+  "id": "02-logistics-site-s",
+  "scenarioId": "02-logistics",
+  "name": "South CCA group",
+  "role": "Distributed study site",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset: group membership and spacing"
+    }
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "locationId": "south-start"
+    }
+  ],
+  "members": [
+    {
+      "id": "site-s",
+      "entityId": "cca-concept",
+      "label": "South CCA group 1",
+      "role": "Distributed study site",
+      "offsetKm": [0, 0]
+    },
+    {
+      "id": "site-s-2",
+      "entityId": "cca-concept",
+      "label": "South CCA group 2",
+      "role": "Distributed study site",
+      "offsetKm": [80, -65]
+    }
+  ]
+}

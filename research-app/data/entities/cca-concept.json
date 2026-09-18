@@ -1,0 +1,25 @@
+{
+  "id": "cca-concept",
+  "name": "CCA research group",
+  "shortName": "CCA",
+  "category": "uncrewed",
+  "claims": [
+    {
+      "text": "The Mitchell exercise used notional recoverable and expendable CCA types. This generic actor does not represent a specific manufacturer\u2019s aircraft.",
+      "evidence": "analytical",
+      "citations": [
+        {
+          "sourceId": "mitchell-summary",
+          "locator": "PDF pages 5\u20137"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/uncrewed.svg",
+    "icon": "assets/entities/uncrewed.svg",
+    "alt": "Abstract uncrewed aircraft symbol; not a specific design",
+    "credit": "NexGen original schematic artwork",
+    "rights": "Original software visualization symbol; does not depict a documented aircraft design."
+  }
+}

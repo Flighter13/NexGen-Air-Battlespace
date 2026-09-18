@@ -1,0 +1,17 @@
+{
+  "id": "sweep-teaming",
+  "scenarioId": "01-sweep",
+  "from": "crewed",
+  "to": "center",
+  "type": "coordination",
+  "label": "Conceptual teaming",
+  "evidence": "illustrative",
+  "start": 15,
+  "end": 60,
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset assumptions"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "02-logistics-site-n",
+  "scenarioId": "02-logistics",
+  "name": "North CCA group",
+  "role": "Distributed study site",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset: group membership and spacing"
+    }
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "locationId": "north-start"
+    }
+  ],
+  "members": [
+    {
+      "id": "site-n",
+      "entityId": "cca-concept",
+      "label": "North CCA group 1",
+      "role": "Distributed study site",
+      "offsetKm": [0, 0]
+    },
+    {
+      "id": "site-n-2",
+      "entityId": "cca-concept",
+      "label": "North CCA group 2",
+      "role": "Distributed study site",
+      "offsetKm": [80, -65]
+    }
+  ]
+}

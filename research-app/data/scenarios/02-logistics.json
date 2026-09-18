@@ -1,0 +1,44 @@
+{
+  "id": "02-logistics",
+  "title": "Distributed logistics \u00b7 concept overview",
+  "subtitle": "A network of support and recovery",
+  "description": "A teaching example motivated by the report\u2019s emphasis on distributed sustainment. Named study sites and reusable actors replace fixed icon positions.",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "mitchell-summary",
+      "locator": "PDF pages 11\u201315; logistics risk reduction and recommendations"
+    }
+  ],
+  "assumptions": [
+    "All geography, timings, paths and actor counts are editorial illustration, not taken from the source.",
+    "Timeline seconds control the presentation only; they do not represent flight time, speed, range or readiness.",
+    "Lines indicate conceptual relationships, not verified interfaces or actual connectivity.",
+    "No engagement outcomes, targeting, tactics optimization or capability predictions are computed."
+  ],
+  "duration": 60,
+  "phases": [
+    {
+      "id": "stage",
+      "title": "Stage",
+      "start": 0,
+      "end": 20,
+      "narrative": "Introduce a generic support actor and two distributed CCA groups."
+    },
+    {
+      "id": "support",
+      "title": "Support",
+      "start": 20,
+      "end": 40,
+      "narrative": "Illustrate a replenishment relationship without quantifying cargo, sortie rates or risk."
+    },
+    {
+      "id": "return",
+      "title": "Return",
+      "start": 40,
+      "end": 60,
+      "narrative": "Show a reusable return path. Timing is for animation only."
+    }
+  ],
+  "actors": []
+}

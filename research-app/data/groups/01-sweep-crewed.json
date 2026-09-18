@@ -1,0 +1,43 @@
+{
+  "id": "01-sweep-crewed",
+  "scenarioId": "01-sweep",
+  "name": "Crewed element",
+  "role": "Conceptual teaming",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset: group membership and spacing"
+    }
+  ],
+  "keyframes": [
+    {
+      "t": 0,
+      "locationId": "hub"
+    },
+    {
+      "t": 20,
+      "locationId": "center-start"
+    },
+    {
+      "t": 60,
+      "locationId": "center-area"
+    }
+  ],
+  "members": [
+    {
+      "id": "crewed",
+      "entityId": "fighter-concept",
+      "label": "Crewed element 1",
+      "role": "Conceptual teaming",
+      "offsetKm": [0, 0]
+    },
+    {
+      "id": "crewed-2",
+      "entityId": "fighter-concept",
+      "label": "Crewed element 2",
+      "role": "Conceptual teaming",
+      "offsetKm": [80, -65]
+    }
+  ]
+}

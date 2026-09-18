@@ -1,0 +1,17 @@
+{
+  "id": "north-support",
+  "scenarioId": "02-logistics",
+  "from": "transport",
+  "to": "site-n",
+  "type": "logistics",
+  "label": "Illustrative replenishment",
+  "evidence": "illustrative",
+  "start": 20,
+  "end": 35,
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Starter dataset assumptions"
+    }
+  ]
+}
