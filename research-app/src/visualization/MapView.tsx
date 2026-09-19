@@ -10,10 +10,12 @@ import {
 } from '@deck.gl/layers';
 import type { PickingInfo } from '@deck.gl/core';
 import { catalog } from '../data/catalog';
-import { offsetPosition, type Snapshot } from '../engine/timeline';
+import type { Snapshot } from '../engine/timeline';
 import { assetUrl } from '../components/EntityImage';
 import 'maplibre-gl/dist/maplibre-gl.css';
+
 type Actor = Snapshot['actors'][number];
+
 export function MapView({
   state,
   selected,
@@ -28,6 +30,7 @@ export function MapView({
   const [ready, setReady] = useState(false),
     [error, setError] = useState('');
   const initialActors = useRef(state.actors);
+
   useEffect(() => {
     let map: maplibregl.Map | undefined;
     try {
@@ -43,6 +46,7 @@ export function MapView({
         ne = bounds.getNorthEast();
       bounds.extend([sw.lng - 4, sw.lat - 3]);
       bounds.extend([ne.lng + 4, ne.lat + 5]);
+
       map = new maplibregl.Map({
         container: container.current!,
         style: {
@@ -79,20 +83,25 @@ export function MapView({
         fitBoundsOptions: { padding: 55, maxZoom: 5 },
         attributionControl: { compact: true },
       });
+
       map.addControl(
         new maplibregl.NavigationControl({ showCompass: false }),
         'top-right',
       );
+
       overlay.current = new MapboxOverlay({ interleaved: false, layers: [] });
       map.addControl(overlay.current);
+
       map.on('error', () =>
         setError(
           'The bundled basemap could not load. You can still explore the Network view.',
         ),
       );
+
       setReady(true);
       const observer = new ResizeObserver(() => map?.resize());
       observer.observe(container.current!);
+
       return () => {
         observer.disconnect();
         overlay.current = null;
@@ -105,30 +114,27 @@ export function MapView({
       map?.remove();
     }
   }, []);
+
   useEffect(() => {
     if (!ready || !overlay.current) return;
+
     const links = state.relationships.map((r) => ({
       ...r,
       source: state.actors.find((a) => a.id === r.from)!.position,
       target: state.actors.find((a) => a.id === r.to)!.position,
     }));
+
     const locationIds = new Set(
       state.actors.flatMap((a) => a.keyframes.map((k) => k.locationId)),
     );
     const locations = catalog.locations.filter((l) => locationIds.has(l.id));
+
     overlay.current.setProps({
       layers: [
         new PathLayer<Actor>({
           id: 'routes',
           data: state.actors,
-          getPath: (a) =>
-            a.keyframes.map((k) =>
-              offsetPosition(
-                catalog.locations.find((l) => l.id === k.locationId)!
-                  .coordinates,
-                a.offsetKm,
-              ),
-            ),
+          getPath: (a) => a.route,
           getColor: [99, 153, 173, 90],
           getWidth: 1,
           widthUnits: 'pixels',
@@ -184,6 +190,8 @@ export function MapView({
             anchorY: 85,
           }),
           getSize: 29,
+          getAngle: (a) =>
+            (a.heading + (a.entity.media?.headingOffset ?? 0) + 360) % 360,
           pickable: true,
           onClick: (info: PickingInfo<Actor>) => {
             if (info.object) onSelect(info.object.id);
@@ -212,6 +220,7 @@ export function MapView({
           : null,
     });
   }, [state, ready, selected, onSelect]);
+
   return (
     <>
       <div

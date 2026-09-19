@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Open the local address printed by Vite. `npm test` checks research references and timeline behavior. `npm run build` type-checks and creates `dist/`; `npm run preview` previews that build. A lockfile pins the tested dependencies. No API key or account is required.
+Open the local address printed by Vite. `npm test` checks research references, group behavior and timeline/motion behavior. `npm run build` type-checks and creates `dist/`; `npm run preview` previews that build. A lockfile pins the tested dependencies. No API key or account is required.
 
 ## What is included
 
@@ -23,6 +23,8 @@ Open the local address printed by Vite. `npm test` checks research references an
 - Reusable deterministic timeline with play/pause, speed, reset, phase jumps and backward/forward scrubbing.
 - JSON records separated into entities, sources, scenarios, locations, relationships and groups. Files are discovered automatically.
 - Entity images, member selection, group visibility/focus and shared-track animation.
+- Dynamic presentation paths with linear or smooth interpolation, automatic path-following heading, manual/fixed headings and heading-relative group rotation.
+- Per-entity icon heading offsets so replacement artwork can be aligned without changing mission data.
 - Runtime schema validation, cross-reference validation and an actionable data-error page.
 - Two illustrative starter scenarios: a three-axis CCA concept overview and distributed logistics. Six entity records include three basic historical/official aircraft profiles and three clearly labeled research concepts.
 
@@ -39,19 +41,19 @@ data/
   entities/        One independent profile per JSON file
   sources/         Publications, government pages, manufacturer pages, lectures
   scenarios/       Roles, phases, named geographic keyframes, assumptions
-  groups/          Named members, shared tracks and geographic offsets
+  groups/          Named members, shared tracks, motion settings and geographic offsets
   locations/       Longitude/latitude points and their provenance
   relationships/  Directed scenario links, types, timing and evidence
 src/
   data/            Schemas, automatic loading, reference validation
-  engine/          Pure timeline functions and React playback hook
+  engine/          Timeline, interpolation, heading and formation-motion functions
   visualization/   MapLibre/deck.gl map and D3 network
   components/      Profile, timeline and reusable citations
-tests/             Data-integrity and timeline tests
-docs/              Authoring, architecture and migration notes
+tests/             Data-integrity, group and motion tests
+docs/              Authoring, architecture, motion and migration notes
 ```
 
-See [images and groups](docs/GROUPS.md) for member editing and image provenance. See [the content guide](docs/AUTHORING.md) for adding research without changing rendering code and [architecture notes](docs/ARCHITECTURE.md) for extending the application.
+See [motion and headings](docs/MOTION.md) for curved routes, automatic/manual headings, rotating formations and icon orientation. See [images and groups](docs/GROUPS.md) for member editing and image provenance. See [the content guide](docs/AUTHORING.md) for adding research without changing rendering code and [architecture notes](docs/ARCHITECTURE.md) for extending the application.
 
 ## Hosting and external services
 
@@ -59,4 +61,4 @@ See [images and groups](docs/GROUPS.md) for member editing and image provenance.
 
 ## Current limits
 
-This is an editable foundation, not a completed research catalog. There is no CMS, backend, authentication, live program-status feed, outcome calculation, threat modeling, sensor or weapon performance model. Movement is linear geographic interpolation for presentation, not flight dynamics; no speed is inferred from animation. Single-point tracks hold position; tracks hold their first/last location outside keyframe bounds. Very large datasets will need indexing, filtering and map-layer tuning. Source URLs are human-reviewed references, not automatically archived or continuously verified.
+This is an editable foundation, not a completed research catalog. There is no CMS, backend, authentication, live program-status feed, outcome calculation, threat modeling, sensor or weapon performance model. Motion is presentation animation, not flight dynamics: smooth paths are interpolation through authored waypoints, heading is visual orientation, and timeline seconds do not imply aircraft speed. Single-point tracks hold position; tracks hold their first/last location outside keyframe bounds. Very large datasets will need indexing, filtering and map-layer tuning. Source URLs are human-reviewed references, not automatically archived or continuously verified.
