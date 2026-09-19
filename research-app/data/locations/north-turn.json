@@ -1,0 +1,13 @@
+{
+  "id": "north-turn",
+  "name": "North turn waypoint",
+  "coordinates": [136.2, 27.2],
+  "evidence": "illustrative",
+  "notes": "Fictional open-ocean waypoint used only to demonstrate an editable curved presentation path.",
+  "citations": [
+    {
+      "sourceId": "editorial",
+      "locator": "Dynamic-motion example waypoint"
+    }
+  ]
+}
