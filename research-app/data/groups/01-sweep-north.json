@@ -7,13 +7,22 @@
   "citations": [
     {
       "sourceId": "editorial",
-      "locator": "Starter dataset: group membership and spacing"
+      "locator": "Starter dataset: group membership, spacing and motion"
     }
   ],
+  "motion": {
+    "path": "smooth",
+    "heading": "path",
+    "rotateFormation": true
+  },
   "keyframes": [
     {
       "t": 0,
       "locationId": "north-start"
+    },
+    {
+      "t": 20,
+      "locationId": "north-turn"
     },
     {
       "t": 40,
