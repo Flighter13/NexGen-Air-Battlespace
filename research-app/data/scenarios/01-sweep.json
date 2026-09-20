@@ -1,43 +1,71 @@
 {
   "id": "01-sweep",
-  "title": "CCA sweep \u00b7 concept overview",
-  "subtitle": "Three axes, one shared research view",
-  "description": "A simplified reading of the Mitchell Institute sweep concept. Explore how abstract CCA groups and a crewed element relate across presentation phases.",
+  "title": "CCA sweep · mission sequence",
+  "subtitle": "Probe, expose, support and sustain pressure",
+  "description": "A research visualization of the Mitchell Institute CCA sweep concept, organized into mission-oriented phases rather than generic presentation steps.",
   "evidence": "illustrative",
   "citations": [
     {
-      "sourceId": "mitchell-summary",
-      "locator": "PDF page 7; three-axis sweep concept"
+      "sourceId": "mitchell-report",
+      "locator": "Figures 4-5; CCA sweep in advance of and between strike pulses"
     }
   ],
   "assumptions": [
-    "All geography, timings, paths and actor counts are editorial illustration, not taken from the source.",
-    "Timeline seconds control the presentation only; they do not represent flight time, speed, range or readiness.",
-    "Lines indicate conceptual relationships, not verified interfaces or actual connectivity.",
-    "No engagement outcomes, targeting, tactics optimization or capability predictions are computed."
+    "The phase sequence is derived from the published conceptual mission flow, but all displayed geography, timings, paths and actor counts remain editorial illustration unless specifically cited.",
+    "Timeline seconds are presentation time only and do not represent aircraft speed, range, sortie duration or readiness.",
+    "Adversary reactions are represented only as abstract mission-context changes; the visualization does not simulate targeting, engagement outcomes or tactical optimization.",
+    "Displayed links indicate explanatory relationships, not verified operational interfaces."
   ],
-  "duration": 60,
+  "duration": 84,
   "phases": [
     {
-      "id": "introduce",
-      "title": "Introduce",
+      "id": "stage",
+      "title": "Stage / Position",
       "start": 0,
-      "end": 15,
-      "narrative": "Identify the three abstract CCA groups and the crewed element."
+      "end": 12,
+      "narrative": "Establish the three CCA approach axes and the crewed follow-on element before the sweep begins."
     },
     {
-      "id": "compare",
-      "title": "Explore relationships",
-      "start": 15,
-      "end": 40,
-      "narrative": "The published concept combines crewed fighters with CCA on one axis. The displayed links are explanatory."
+      "id": "probe",
+      "title": "CCA Probe",
+      "start": 12,
+      "end": 26,
+      "narrative": "Expendable CCA advance on multiple axes to stimulate and expose defensive responses in the published sweep concept."
     },
     {
-      "id": "review",
-      "title": "Review",
-      "start": 40,
-      "end": 60,
-      "narrative": "Revisit the concept and inspect provenance. No mission outcome is calculated."
+      "id": "reveal",
+      "title": "Reveal / React",
+      "start": 26,
+      "end": 38,
+      "narrative": "The visualization highlights the concept's purpose of provoking reactions and revealing defensive activity without modeling the adversary tactically."
+    },
+    {
+      "id": "follow-on",
+      "title": "Crewed Follow-On",
+      "start": 38,
+      "end": 52,
+      "narrative": "A crewed fighter element follows one axis with CCA support, reflecting the report's crewed-uncrewed sweep concept."
+    },
+    {
+      "id": "pulse-support",
+      "title": "Strike-Pulse Support",
+      "start": 52,
+      "end": 64,
+      "narrative": "The sweep is shown as support to a larger strike pulse rather than as an isolated mission."
+    },
+    {
+      "id": "between-pulses",
+      "title": "Between-Pulse Pressure",
+      "start": 64,
+      "end": 76,
+      "narrative": "Recoverable and expendable CCA concepts continue pressure between major strike pulses, including screening and support relationships."
+    },
+    {
+      "id": "reset",
+      "title": "Reset / Reposition",
+      "start": 76,
+      "end": 84,
+      "narrative": "Recoverable elements reposition for the next illustrative cycle. This transition is presentation logic, not a claim about actual operational timing."
     }
   ],
   "actors": []
