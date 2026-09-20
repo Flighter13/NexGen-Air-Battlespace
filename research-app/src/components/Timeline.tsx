@@ -1,5 +1,6 @@
 import type { Scenario } from '../data/schema';
 import type { useTimeline } from '../engine/useTimeline';
+
 export function Timeline({
   scenario,
   clock,
@@ -34,6 +35,7 @@ export function Timeline({
         </label>
         <span className="fine">Presentation time</span>
       </div>
+
       <input
         aria-label="Presentation time"
         type="range"
@@ -43,22 +45,28 @@ export function Timeline({
         value={clock.time}
         onChange={(e) => clock.seek(+e.target.value)}
       />
-      <div className="phase-buttons">
-        {scenario.phases.map((p) => (
-          <button
-            key={p.id}
-            onClick={() => clock.seek(p.start)}
-            className={
-              clock.time >= p.start &&
-              (clock.time < p.end || p.end === scenario.duration)
-                ? 'current'
-                : ''
-            }
-          >
-            {p.title}
-            <small>{p.start}s</small>
-          </button>
-        ))}
+
+      <div className="phase-strip" role="tablist" aria-label="Mission phases">
+        {scenario.phases.map((p, index) => {
+          const current =
+            clock.time >= p.start &&
+            (clock.time < p.end || p.end === scenario.duration);
+
+          return (
+            <button
+              key={p.id}
+              type="button"
+              role="tab"
+              aria-selected={current}
+              onClick={() => clock.seek(p.start)}
+              className={current ? 'current' : ''}
+            >
+              <span className="phase-index">{String(index + 1).padStart(2, '0')}</span>
+              <span className="phase-title">{p.title}</span>
+              <small>{p.start}s</small>
+            </button>
+          );
+        })}
       </div>
     </section>
   );

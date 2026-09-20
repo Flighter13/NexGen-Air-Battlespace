@@ -1,0 +1,100 @@
+{
+  "id": "04-sead",
+  "title": "SEAD · mission sequence",
+  "subtitle": "ISR, stimulation, strike and follow-through",
+  "description": "A source-structured visualization of the Mitchell Institute SEAD concept, retaining the published phase organization while keeping all positions and motion illustrative.",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "mitchell-report",
+      "locator": "Figure 9; SEAD phases across the 24-hour presentation period"
+    }
+  ],
+  "assumptions": [
+    "Phase names follow the report's conceptual SEAD sequence; displayed geography, timing, actor counts and routes are editorial illustration.",
+    "No sensor, weapon, threat, targeting or kill-chain performance is modeled.",
+    "Timeline seconds are presentation time only and do not correspond to the source's real-world clock scale.",
+    "Actors are abstract research records rather than a claim about an actual force package."
+  ],
+  "duration": 75,
+  "phases": [
+    {
+      "id": "continuous-isr",
+      "title": "Continuous ISR",
+      "start": 0,
+      "end": 15,
+      "narrative": "Establish persistent intelligence, surveillance and reconnaissance as the background condition for the SEAD concept."
+    },
+    {
+      "id": "stimulate",
+      "title": "Stimulate / Decoy / Jam",
+      "start": 15,
+      "end": 32,
+      "narrative": "Represent the report's use of CCA to stimulate, deceive and electronically affect surface-air defenses."
+    },
+    {
+      "id": "strike",
+      "title": "Strike SAGs",
+      "start": 32,
+      "end": 49,
+      "narrative": "Show the conceptual strike phase against surface-to-air groups using a mix of CCA and crewed aircraft."
+    },
+    {
+      "id": "harass",
+      "title": "Harass / EA",
+      "start": 49,
+      "end": 63,
+      "narrative": "Continue pressure with harassment and electronic attack after the principal strike phase."
+    },
+    {
+      "id": "bda",
+      "title": "Harass & BDA",
+      "start": 63,
+      "end": 75,
+      "narrative": "Close with continued harassment and battle-damage-assessment activity as presented in the source figure."
+    }
+  ],
+  "actors": [
+    {
+      "id": "sead-isr",
+      "entityId": "support-concept",
+      "label": "ISR support element",
+      "role": "Abstract continuous ISR element",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "hub"
+        }
+      ],
+      "motion": {
+        "path": "linear",
+        "heading": "fixed",
+        "fixedHeading": 0
+      }
+    },
+    {
+      "id": "sead-cca",
+      "entityId": "cca-concept",
+      "label": "CCA SEAD element",
+      "role": "Abstract CCA element representing stimulation, electronic attack and strike support",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "south-start"
+        },
+        {
+          "t": 37,
+          "locationId": "center-area"
+        },
+        {
+          "t": 75,
+          "locationId": "south-area"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    }
+  ]
+}
