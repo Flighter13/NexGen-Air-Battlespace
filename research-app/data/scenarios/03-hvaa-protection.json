@@ -54,8 +54,10 @@
       "label": "HVAA support element",
       "role": "Abstract protected/supporting airborne element",
       "keyframes": [
-        { "t": 0, "locationId": "hub" },
-        { "t": 60, "locationId": "hub" }
+        {
+          "t": 0,
+          "locationId": "hub"
+        }
       ],
       "motion": {
         "path": "linear",
@@ -69,9 +71,18 @@
       "label": "CCA protection element",
       "role": "Abstract CCA element representing the report's protection concepts",
       "keyframes": [
-        { "t": 0, "locationId": "north-start" },
-        { "t": 30, "locationId": "north-area" },
-        { "t": 60, "locationId": "north-start" }
+        {
+          "t": 0,
+          "locationId": "north-start"
+        },
+        {
+          "t": 30,
+          "locationId": "north-area"
+        },
+        {
+          "t": 60,
+          "locationId": "north-start"
+        }
       ],
       "motion": {
         "path": "smooth",
