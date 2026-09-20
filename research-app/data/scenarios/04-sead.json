@@ -61,8 +61,10 @@
       "label": "ISR support element",
       "role": "Abstract continuous ISR element",
       "keyframes": [
-        { "t": 0, "locationId": "hub" },
-        { "t": 75, "locationId": "hub" }
+        {
+          "t": 0,
+          "locationId": "hub"
+        }
       ],
       "motion": {
         "path": "linear",
@@ -76,9 +78,18 @@
       "label": "CCA SEAD element",
       "role": "Abstract CCA element representing stimulation, electronic attack and strike support",
       "keyframes": [
-        { "t": 0, "locationId": "south-start" },
-        { "t": 37, "locationId": "center-area" },
-        { "t": 75, "locationId": "south-area" }
+        {
+          "t": 0,
+          "locationId": "south-start"
+        },
+        {
+          "t": 37,
+          "locationId": "center-area"
+        },
+        {
+          "t": 75,
+          "locationId": "south-area"
+        }
       ],
       "motion": {
         "path": "smooth",
