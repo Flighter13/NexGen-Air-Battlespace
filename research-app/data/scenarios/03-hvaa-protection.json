@@ -1,0 +1,82 @@
+{
+  "id": "03-hvaa-protection",
+  "title": "HVAA protection · mission sequence",
+  "subtitle": "Pulse support, ambush alert and decoy operations",
+  "description": "A source-structured visualization of the Mitchell Institute high-value airborne asset protection concept.",
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "mitchell-report",
+      "locator": "Figures 6-8; HVAA protection lines of effort"
+    }
+  ],
+  "assumptions": [
+    "This starter scenario preserves the report's three lines of effort but uses abstract actors and fictional presentation geography.",
+    "Displayed timing is for explanation only and does not represent real alert cycles, launch timelines or aircraft performance.",
+    "Threat behavior and engagement outcomes are not simulated.",
+    "Additional actors and routes should be added only when supported by cited research."
+  ],
+  "duration": 60,
+  "phases": [
+    {
+      "id": "pulse-support",
+      "title": "Pulse Support",
+      "start": 0,
+      "end": 20,
+      "narrative": "Frame the first line of effort: CCA and crewed aircraft support high-value airborne assets during major strike pulses."
+    },
+    {
+      "id": "ambush-alert",
+      "title": "Ambush Alert",
+      "start": 20,
+      "end": 40,
+      "narrative": "Frame the second line of effort: reactive waves between strike pulses intended to complicate threats to high-value airborne assets."
+    },
+    {
+      "id": "decoy-operations",
+      "title": "Decoy Operations",
+      "start": 40,
+      "end": 54,
+      "narrative": "Frame the third line of effort: decoy, ISR and electronic-attack effects used between pulses to keep defenses uncertain and help identify targets."
+    },
+    {
+      "id": "reconstitute",
+      "title": "Reconstitute / Repeat",
+      "start": 54,
+      "end": 60,
+      "narrative": "Reset the explanatory cycle. This transition is illustrative rather than a sourced operational timeline."
+    }
+  ],
+  "actors": [
+    {
+      "id": "hvaa-support",
+      "entityId": "support-concept",
+      "label": "HVAA support element",
+      "role": "Abstract protected/supporting airborne element",
+      "keyframes": [
+        { "t": 0, "locationId": "hub" },
+        { "t": 60, "locationId": "hub" }
+      ],
+      "motion": {
+        "path": "linear",
+        "heading": "fixed",
+        "fixedHeading": 0
+      }
+    },
+    {
+      "id": "hvaa-cca",
+      "entityId": "cca-concept",
+      "label": "CCA protection element",
+      "role": "Abstract CCA element representing the report's protection concepts",
+      "keyframes": [
+        { "t": 0, "locationId": "north-start" },
+        { "t": 30, "locationId": "north-area" },
+        { "t": 60, "locationId": "north-start" }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    }
+  ]
+}
