@@ -1,0 +1,16 @@
+{
+  "id": "ams-gra",
+  "name": "Agile Mission Suite Government Reference Architecture",
+  "type": "mission-systems-architecture",
+  "functions": [
+    "modular mission systems",
+    "open-system integration"
+  ],
+  "evidence": "documented",
+  "citations": [
+    {
+      "sourceId": "usaf-open-architectures",
+      "locator": "2026 architecture release"
+    }
+  ]
+}
