@@ -1,0 +1,24 @@
+{
+  "id": "ea37b",
+  "name": "EA-37B Compass Call",
+  "shortName": "EA-37B",
+  "category": "support",
+  "domain": "air",
+  "function": "electronic-warfare",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Air Combat Command describes the EA-37B as a wide-area airborne electronic-attack system used to deny, degrade and disrupt adversary communications, information processing, navigation and radar systems.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-ea37b",
+          "locator": "Mission"
+        }
+      ]
+    }
+  ]
+}
