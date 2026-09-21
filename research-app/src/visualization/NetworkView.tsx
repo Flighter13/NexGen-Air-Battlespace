@@ -6,6 +6,7 @@ import type { Relationship } from '../data/schema';
 
 type Node = SimulationNodeDatum & { id:string; label:string; entityId:string; icon:string; lane:string; };
 const laneOrder=['isr','battle-management','fighter','cca','electronic-warfare','tanker','bomber','transport','autonomy-test','other'];
+const laneSortIndex=(lane:string)=>{const index=laneOrder.indexOf(lane); return index===-1?laneOrder.length:index;};
 const viewBoxWidth=900;
 const viewBoxMinHeight=520;
 const laneStartY=105;
@@ -21,10 +22,10 @@ export function NetworkView({state,layoutState,allRelationships,onSelect,selecte
     const nodes:Node[]=visibleActors.map((a)=>({id:a.id,label:a.label,entityId:a.entityId,icon:assetUrl(a.entity.media?.icon ?? 'assets/entities/uncrewed.svg'),lane:a.entity.function}));
     const nodeIds=new Set(nodes.map((n)=>n.id));
     const links=allRelationships.filter((r)=>nodeIds.has(r.from)&&nodeIds.has(r.to)).map((r)=>({source:r.from,target:r.to}));
-    const activeLanes=[...new Set(nodes.map((n)=>n.lane))].sort((a,b)=>laneOrder.indexOf(a)-laneOrder.indexOf(b));
+    const activeLanes=[...new Set(nodes.map((n)=>n.lane))].sort((a,b)=>laneSortIndex(a)-laneSortIndex(b));
     const maxLaneSize=Math.max(0,...activeLanes.map((lane)=>nodes.filter((n)=>n.lane===lane).length));
     const centers=new Map(nodes.map((n)=>{
-      const laneIndex=Math.max(0,activeLanes.indexOf(n.lane));
+      const laneIndex=Math.max(0,activeLanes.findIndex((lane)=>lane===n.lane));
       const laneMembers=nodes.filter((m)=>m.lane===n.lane);
       const memberIndex=laneMembers.findIndex((m)=>m.id===n.id);
       return [n.id,{x:110+(laneIndex*680)/Math.max(1,activeLanes.length-1),y:laneStartY+memberIndex*laneSpacing}] as const;
