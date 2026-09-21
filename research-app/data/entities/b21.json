@@ -1,0 +1,24 @@
+{
+  "id": "b21",
+  "name": "B-21 Raider",
+  "shortName": "B-21",
+  "category": "crewed",
+  "domain": "air",
+  "function": "bomber",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "The Air Force describes the B-21 as a penetrating strike stealth bomber and a component of a larger family of systems that includes ISR, electronic attack and communications capabilities.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-b21",
+          "locator": "Mission and Features"
+        }
+      ]
+    }
+  ]
+}
