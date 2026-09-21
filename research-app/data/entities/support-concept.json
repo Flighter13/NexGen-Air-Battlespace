@@ -21,5 +21,11 @@
     "alt": "Abstract support aircraft symbol; not a specific design",
     "credit": "NexGen original schematic artwork",
     "rights": "Original software visualization symbol; does not depict a documented aircraft design."
-  }
+  },
+  "domain": "air",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "function": "logistics"
 }
