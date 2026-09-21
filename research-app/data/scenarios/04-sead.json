@@ -64,6 +64,10 @@
         {
           "t": 0,
           "locationId": "hub"
+        },
+        {
+          "t": 75,
+          "locationId": "hub"
         }
       ],
       "motion": {
