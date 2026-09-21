@@ -1,0 +1,19 @@
+{
+  "id": "04-sead-package",
+  "scenarioId": "04-sead",
+  "name": "SEAD research package",
+  "role": "Illustrative package combining ISR, electronic attack, crewed fighters and CCA around the published SEAD phase structure",
+  "members": [
+    "sead-isr",
+    "sead-ew",
+    "sead-fighter",
+    "sead-cca"
+  ],
+  "evidence": "illustrative",
+  "citations": [
+    {
+      "sourceId": "mitchell-report",
+      "locator": "Figure 9 and associated SEAD discussion"
+    }
+  ]
+}
