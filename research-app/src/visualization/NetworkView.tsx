@@ -6,22 +6,28 @@ import type { Relationship } from '../data/schema';
 
 type Node = SimulationNodeDatum & { id:string; label:string; entityId:string; icon:string; lane:string; };
 const laneOrder=['isr','battle-management','fighter','cca','electronic-warfare','tanker','bomber','transport','autonomy-test','other'];
+const viewBoxWidth=900;
+const viewBoxMinHeight=520;
+const laneStartY=105;
+const laneSpacing=95;
+const laneBottomPadding=95;
 
 export function NetworkView({state,layoutState,allRelationships,onSelect,selected,relationshipTypes}:{
   state:Snapshot; layoutState:Snapshot; allRelationships:Relationship[];
   onSelect:(id:string)=>void; selected:string; relationshipTypes:string[];
 }) {
-  const nodes=useMemo(()=>{
+  const {nodes,viewBoxHeight}=useMemo(()=>{
     const visibleActors=layoutState.actors.filter((a)=>a.entity.visualization.network);
     const nodes:Node[]=visibleActors.map((a)=>({id:a.id,label:a.label,entityId:a.entityId,icon:assetUrl(a.entity.media?.icon ?? 'assets/entities/uncrewed.svg'),lane:a.entity.function}));
     const nodeIds=new Set(nodes.map((n)=>n.id));
     const links=allRelationships.filter((r)=>nodeIds.has(r.from)&&nodeIds.has(r.to)).map((r)=>({source:r.from,target:r.to}));
     const activeLanes=[...new Set(nodes.map((n)=>n.lane))].sort((a,b)=>laneOrder.indexOf(a)-laneOrder.indexOf(b));
+    const maxLaneSize=Math.max(0,...activeLanes.map((lane)=>nodes.filter((n)=>n.lane===lane).length));
     const centers=new Map(nodes.map((n)=>{
       const laneIndex=Math.max(0,activeLanes.indexOf(n.lane));
       const laneMembers=nodes.filter((m)=>m.lane===n.lane);
       const memberIndex=laneMembers.findIndex((m)=>m.id===n.id);
-      return [n.id,{x:110+(laneIndex*680)/Math.max(1,activeLanes.length-1),y:105+memberIndex*95}] as const;
+      return [n.id,{x:110+(laneIndex*680)/Math.max(1,activeLanes.length-1),y:laneStartY+memberIndex*laneSpacing}] as const;
     }));
     nodes.forEach((n)=>{const c=centers.get(n.id)!;n.x=c.x;n.y=c.y;});
     const sim=forceSimulation(nodes)
@@ -32,11 +38,11 @@ export function NetworkView({state,layoutState,allRelationships,onSelect,selecte
       .force('y',forceY<Node>((n)=>centers.get(n.id)!.y).strength(0.45))
       .stop();
     for(let i=0;i<180;i++) sim.tick();
-    return nodes;
+    return {nodes,viewBoxHeight:Math.max(viewBoxMinHeight,laneStartY+Math.max(0,maxLaneSize-1)*laneSpacing+laneBottomPadding)};
   },[layoutState.actors.map((a)=>a.id).join('|'),allRelationships]);
 
   const activeRelationships=state.relationships.filter((r)=>relationshipTypes.includes(r.type));
-  return <svg className="network" viewBox="0 0 900 520" role="img" aria-label="Mission system-of-systems relationship network">
+  return <svg className="network" viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`} role="img" aria-label="Mission system-of-systems relationship network">
     <defs><marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
     {activeRelationships.map((r)=>{
       const a=nodes.find((n)=>n.id===r.from), b=nodes.find((n)=>n.id===r.to); if(!a||!b)return null;
