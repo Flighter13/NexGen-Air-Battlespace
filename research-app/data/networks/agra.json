@@ -1,0 +1,16 @@
+{
+  "id": "agra",
+  "name": "Autonomy Government Reference Architecture",
+  "type": "autonomy-architecture",
+  "functions": [
+    "mission autonomy portability",
+    "decouple mission software from vehicle hardware"
+  ],
+  "evidence": "documented",
+  "citations": [
+    {
+      "sourceId": "usaf-agra",
+      "locator": "2026 validation announcement"
+    }
+  ]
+}
