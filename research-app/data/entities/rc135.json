@@ -1,0 +1,24 @@
+{
+  "id": "rc135",
+  "name": "RC-135V/W Rivet Joint",
+  "shortName": "RC-135",
+  "category": "support",
+  "domain": "air",
+  "function": "isr",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "The Air Force describes Rivet Joint as providing near-real-time intelligence collection, analysis and dissemination, with gathered information forwarded to a wide range of consumers.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-rc135",
+          "locator": "RC-135V/W Rivet Joint section"
+        }
+      ]
+    }
+  ]
+}
