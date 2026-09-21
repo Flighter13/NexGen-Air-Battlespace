@@ -1,0 +1,19 @@
+{
+  "id": "sead-fighter-cca",
+  "scenarioId": "04-sead",
+  "from": "sead-fighter",
+  "to": "sead-cca",
+  "type": "coordination",
+  "label": "Crewed-uncrewed coordination",
+  "function": "mission teaming",
+  "direction": "bidirectional",
+  "evidence": "illustrative",
+  "start": 15,
+  "end": 75,
+  "citations": [
+    {
+      "sourceId": "mitchell-report",
+      "locator": "CCA and crewed force use in SEAD concept"
+    }
+  ]
+}

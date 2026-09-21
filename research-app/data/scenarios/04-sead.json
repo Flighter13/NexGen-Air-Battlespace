@@ -2,7 +2,7 @@
   "id": "04-sead",
   "title": "SEAD · mission sequence",
   "subtitle": "ISR, stimulation, strike and follow-through",
-  "description": "A source-structured visualization of the Mitchell Institute SEAD concept, retaining the published phase organization while keeping all positions and motion illustrative.",
+  "description": "A source-structured visualization of the Mitchell Institute SEAD concept, expanded into a system-of-systems view using documented platform roles and illustrative mission relationships.",
   "evidence": "illustrative",
   "citations": [
     {
@@ -11,10 +11,10 @@
     }
   ],
   "assumptions": [
-    "Phase names follow the report's conceptual SEAD sequence; displayed geography, timing, actor counts and routes are editorial illustration.",
-    "No sensor, weapon, threat, targeting or kill-chain performance is modeled.",
-    "Timeline seconds are presentation time only and do not correspond to the source's real-world clock scale.",
-    "Actors are abstract research records rather than a claim about an actual force package."
+    "Phase names follow the report's conceptual SEAD sequence; displayed geography, timing, actor counts and routes remain editorial illustration.",
+    "Platform roles are documented separately from the illustrative mission package.",
+    "No sensor, weapon, threat, targeting, kill-chain performance or engagement outcome is modeled.",
+    "Relationship lines explain support, data, electronic-attack and teaming functions; they do not assert classified interfaces."
   ],
   "duration": 75,
   "phases": [
@@ -23,46 +23,50 @@
       "title": "Continuous ISR",
       "start": 0,
       "end": 15,
-      "narrative": "Establish persistent intelligence, surveillance and reconnaissance as the background condition for the SEAD concept."
+      "narrative": "Persistent ISR and battle-space awareness form the information layer supporting the SEAD concept."
     },
     {
       "id": "stimulate",
       "title": "Stimulate / Decoy / Jam",
       "start": 15,
       "end": 32,
-      "narrative": "Represent the report's use of CCA to stimulate, deceive and electronically affect surface-air defenses."
+      "narrative": "CCA and electronic-attack effects are shown as separate but cooperating mission functions."
     },
     {
       "id": "strike",
       "title": "Strike SAGs",
       "start": 32,
       "end": 49,
-      "narrative": "Show the conceptual strike phase against surface-to-air groups using a mix of CCA and crewed aircraft."
+      "narrative": "Crewed and uncrewed strike-support elements enter the same mission package; no engagement outcome is calculated."
     },
     {
       "id": "harass",
       "title": "Harass / EA",
       "start": 49,
       "end": 63,
-      "narrative": "Continue pressure with harassment and electronic attack after the principal strike phase."
+      "narrative": "Electronic attack and uncrewed pressure remain active after the primary strike phase."
     },
     {
       "id": "bda",
       "title": "Harass & BDA",
       "start": 63,
       "end": 75,
-      "narrative": "Close with continued harassment and battle-damage-assessment activity as presented in the source figure."
+      "narrative": "ISR and follow-through effects remain visible to emphasize the mission as an information and effects network rather than a single aircraft action."
     }
   ],
   "actors": [
     {
       "id": "sead-isr",
-      "entityId": "support-concept",
-      "label": "ISR support element",
-      "role": "Abstract continuous ISR element",
+      "entityId": "rc135",
+      "label": "ISR element",
+      "role": "Near-real-time intelligence collection and dissemination research role",
       "keyframes": [
         {
           "t": 0,
+          "locationId": "hub"
+        },
+        {
+          "t": 75,
           "locationId": "hub"
         }
       ],
@@ -70,6 +74,54 @@
         "path": "linear",
         "heading": "fixed",
         "fixedHeading": 0
+      }
+    },
+    {
+      "id": "sead-ew",
+      "entityId": "ea37b",
+      "label": "Electronic-attack element",
+      "role": "Airborne electronic-attack support",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "north-start"
+        },
+        {
+          "t": 37,
+          "locationId": "north-area"
+        },
+        {
+          "t": 75,
+          "locationId": "north-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "sead-fighter",
+      "entityId": "f35a",
+      "label": "Crewed fighter element",
+      "role": "Illustrative crewed strike-support actor",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "center-start"
+        },
+        {
+          "t": 37,
+          "locationId": "center-area"
+        },
+        {
+          "t": 75,
+          "locationId": "center-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
       }
     },
     {

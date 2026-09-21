@@ -1,6 +1,6 @@
 {
   "id": "yfq42a",
-  "name": "YFQ-42A \u00b7 2025 designation",
+  "name": "YFQ-42A · 2025 designation",
   "shortName": "YFQ-42A",
   "category": "uncrewed",
   "claims": [
@@ -18,9 +18,15 @@
   "media": {
     "src": "assets/entities/yfq-42.png",
     "icon": "assets/entities/uncrewed.svg",
-    "alt": "YFQ-42A \u00b7 2025 designation \u2014 existing project image",
+    "alt": "YFQ-42A · 2025 designation — existing project image",
     "credit": "Reused from the original NexGen Air Battlespace repository",
     "rights": "Original upstream creator and license not recorded in the legacy repository. Retained as an existing project asset; no new rights claim is made.",
     "sourceUrl": "https://github.com/Flighter13/NexGen-Air-Battlespace/blob/main/images/yfq-42.png"
+  },
+  "domain": "air",
+  "function": "cca",
+  "visualization": {
+    "map": true,
+    "network": true
   }
 }

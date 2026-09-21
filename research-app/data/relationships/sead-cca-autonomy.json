@@ -1,0 +1,20 @@
+{
+  "id": "sead-cca-autonomy",
+  "scenarioId": "04-sead",
+  "from": "sead-fighter",
+  "to": "sead-cca",
+  "type": "autonomy",
+  "label": "Autonomy-enabled teaming",
+  "function": "mission autonomy",
+  "networkId": "agra",
+  "direction": "bidirectional",
+  "evidence": "analytical",
+  "start": 15,
+  "end": 75,
+  "citations": [
+    {
+      "sourceId": "usaf-agra",
+      "locator": "A-GRA supports portable mission autonomy across CCA platforms; direct scenario pairing is analytical"
+    }
+  ]
+}

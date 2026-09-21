@@ -18,9 +18,15 @@
   "media": {
     "src": "assets/entities/f35.png",
     "icon": "assets/entities/fighter.svg",
-    "alt": "F-35A Lightning II \u2014 existing project image",
+    "alt": "F-35A Lightning II — existing project image",
     "credit": "Reused from the original NexGen Air Battlespace repository",
     "rights": "Original upstream creator and license not recorded in the legacy repository. Retained as an existing project asset; no new rights claim is made.",
     "sourceUrl": "https://github.com/Flighter13/NexGen-Air-Battlespace/blob/main/images/f35.png"
+  },
+  "domain": "air",
+  "function": "fighter",
+  "visualization": {
+    "map": true,
+    "network": true
   }
 }

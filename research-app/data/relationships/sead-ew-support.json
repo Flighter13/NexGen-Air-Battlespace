@@ -1,0 +1,19 @@
+{
+  "id": "sead-ew-support",
+  "scenarioId": "04-sead",
+  "from": "sead-ew",
+  "to": "sead-fighter",
+  "type": "electronic-warfare",
+  "label": "Electronic-attack support",
+  "function": "electromagnetic attack support",
+  "direction": "one-way",
+  "evidence": "analytical",
+  "start": 15,
+  "end": 63,
+  "citations": [
+    {
+      "sourceId": "mitchell-report",
+      "locator": "SEAD electronic attack concept"
+    }
+  ]
+}

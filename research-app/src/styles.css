@@ -928,3 +928,11 @@ footer {
     grid-auto-columns: minmax(126px, 72vw);
   }
 }
+
+.library-filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 4px}
+.relationship-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.relationship-filters label{font-size:10px;border:1px solid #30444f;border-radius:999px;padding:5px 8px;color:#a9bdc8;background:#13232f}
+.relationship-filters input{accent-color:#70d9cb;vertical-align:middle;margin-right:5px}
+.network .node-function{font-size:9px;fill:#8ea8b7;text-transform:uppercase}
+.edge-command{color:#efc36f}.edge-data{color:#78d8ce}.edge-sensor{color:#8bb7ef}.edge-refueling{color:#d0a0ef}.edge-electronic-warfare{color:#ef8f8f}.edge-autonomy{color:#9fd682}.edge-logistics{color:#d6a574}.edge-coordination,.edge-support{color:#c7d2d8}
+@media(max-width:700px){.library-filters{grid-template-columns:1fr}.relationship-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px}.relationship-filters label{white-space:nowrap;min-height:38px;display:flex;align-items:center}}

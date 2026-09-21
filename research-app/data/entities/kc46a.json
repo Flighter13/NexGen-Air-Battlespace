@@ -1,0 +1,24 @@
+{
+  "id": "kc46a",
+  "name": "KC-46A Pegasus",
+  "shortName": "KC-46",
+  "category": "support",
+  "domain": "air",
+  "function": "tanker",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Air Mobility Command identifies the KC-46A's primary mission as aerial refueling and airlift, supporting Air Force, Navy, Marine Corps and partner-nation receivers.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-kc46",
+          "locator": "Mission"
+        }
+      ]
+    }
+  ]
+}

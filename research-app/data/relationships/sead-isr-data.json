@@ -1,0 +1,19 @@
+{
+  "id": "sead-isr-data",
+  "scenarioId": "04-sead",
+  "from": "sead-isr",
+  "to": "sead-fighter",
+  "type": "data",
+  "label": "ISR dissemination",
+  "function": "intelligence dissemination",
+  "direction": "one-way",
+  "evidence": "analytical",
+  "start": 0,
+  "end": 75,
+  "citations": [
+    {
+      "sourceId": "usaf-rc135",
+      "locator": "RC-135 mission description; scenario linkage is analytical"
+    }
+  ]
+}
