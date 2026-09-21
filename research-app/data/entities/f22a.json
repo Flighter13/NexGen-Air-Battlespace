@@ -1,0 +1,24 @@
+{
+  "id": "f22a",
+  "name": "F-22 Raptor",
+  "shortName": "F-22",
+  "category": "crewed",
+  "domain": "air",
+  "function": "fighter",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "The Air Force describes the F-22 as an air-dominance fighter that performs both air-to-air and air-to-ground missions.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-f22",
+          "locator": "Mission and Features"
+        }
+      ]
+    }
+  ]
+}
