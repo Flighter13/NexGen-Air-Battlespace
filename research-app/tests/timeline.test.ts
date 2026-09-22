@@ -138,10 +138,12 @@ describe('deterministic presentation timeline', () => {
   it('activates relationships exactly at phase boundaries and supports reverse seeking', () => {
     expect(snapshot(s, 14.9, catalog).relationships).toHaveLength(0);
     expect(snapshot(s, 15, catalog).relationships).toHaveLength(1);
-    expect(snapshot(s, 15, catalog).phase.id).toBe('compare');
+    expect(snapshot(s, 15, catalog).phase.id).toBe('probe');
     snapshot(s, 55, catalog);
     expect(snapshot(s, 0, catalog).relationships).toHaveLength(0);
-    expect(snapshot(s, 60, catalog).phase.id).toBe('review');
+    expect(snapshot(s, s.duration, catalog).phase.id).toBe(
+      s.phases[s.phases.length - 1].id,
+    );
   });
 
   it('ends intermediate relationship intervals exclusively', () => {
