@@ -4,7 +4,7 @@ import {
   packageSchema, scenarioSchema, groupSchema, validateCatalog,
 } from './schema';
 
-function read<T>(files: Record<string, unknown>, schema: z.ZodType<T>): T[] {
+function read<S extends z.ZodTypeAny>(files: Record<string, unknown>, schema: S): z.output<S>[] {
   return Object.entries(files).sort(([a],[b])=>a.localeCompare(b)).map(([file,data])=>{
     const result=schema.safeParse(data);
     if(!result.success) throw new Error(`${file}: ${result.error.message}`);
