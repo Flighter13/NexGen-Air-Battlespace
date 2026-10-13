@@ -1,0 +1,31 @@
+{
+  "id": "e7a",
+  "name": "E-7A Wedgetail",
+  "shortName": "E7A",
+  "category": "support",
+  "domain": "air",
+  "function": "battle-management",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Airborne early warning and high-value airborne asset in the HVAA protection concept.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "Figures 4 and 6 (pp. 18-19)"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/support.svg",
+    "icon": "assets/entities/support.svg",
+    "alt": "Schematic category symbol for E-7A Wedgetail",
+    "credit": "NexGen schematic illustration",
+    "rights": "Generic explanatory symbol, not a platform-accurate silhouette"
+  }
+}
