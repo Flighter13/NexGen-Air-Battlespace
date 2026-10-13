@@ -22,11 +22,11 @@
     }
   ],
   "media": {
-    "src": "assets/entities/uncrewed.svg",
-    "icon": "assets/entities/uncrewed.svg",
-    "alt": "Schematic category icon for Recoverable counterair CCA-1; not a physical configuration",
-    "credit": "NexGen schematic category illustration",
-    "rights": "Project illustration; not a validated aircraft silhouette",
+    "src": "assets/entities/cca-1.svg",
+    "icon": "assets/entities/cca-1.svg",
+    "alt": "Abstract CCA-1 mission-role symbol, not physical aircraft geometry",
+    "credit": "NexGen original abstract mission-role artwork",
+    "rights": "Original schematic artwork; not a physical aircraft silhouette",
     "iconCalibration": {
       "width": 160,
       "height": 170,
