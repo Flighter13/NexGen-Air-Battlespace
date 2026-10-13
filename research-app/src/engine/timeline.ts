@@ -64,13 +64,14 @@ export function snapshot(scenario: Scenario, t: number, catalog: Catalog) {
       a.motion,
       a.offsetKm,
     ),
-    heading: headingAt(a.keyframes, time, catalog.locations, a.motion),
-    route: sampleRoute(
+    heading: headingAt(
       a.keyframes,
+      time,
       catalog.locations,
       a.motion,
       a.offsetKm,
     ),
+    route: sampleRoute(a.keyframes, catalog.locations, a.motion, a.offsetKm),
     entity: catalog.entities.find((e) => e.id === a.entityId)!,
   }));
 

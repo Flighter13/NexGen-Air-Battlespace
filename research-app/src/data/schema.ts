@@ -21,6 +21,16 @@ export const sourceSchema = z.object({
 
 const assetPath = z.string().regex(/^assets\/[a-zA-Z0-9/_-]+\.(png|jpg|webp|svg)$/);
 
+export const iconCalibrationSchema = z.object({
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  anchorX: z.number().finite().nonnegative(),
+  anchorY: z.number().finite().nonnegative(),
+  noseHeading: z.number().finite().min(0).max(360),
+}).refine((v) => v.anchorX <= v.width && v.anchorY <= v.height, {
+  message: 'Icon anchor must be inside the image dimensions',
+});
+
 export const entitySchema = z.object({
   id,
   name: id,
@@ -37,6 +47,7 @@ export const entitySchema = z.object({
     sourceUrl: z.string().url().optional(),
     rights: id,
     headingOffset: z.number().finite().min(-360).max(360).optional(),
+    iconCalibration: iconCalibrationSchema.optional(),
   }).optional(),
   claims: z.array(z.object({ text: id, evidence, citations })).min(1),
 });

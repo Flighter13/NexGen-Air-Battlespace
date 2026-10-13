@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Icon orientation regression fixture</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background: #101c28;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import { Deck } from '@deck.gl/core';
+      import { actorIconLayer } from '/src/visualization/actorIconLayer.ts';
+      import { catalog } from '/src/data/catalog.ts';
+      import { snapshot } from '/src/engine/timeline.ts';
+      import { iconCalibration } from '/src/visualization/iconOrientation.ts';
+
+      const deck = new Deck({
+        parent: document.body,
+        width: '100%',
+        height: '100%',
+        initialViewState: {
+          longitude: 0,
+          latitude: 0,
+          zoom: 5,
+          pitch: 0,
+          bearing: 0,
+        },
+        controller: false,
+        layers: [],
+        parameters: { clearColor: [0.06, 0.11, 0.16, 1] },
+      });
+      const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      window.orientationQA = {
+        async render({
+          heading = 0,
+          bearing = 0,
+          pitch = 0,
+          diagonal = false,
+          scenarioIndex,
+          time,
+          actorIndex = 0,
+          actual = false,
+        }) {
+          let actor = structuredClone(
+            snapshot(catalog.scenarios[scenarioIndex ?? 0], time ?? 5, catalog)
+              .actors[actorIndex],
+          );
+          if (scenarioIndex === undefined) {
+            actor.position = [0, 0];
+            actor.heading = heading;
+          }
+          const [lon, lat] = actor.position;
+          let target;
+          if (scenarioIndex !== undefined) {
+            target = snapshot(
+              catalog.scenarios[scenarioIndex],
+              time + 0.005,
+              catalog,
+            ).actors[actorIndex].position;
+          } else {
+            const r = (heading * Math.PI) / 180;
+            target = [
+              lon + (Math.sin(r) * 0.01) / Math.cos((lat * Math.PI) / 180),
+              lat + Math.cos(r) * 0.01,
+            ];
+          }
+          const calibration = diagonal
+            ? {
+                width: 240,
+                height: 120,
+                anchorX: 100,
+                anchorY: 70,
+                noseHeading: 315,
+              }
+            : {
+                width: 160,
+                height: 170,
+                anchorX: 80,
+                anchorY: 85,
+                noseHeading: 0,
+              };
+          let layer;
+          if (actual) {
+            layer = actorIconLayer([actor], () => {}).clone({ getSize: 110 });
+          } else {
+            actor.entity.media = {
+              ...actor.entity.media,
+              iconCalibration: calibration,
+              headingOffset: 0,
+            };
+            layer = actorIconLayer([actor], () => {});
+            const descriptor = layer.props.getIcon(actor);
+            const {
+              width,
+              height,
+              anchorX: x,
+              anchorY: y,
+              noseHeading,
+            } = calibration;
+            const r = (noseHeading * Math.PI) / 180,
+              dx = Math.sin(r) * 35,
+              dy = -Math.cos(r) * 35;
+            const svg =
+              '<svg xmlns="http://www.w3.org/2000/svg" width="' +
+              width +
+              '" height="' +
+              height +
+              '">' +
+              '<line x1="' +
+              (x - dx) +
+              '" y1="' +
+              (y - dy) +
+              '" x2="' +
+              (x + dx) +
+              '" y2="' +
+              (y + dy) +
+              '" stroke="white" stroke-width="3"/>' +
+              '<circle cx="' +
+              (x + dx) +
+              '" cy="' +
+              (y + dy) +
+              '" r="9" fill="#ff0000"/>' +
+              '<circle cx="' +
+              (x - dx) +
+              '" cy="' +
+              (y - dy) +
+              '" r="9" fill="#0000ff"/>' +
+              '<circle cx="' +
+              x +
+              '" cy="' +
+              y +
+              '" r="5" fill="#00ff00"/></svg>';
+            layer = layer.clone({
+              getIcon: () => ({
+                ...descriptor,
+                url: 'data:image/svg+xml,' + encodeURIComponent(svg),
+              }),
+              getSize: 170,
+            });
+          }
+          deck.setProps({
+            viewState: {
+              longitude: lon,
+              latitude: lat,
+              zoom: 6,
+              bearing,
+              pitch,
+            },
+            layers: [layer],
+          });
+          await delay(350);
+          deck.redraw(true);
+          await delay(100);
+          const viewport = deck.getViewports()[0];
+          return {
+            from: viewport.project(actor.position),
+            to: viewport.project(target),
+            heading: actor.heading,
+            actor: actor.id,
+            calibration: iconCalibration(actor.entity.media),
+          };
+        },
+        actors(scenarioIndex, time) {
+          return snapshot(
+            catalog.scenarios[scenarioIndex],
+            time,
+            catalog,
+          ).actors.map((a, i) => ({
+            index: i,
+            id: a.id,
+            path: !a.motion?.heading || a.motion.heading === 'path',
+          }));
+        },
+        scenarios: catalog.scenarios.map((s) => ({
+          id: s.id,
+          duration: s.duration,
+        })),
+      };
+    </script>
+  </body>
+</html>

@@ -1,8 +1,5 @@
-import type {
-  Keyframe,
-  Location,
-  MotionConfig,
-} from '../data/schema';
+import { travelDirection } from './pathDirection';
+import type { Keyframe, Location, MotionConfig } from '../data/schema';
 
 export type PathMode = 'linear' | 'smooth';
 export type HeadingMode = 'path' | 'manual' | 'fixed';
@@ -38,13 +35,7 @@ function segmentFor(keys: Keyframe[], t: number) {
   };
 }
 
-function catmullRom(
-  p0: number,
-  p1: number,
-  p2: number,
-  p3: number,
-  t: number,
-) {
+function catmullRom(p0: number, p1: number, p2: number, p3: number, t: number) {
   const t2 = t * t;
   const t3 = t2 * t;
   return (
@@ -123,24 +114,10 @@ export function pathHeadingAt(
   locations: Location[],
   mode: PathMode = 'linear',
 ): number {
-  if (keys.length < 2) return 0;
-
-  const first = keys[0].t;
-  const last = keys[keys.length - 1].t;
-  const span = Math.max(0.1, last - first);
-  const epsilon = Math.max(0.01, span / 1000);
-  let before = Math.max(first, t - epsilon);
-  let after = Math.min(last, t + epsilon);
-
-  if (before === after) {
-    if (after < last) after = Math.min(last, after + epsilon);
-    else before = Math.max(first, before - epsilon);
-  }
-
-  return bearingBetween(
-    positionAt(keys, before, locations, mode),
-    positionAt(keys, after, locations, mode),
+  const [from, to] = travelDirection(keys, t, (at) =>
+    positionAt(keys, at, locations, mode),
   );
+  return bearingBetween(from, to);
 }
 
 function manualHeadingAt(keys: Keyframe[], t: number): number {
@@ -156,13 +133,17 @@ export function headingAt(
   t: number,
   locations: Location[],
   motion?: MotionConfig,
+  offsetKm: [number, number] = [0, 0],
 ): number {
-  const pathMode = motion?.path ?? 'linear';
   const headingMode: HeadingMode = motion?.heading ?? 'path';
 
-  if (headingMode === 'fixed') return normalizeHeading(motion?.fixedHeading ?? 0);
+  if (headingMode === 'fixed')
+    return normalizeHeading(motion?.fixedHeading ?? 0);
   if (headingMode === 'manual') return manualHeadingAt(keys, t);
-  return pathHeadingAt(keys, t, locations, pathMode);
+  const [from, to] = travelDirection(keys, t, (at) =>
+    displayPositionAt(keys, at, locations, motion, offsetKm),
+  );
+  return bearingBetween(from, to);
 }
 
 export function rotateOffset(
@@ -183,8 +164,7 @@ export function offsetPosition(
 ): [number, number] {
   return [
     normalizeLongitude(
-      point[0] /
-        1 +
+      point[0] / 1 +
         offsetKm[0] /
           (111.32 * Math.max(0.087, Math.cos((point[1] * Math.PI) / 180))),
     ),

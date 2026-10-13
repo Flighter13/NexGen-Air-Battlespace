@@ -7,13 +7,12 @@ import mapWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 maplibregl.setWorkerUrl(mapWorkerUrl);
 import { MapboxOverlay } from '@deck.gl/mapbox';
 import {
-  IconLayer,
   LineLayer,
   PathLayer,
   ScatterplotLayer,
   TextLayer,
 } from '@deck.gl/layers';
-import type { PickingInfo } from '@deck.gl/core';
+import { actorIconLayer } from './actorIconLayer';
 import { catalog } from '../data/catalog';
 import type { Snapshot } from '../engine/timeline';
 import { assetUrl } from '../components/EntityImage';
@@ -32,6 +31,7 @@ export function MapView({
 }) {
   const container = useRef<HTMLDivElement>(null),
     overlay = useRef<MapboxOverlay | null>(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
   const [ready, setReady] = useState(false),
     [error, setError] = useState('');
   const initialActors = useRef(state.actors);
@@ -103,6 +103,7 @@ export function MapView({
         ),
       );
 
+      map.once('idle', () => setMapLoaded(true));
       setReady(true);
       const observer = new ResizeObserver(() => map?.resize());
       observer.observe(container.current!);
@@ -182,26 +183,7 @@ export function MapView({
           getLineWidth: 1,
           lineWidthUnits: 'pixels',
         }),
-        new IconLayer<Actor>({
-          id: 'actors',
-          data: state.actors,
-          getPosition: (a) => a.position,
-          getIcon: (a) => ({
-            url: assetUrl(
-              a.entity.media?.icon ?? 'assets/entities/uncrewed.svg',
-            ),
-            width: 160,
-            height: 170,
-            anchorY: 85,
-          }),
-          getSize: 29,
-          getAngle: (a) =>
-            (a.heading + (a.entity.media?.headingOffset ?? 0) + 360) % 360,
-          pickable: true,
-          onClick: (info: PickingInfo<Actor>) => {
-            if (info.object) onSelect(info.object.id);
-          },
-        }),
+        actorIconLayer(state.actors, onSelect),
         new TextLayer<Actor>({
           id: 'actor-labels',
           data: state.actors.filter(
@@ -232,6 +214,7 @@ export function MapView({
         className="map"
         ref={container}
         aria-label="Illustrative geographic scenario map"
+        aria-busy={!mapLoaded}
       />
       {error && (
         <div role="status" className="map-error">

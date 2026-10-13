@@ -13,6 +13,7 @@ const assert = require('node:assert/strict');
   const panel=async name=>{if(device==='mobile')await page.getByRole('button',{name,exact:true}).click();};
   const mapReady=async()=>{
    await page.locator('.maplibregl-canvas').waitFor({state:'visible'});
+   await page.locator('.map[aria-busy="false"]').waitFor({state:'visible'});
    await page.waitForLoadState('networkidle');
    await page.waitForFunction(()=>!document.querySelector('.visualization-loading'));
    assert.equal(await page.locator('.map-error').count(),0,'Map reported an error');
