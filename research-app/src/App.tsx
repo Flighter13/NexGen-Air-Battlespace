@@ -1,11 +1,11 @@
-import { useMemo, useState } from 'react';
+import { lazy, Suspense, useMemo, useState } from 'react';
 import { catalog } from './data/catalog';
 import type { Scenario } from './data/schema';
 import { snapshot, filterSnapshot } from './engine/timeline';
 import { compareSnapshots } from './engine/comparePhases';
 import { useTimeline } from './engine/useTimeline';
-import { MapView } from './visualization/MapView';
-import { NetworkView } from './visualization/NetworkView';
+const MapView = lazy(() => import('./visualization/MapView').then(m => ({default:m.MapView})));
+const NetworkView = lazy(() => import('./visualization/NetworkView').then(m => ({default:m.NetworkView})));
 import { Timeline } from './components/Timeline';
 import { EntityCard } from './components/EntityCard';
 import { Provenance } from './components/Provenance';
@@ -69,7 +69,7 @@ function Workspace({scenario,onScenario}:{scenario:Scenario;onScenario:(id:strin
       <div className="relationship-filters" aria-label="Relationship layers"><label>Evidence <select aria-label="Filter relationship evidence" value={evidenceFilter} onChange={(e)=>setEvidenceFilter(e.target.value as typeof evidenceFilter)}><option value="all">All evidence</option><option value="documented">Documented</option><option value="analytical">Analytical</option><option value="illustrative">Illustrative</option></select></label>{RELATIONSHIP_TYPES.map((type)=><label key={type}><input type="checkbox" checked={relationshipTypes.includes(type)} onChange={()=>setRelationshipTypes((current)=>current.includes(type)?current.filter((t)=>t!==type):[...current,type])}/>{type}</label>)}</div>
       <div className="visualization">
         <div className="map-label"><span className="live-dot"/> {view==='map'?'Fictional study geography':'Mission system-of-systems'}<small>{displayed.actors.length} / {state.actors.length} visible actors · {displayed.relationships.length} active links</small></div>
-        {view==='map'?<MapView state={displayed} selected={selectedActor} onSelect={selectActor}/>:<NetworkView state={displayed} layoutState={state} allRelationships={allRelationships} selected={selectedActor} onSelect={selectActor} relationshipTypes={relationshipTypes} evidenceFilter={evidenceFilter} selectedRelationship={selectedRelationship} onRelationshipSelect={setSelectedRelationship}/>}
+        <Suspense fallback={<div role="status" className="visualization-loading">Loading visualization…</div>}>{view==='map'?<MapView state={displayed} selected={selectedActor} onSelect={selectActor}/>:<NetworkView state={displayed} layoutState={state} allRelationships={allRelationships} selected={selectedActor} onSelect={selectActor} relationshipTypes={relationshipTypes} evidenceFilter={evidenceFilter} selectedRelationship={selectedRelationship} onRelationshipSelect={setSelectedRelationship}/>}</Suspense>
         <div className="legend"><span>● Research actor</span><span className="gold">━ Active relationship</span><label><input type="checkbox" checked={showLinks} onChange={(e)=>setShowLinks(e.target.checked)}/> Show links</label></div>
       </div>
       <div className="phase-narrative"><span className="eyebrow">{state.phase.title}</span><p>{state.phase.narrative}</p></div><Timeline scenario={scenario} clock={clock}/><section className="phase-comparison"><div className="eyebrow">COMPARE MISSION PHASES</div><label htmlFor="compare-phase">Compare current phase against</label><select id="compare-phase" value={comparePhase} onChange={(e)=>setComparePhase(e.target.value)}><option value="">Choose a phase</option>{scenario.phases.map(p=><option key={p.id} value={p.id}>{p.title}</option>)}</select>{comparePhase&&(()=>{const other=scenario.phases.find(p=>p.id===comparePhase)!;const difference=compareSnapshots(snapshot(scenario,other.start,catalog),snapshot(scenario,state.phase.start,catalog));return <div className="phase-diff" aria-live="polite"><p><strong>{difference.referencePhase}</strong> vs <strong>{difference.currentPhase}</strong></p><p>{difference.referenceActorCount} vs {difference.currentActorCount} actors; {difference.referenceLinkCount} vs {difference.currentLinkCount} links (unfiltered)</p><p>Added links: {difference.newLinks.map(r=>r.label).join(', ')||'none'}</p><p>Removed links: {difference.removedLinks.map(r=>r.label).join(', ')||'none'}</p><p>Added actors: {difference.newActors.map(a=>a.label).join(', ')||'none'}</p><p>Removed actors: {difference.removedActors.map(a=>a.label).join(', ')||'none'}</p><small>Snapshots at the beginning of each phase; illustrative research, not operational outcomes.</small></div>})()}</section>
