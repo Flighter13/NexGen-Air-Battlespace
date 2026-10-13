@@ -1,0 +1,31 @@
+{
+  "id": "kj500",
+  "name": "KJ-500 AEW&C",
+  "shortName": "KJ500",
+  "category": "support",
+  "domain": "air",
+  "function": "battle-management",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "PLA airborne early warning aircraft described as an opposing high-value asset in the conceptual missions.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "pp. 17-20"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/support.svg",
+    "icon": "assets/entities/support.svg",
+    "alt": "Schematic category symbol for KJ-500 AEW&C",
+    "credit": "NexGen schematic illustration",
+    "rights": "Generic explanatory symbol, not a platform-accurate silhouette"
+  }
+}
