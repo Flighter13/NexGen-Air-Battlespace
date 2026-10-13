@@ -7,7 +7,11 @@
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "pp. 17–18, Figures 4–5; actor types sourced, geometry editorial"
+      "locator": "Figure 4, p. 18; three conceptual expendable CCA axes; exact tracks not published"
+    },
+    {
+      "sourceId": "editorial",
+      "locator": "Map coordinates, icon offsets, movement and actor multiplicities are fictional presentation geometry"
     }
   ],
   "keyframes": [
@@ -24,8 +28,8 @@
     {
       "id": "center",
       "entityId": "cca-5",
-      "label": "CCA-5 · illustrative",
-      "role": "TTX sourced platform type; placement illustrative",
+      "label": "center counterair CCA (concept)",
+      "role": "Weapon/EW CCA functional mix; icon counts do not encode the report's 3:1 ratio",
       "offsetKm": [
         0,
         0
@@ -34,8 +38,8 @@
     {
       "id": "center-2",
       "entityId": "cca-11",
-      "label": "CCA-11 · illustrative",
-      "role": "TTX sourced platform type; placement illustrative",
+      "label": "center EW CCA (concept)",
+      "role": "Weapon/EW CCA functional mix; icon counts do not encode the report's 3:1 ratio",
       "offsetKm": [
         80,
         -65
