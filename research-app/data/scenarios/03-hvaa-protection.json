@@ -1,20 +1,20 @@
 {
   "id": "03-hvaa-protection",
-  "title": "HVAA protection · mission sequence",
-  "subtitle": "2024 TTX · pulse support, ambush alert, decoy lines of effort",
-  "description": "Mitchell Institute HVAA protection TTX team planned three distinct lines of effort to protect E-7A and tanker aircraft from long-range counterair threats (Figures 6–8, pp. 19–20).",
+  "title": "Mitchell TTX · HVAA protection",
+  "subtitle": "Pulse support · Ambush alert · Decoy operations",
+  "description": "Illustrates the three published HVAA-protect team lines of effort from the 2024 Mitchell TTX (Figures 6–8, report pp. 19–20). The team sought to protect E-7A Wedgetail and air refueling aircraft against PLA long-range air-threat networks, using CCA together with F-22s and F-15EX.",
   "evidence": "illustrative",
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figures 6–8, pp. 19–20"
+      "locator": "pp. 19–20, Figures 6–8"
     }
   ],
   "assumptions": [
-    "Figures 6–8 are notional planning diagrams rather than timestamped real aircraft tracks.",
-    "The team envisioned first-day F-15EX air launches and subsequent ground launches from the Ryukyus for some recoverable EW CCA, but no precise coordinates or per-flight headings were published.",
-    "The report described up to four reactive waves per day depending on target availability; current timeline seconds and moving actors are illustrative.",
-    "Displayed threat relationships do not establish real sensor connectivity, kill chains or engagement results."
+    "Published LOE 1: F-22s and air-to-air/EW CCA in support of strike pulses; F-15EX air-launched CCA from Guam and recoverable EW CCA re-use from the Ryukyus (Figure 6).",
+    "Published LOE 2: reactive expendable CCA waves with recoverable ISR/EW CCA between pulses; Figure 7 discusses up to four waves a day depending on target availability.",
+    "Published LOE 3: recoverable ISR/EW CCA decoys and surveillance intended to keep PLA defenses uncertain (Figure 8).",
+    "Display timeline is not a validated exercise time trace; map positions, paths and actor counts remain illustrative. No target detection, interceptions or combat outcomes are modeled."
   ],
   "duration": 60,
   "phases": [
