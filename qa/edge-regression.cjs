@@ -8,7 +8,7 @@ const { chromium } = require('playwright');
   page.on('pageerror',e=>errors.push(e.message));
   page.on('requestfailed',r=>failed.push(r.url()));
   try {
-   const response=await page.goto('https://flighter13.github.io/NexGen-Air-Battlespace/research/',{waitUntil:'networkidle',timeout:30000});
+   const response=await page.goto((process.env.NEXGEN_TEST_URL || 'https://flighter13.github.io/NexGen-Air-Battlespace/research/'),{waitUntil:'networkidle',timeout:30000});
    await page.waitForTimeout(900);
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
    if(device==='mobile') await page.getByRole('button',{name:'Scenario',exact:true}).click();
