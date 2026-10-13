@@ -1,57 +1,57 @@
 {
   "id": "04-sead",
   "title": "SEAD · mission sequence",
-  "subtitle": "ISR, stimulation, strike and follow-through",
-  "description": "A source-structured visualization of the Mitchell Institute SEAD concept, expanded into a system-of-systems view using documented platform roles and illustrative mission relationships.",
+  "subtitle": "2024 TTX · phased counter-SAG SEAD concept over notional 24 hours",
+  "description": "Mitchell Institute SEAD team's four-phase tabletop concept: continuous ISR, stimulation/decoy/electronic attack, maritime surface-action-group strikes, and follow-on harassment/BDA (Figure 9, pp. 20–21).",
   "evidence": "illustrative",
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figure 9; SEAD phases across the 24-hour presentation period"
+      "locator": "Figure 9, pp. 20–21"
     }
   ],
   "assumptions": [
-    "Phase names follow the report's conceptual SEAD sequence; displayed geography, timing, actor counts and routes remain editorial illustration.",
-    "Platform roles are documented separately from the illustrative mission package.",
-    "No sensor, weapon, threat, targeting, kill-chain performance or engagement outcome is modeled.",
-    "Relationship lines explain support, data, electronic-attack and teaming functions; they do not assert classified interfaces."
+    "Figure 9 depicts a 24-hour conceptual cycle, but gives no exact georeferenced flight paths, target coordinates or detailed per-phase clock schedule.",
+    "The report's Figure 9 includes CCA-10/CCA-11, EA-37B and RC-135 ISR; the source text specifically identifies three CCA-10/EA-37B orbits and one RC-135 orbit. Presentation counts are not claimed to represent actual sorties.",
+    "CCA-12 was a SEAD team variant adapted from notional CCA-8; its requested quantity is not a fielded inventory.",
+    "Timeline seconds are compressed presentation time, not clock hours, and map routes are editorial illustrations."
   ],
   "duration": 75,
   "phases": [
     {
       "id": "continuous-isr",
-      "title": "Continuous ISR",
+      "title": "Phase 1 · Persistent ISR",
       "start": 0,
       "end": 15,
-      "narrative": "Persistent ISR and battle-space awareness form the information layer supporting the SEAD concept."
+      "narrative": "The SEAD concept begins with three continuous CCA/EA-37B ISR-support orbits and a single RC-135 Rivet Joint orbit."
     },
     {
       "id": "stimulate",
-      "title": "Stimulate / Decoy / Jam",
+      "title": "Phase 2 · Stimulate, decoy, jam",
       "start": 15,
       "end": 32,
-      "narrative": "CCA and electronic-attack effects are shown as separate but cooperating mission functions."
+      "narrative": "The team proposed expendable CCA-9, CCA-11 and modified CCA-12 to prompt emissions and disrupt SAG air defenses."
     },
     {
       "id": "strike",
-      "title": "Strike SAGs",
+      "title": "Phase 3 · Counter-SAG strike",
       "start": 32,
       "end": 49,
-      "narrative": "Crewed and uncrewed strike-support elements enter the same mission package; no engagement outcome is calculated."
+      "narrative": "Notional CCA-4, CCA-7 and crewed aircraft support maritime SAG attacks with AARGM, LRASM and SiAW."
     },
     {
       "id": "harass",
-      "title": "Harass / EA",
+      "title": "Phase 4 · Harass and electronic attack",
       "start": 49,
       "end": 63,
-      "narrative": "Electronic attack and uncrewed pressure remain active after the primary strike phase."
+      "narrative": "Repeated CCA-9, CCA-11 and CCA-12 waves impose pressure between larger strikes."
     },
     {
       "id": "bda",
-      "title": "Harass & BDA",
+      "title": "Phase 4a · Harass and assess",
       "start": 63,
       "end": 75,
-      "narrative": "ISR and follow-through effects remain visible to emphasize the mission as an information and effects network rather than a single aircraft action."
+      "narrative": "Follow-on CCA activity performs continuing harassment and battle-damage assessment in the team's plan."
     }
   ],
   "actors": [
