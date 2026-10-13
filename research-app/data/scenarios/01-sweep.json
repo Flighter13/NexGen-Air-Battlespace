@@ -1,8 +1,8 @@
 {
   "id": "01-sweep",
-  "title": "CCA sweep · mission sequence",
-  "subtitle": "2024 TTX · counterair sweep and between-pulse pressure",
-  "description": "Mitchell Institute 2024 tabletop-exercise concepts: three axes of expendable CCA probing defenses, F-22/F-35 follow-on along one axis, and recoverable CCA with F-15EX maintaining pressure between maritime strike pulses (Figures 3–5, pp. 17–18).",
+  "title": "Mitchell TTX · counterair sweep",
+  "subtitle": "2024 exercise: three-axis CCA probes, fighter follow-on, between-pulse pressure",
+  "description": "Source-based presentation of the sweep team's 2024 CCA tabletop exercise. Figures 4-5 show three expendable CCA approach axes, a fifth-generation fighter follow-on along one axis, and CCA/F-15EX pressure between maritime strike pulses.",
   "evidence": "illustrative",
   "citations": [
     {
@@ -11,61 +11,62 @@
     }
   ],
   "assumptions": [
-    "These are tabletop-exercise planning concepts, not observed combat missions or validated flight tracks.",
-    "The report depicts three approach axes and a 3:1 air-to-air/EW CCA mix but does not publish georeferenced tracks or flight headings; map paths, positions, actor quantities and timeline seconds are illustrative.",
-    "The report assumed two notional maritime strike pulses per day early in the scenario; playback is not a real-time sortie schedule.",
-    "The report's schematic figures are not replicated or presented as operational tactics."
+    "Figure 4 shows a 3:1 ratio of air-to-air weapon CCA to EW CCA across three conceptual axes.",
+    "Figure 5 uses recoverable CCA-1 screens, ISR CCA and standoff F-15EX between strike pulses.",
+    "Published TTX concepts and aggregate exercise results are sourced; the report does not disclose verified aircraft waypoints or flyable mission tracks.",
+    "Map positions, path geometry, animation duration and actor icons are deliberately schematic; presentation seconds are not elapsed operational hours.",
+    "Display actor counts are illustrative and must not be mistaken for the TTX's full force inventories or actual sortie totals."
   ],
   "duration": 84,
   "phases": [
     {
       "id": "stage",
-      "title": "TTX force selection and positioning",
+      "title": "Stage the three conceptual CCA axes",
       "start": 0,
       "end": 12,
-      "narrative": "Three planning axes and a crewed follow-on element illustrate the published sweep force package."
+      "narrative": "Figure 4 shows a 3:1 ratio of air-to-air weapon CCA to EW CCA across three conceptual axes. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
     },
     {
       "id": "probe",
-      "title": "Three-axis expendable CCA probe",
+      "title": "Expendable CCA probe defenses",
       "start": 12,
       "end": 26,
-      "narrative": "Expendable CCA with a reported 3:1 air-to-air-to-EW mix stimulate defenses along three conceptual axes."
+      "narrative": "Figure 5 uses recoverable CCA-1 screens, ISR CCA and standoff F-15EX between strike pulses. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
     },
     {
       "id": "reveal",
-      "title": "Air-defense response",
+      "title": "Adversary reaction / EW decoy effects",
       "start": 26,
       "end": 38,
-      "narrative": "The TTX concept sought to trigger reactions by PLA fighters and KJ-500; no actual engagements or outcomes are reproduced."
+      "narrative": "Figure 4 shows a 3:1 ratio of air-to-air weapon CCA to EW CCA across three conceptual axes. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
     },
     {
       "id": "follow-on",
-      "title": "F-22/F-35 supported sweep",
+      "title": "F-22/F-35 follow-on and CCA teaming",
       "start": 38,
       "end": 52,
-      "narrative": "A fifth-generation follow-on force approaches behind one CCA axis using reported ISR and airborne battle-management support."
+      "narrative": "Figure 5 uses recoverable CCA-1 screens, ISR CCA and standoff F-15EX between strike pulses. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
     },
     {
       "id": "pulse-support",
-      "title": "Maritime strike-pulse support",
+      "title": "Maritime strike pulse support",
       "start": 52,
       "end": 64,
-      "narrative": "Counterair sweep supports the report's notional bomber/F-35A/F-15EX maritime strike pulse."
+      "narrative": "Figure 4 shows a 3:1 ratio of air-to-air weapon CCA to EW CCA across three conceptual axes. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
     },
     {
       "id": "between-pulses",
-      "title": "CCA-1 and F-15EX pressure",
+      "title": "CCA-1 screens, ISR and F-15EX between pulses",
       "start": 64,
       "end": 76,
-      "narrative": "Recoverable CCA-1 screen stand-off F-15EX, with ISR cueing and expendable CCA-5 supporting between-pulse pressure."
+      "narrative": "Figure 5 uses recoverable CCA-1 screens, ISR CCA and standoff F-15EX between strike pulses. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
     },
     {
       "id": "reset",
-      "title": "Next notional pulse",
+      "title": "Vary approach geometry for subsequent pulses",
       "start": 76,
       "end": 84,
-      "narrative": "Replay depicts the recurring concept, not a published timing or route."
+      "narrative": "Figure 4 shows a 3:1 ratio of air-to-air weapon CCA to EW CCA across three conceptual axes. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
     }
   ],
   "actors": []
