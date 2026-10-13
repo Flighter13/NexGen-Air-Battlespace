@@ -1,8 +1,8 @@
 {
   "id": "03-hvaa-protection",
-  "title": "Mitchell 2024 TTX · HVAA protection",
-  "subtitle": "Three published lines of effort, Figures 6–8",
-  "description": "TTX team's three high-value airborne asset protection lines of effort: strike-pulse protection, reactive ambush-alert CCA waves, and decoy/ISR/electronic-attack missions between pulses.",
+  "title": "Mitchell TTX · HVAA protection",
+  "subtitle": "Pulse support, ambush alert and decoy LOEs",
+  "description": "Mitchell 2024 tabletop exercise Figures 6-8: three lines of effort used notional expendable and recoverable CCA in concert with F-22s, F-15EX and E-7A/tanker support to complicate the PLA threat to high-value airborne assets.",
   "evidence": "illustrative",
   "citations": [
     {
@@ -11,41 +11,40 @@
     }
   ],
   "assumptions": [
-    "LOE names and described roles are sourced to report Figures 6–8 and pp. 19–20, not actual combat operations.",
-    "The report names Japan and the Ryukyus as launch/recovery regions, but the site's exact display points and trajectories are illustrative.",
-    "The report describes F-22s, E-7A, air-refueling tankers, F-15EX and notional EW, ISR and expendable counterair CCA. Abstract icons must not imply recorded specific sorties.",
-    "The planning team proposed using its expendable allocation in the first two days; presentation timestamps are not those days.",
-    "No target locations, engagement outcomes, or tactical timings are inferred."
+    "Mission tasks and platform roles follow Figures 6-8 and page 20 of the February 2025 report; they describe TTX concepts rather than actual flights.",
+    "Figures describe broad areas (Ryukyus, mainland Japan, Guam) but provide no verifiable flight-track coordinates, actual launch times or platform-level observed movements.",
+    "The report states LOE 2 could launch up to four reactive waves per day depending on target availability and expendable CCA allocation could be exhausted in two days; playback seconds are not those timings.",
+    "Map actor positions are fictional study points and do not represent actual E-7A or tanker orbits or adversary engagements."
   ],
   "duration": 60,
   "phases": [
     {
       "id": "pulse-support",
-      "title": "LOE 1 · HVAA pulse support",
+      "title": "LOE 1 · Protect Strike-Pulse HVAA",
       "start": 0,
       "end": 20,
-      "narrative": "LOE 1 (Figure 6): CCA screens and F-22s support E-7A and tankers during strike pulses."
+      "narrative": "F-22s and CCA support the HVAA shield and counter notional KJ-500 threats; the report depicts E-7s and refueling aircraft as protected assets."
     },
     {
       "id": "ambush-alert",
-      "title": "LOE 2 · Ambush alert",
+      "title": "LOE 2 · Ambush Alert",
       "start": 20,
       "end": 40,
-      "narrative": "LOE 2 (Figure 7): reactive expendable counterair CCA supported by recoverable ISR/EW CCA sustain pressure between pulses."
+      "narrative": "Reactive expendable counterair waves supported by ISR/EW CCA are considered between pulses, up to four per day depending on target availability (Figure 7)."
     },
     {
       "id": "decoy-operations",
-      "title": "LOE 3 · Decoy operations",
+      "title": "LOE 3 · Decoy and ISR",
       "start": 40,
       "end": 54,
-      "narrative": "LOE 3 (Figure 8): decoy and EW/ISR CCA create uncertainty and help identify targets of opportunity."
+      "narrative": "Recoverable ISR/EW CCA provide decoy pressure, broad coverage and target-of-opportunity detection between pulses (Figure 8)."
     },
     {
       "id": "reconstitute",
-      "title": "LOEs recur intermittently",
+      "title": "Reposition / Repeat (Illustrative)",
       "start": 54,
       "end": 60,
-      "narrative": "Editorial presentation reset; the report specifies no such exact reconstitution interval."
+      "narrative": "The report describes initial air-launched and later ground-launched EW CCA from the Ryukyus; the short playback reset is editorial only."
     }
   ],
   "actors": [
