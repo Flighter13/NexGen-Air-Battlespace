@@ -30,5 +30,19 @@
         }
       ]
     }
-  ]
+  ],
+  "media": {
+    "src": "assets/entities/e3-sentry.svg",
+    "alt": "E-3 Sentry (AWACS) — original schematic top-down aircraft silhouette",
+    "credit": "ACES Technology — original schematic illustration",
+    "rights": "Original project artwork; schematic visualization, not a scale-accurate technical drawing.",
+    "icon": "assets/entities/e3-sentry.svg",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
+  }
 }
