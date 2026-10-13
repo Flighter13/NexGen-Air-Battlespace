@@ -7,7 +7,7 @@
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figure 4–5, p. 18 (roles only; routes editorial)"
+      "locator": "pp. 17–18, Figures 4–5; actor types sourced, geometry editorial"
     }
   ],
   "keyframes": [
@@ -28,8 +28,8 @@
     {
       "id": "crewed",
       "entityId": "f22a",
-      "label": "Crewed element 1",
-      "role": "Fifth-generation follow-on fighter; illustrative route",
+      "label": "F22A · illustrative",
+      "role": "TTX sourced platform type; placement illustrative",
       "offsetKm": [
         0,
         0
@@ -38,8 +38,8 @@
     {
       "id": "crewed-2",
       "entityId": "f35a",
-      "label": "Crewed element 2",
-      "role": "Fifth-generation follow-on fighter; illustrative route",
+      "label": "F35A · illustrative",
+      "role": "TTX sourced platform type; placement illustrative",
       "offsetKm": [
         80,
         -65
