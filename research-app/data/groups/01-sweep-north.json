@@ -7,7 +7,7 @@
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figure 4–5, p. 18 (roles only; routes editorial)"
+      "locator": "pp. 17–18, Figures 4–5; actor types sourced, geometry editorial"
     }
   ],
   "motion": {
@@ -37,8 +37,8 @@
     {
       "id": "north",
       "entityId": "cca-5",
-      "label": "North CCA group 1",
-      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "label": "CCA-5 · illustrative",
+      "role": "TTX sourced platform type; placement illustrative",
       "offsetKm": [
         0,
         0
@@ -47,8 +47,8 @@
     {
       "id": "north-2",
       "entityId": "cca-11",
-      "label": "North CCA group 2",
-      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "label": "CCA-11 · illustrative",
+      "role": "TTX sourced platform type; placement illustrative",
       "offsetKm": [
         80,
         -65
