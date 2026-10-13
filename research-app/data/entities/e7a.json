@@ -22,10 +22,17 @@
     }
   ],
   "media": {
-    "src": "assets/entities/support.svg",
-    "icon": "assets/entities/support.svg",
-    "alt": "Schematic category symbol for E-7A Wedgetail",
-    "credit": "NexGen schematic illustration",
-    "rights": "Generic explanatory symbol, not a platform-accurate silhouette"
+    "src": "assets/entities/e7a.svg",
+    "icon": "assets/entities/e7a.svg",
+    "alt": "Original schematic top-down depiction of E-7A Wedgetail; not a scale technical drawing",
+    "credit": "NexGen original schematic artwork",
+    "rights": "Original project illustration; approximate aircraft silhouette, not an operational source",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
   }
 }
