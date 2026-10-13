@@ -36,6 +36,7 @@ function Workspace({scenario,onScenario}:{scenario:Scenario;onScenario:(id:strin
   const [domain,setDomain]=useState('all');
   const [functionFilter,setFunctionFilter]=useState('all');
   const [relationshipTypes,setRelationshipTypes]=useState<string[]>(RELATIONSHIP_TYPES);
+  const [selectedRelationship,setSelectedRelationship]=useState<string|null>(null);
 
   const selectActor=(actorId:string)=>{const actor=state.actors.find((a)=>a.id===actorId);if(actor){setSelectedActor(actorId);setSelected(actor.entityId);}};
   const filtered=filterSnapshot(state,hiddenGroups,focusGroup);
@@ -65,12 +66,12 @@ function Workspace({scenario,onScenario}:{scenario:Scenario;onScenario:(id:strin
       <div className="relationship-filters" aria-label="Relationship layers">{RELATIONSHIP_TYPES.map((type)=><label key={type}><input type="checkbox" checked={relationshipTypes.includes(type)} onChange={()=>setRelationshipTypes((current)=>current.includes(type)?current.filter((t)=>t!==type):[...current,type])}/>{type}</label>)}</div>
       <div className="visualization">
         <div className="map-label"><span className="live-dot"/> {view==='map'?'Fictional study geography':'Mission system-of-systems'}<small>{displayed.actors.length} / {state.actors.length} visible actors · {displayed.relationships.length} active links</small></div>
-        {view==='map'?<MapView state={displayed} selected={selectedActor} onSelect={selectActor}/>:<NetworkView state={displayed} layoutState={state} allRelationships={allRelationships} selected={selectedActor} onSelect={selectActor} relationshipTypes={relationshipTypes}/>}
+        {view==='map'?<MapView state={displayed} selected={selectedActor} onSelect={selectActor}/>:<NetworkView state={displayed} layoutState={state} allRelationships={allRelationships} selected={selectedActor} onSelect={selectActor} relationshipTypes={relationshipTypes} selectedRelationship={selectedRelationship} onRelationshipSelect={setSelectedRelationship}/>}
         <div className="legend"><span>● Research actor</span><span className="gold">━ Active relationship</span><label><input type="checkbox" checked={showLinks} onChange={(e)=>setShowLinks(e.target.checked)}/> Show links</label></div>
       </div>
       <div className="phase-narrative"><span className="eyebrow">{state.phase.title}</span><p>{state.phase.narrative}</p></div><Timeline scenario={scenario} clock={clock}/>
       <GroupControls state={state} hidden={hiddenGroups} focus={focusGroup} selectedActor={selectedActor} onToggle={(id)=>{setHiddenGroups((h)=>h.includes(id)?h.filter((g)=>g!==id):[...h,id]);if(focusGroup===id)setFocusGroup(null);}} onFocus={(id)=>{setFocusGroup(id);if(id)setHiddenGroups((h)=>h.filter((g)=>g!==id));}} onSelect={selectActor}/>
-      <section className="relationship-panel"><div className="eyebrow">ACTIVE RELATIONSHIPS</div>{displayed.relationships.length?displayed.relationships.map((r)=><details key={r.id}><summary>{r.label} <span className={`badge ${r.evidence}`}>{r.evidence}</span></summary><p>{state.actors.find((a)=>a.id===r.from)?.label} {r.direction==='bidirectional'?'↔':'→'} {state.actors.find((a)=>a.id===r.to)?.label} · {r.type}{r.networkId?` · ${catalog.networks.find((n)=>n.id===r.networkId)?.name}`:''}</p><Provenance citations={r.citations}/></details>):<p className="muted">No relationships active in this phase.</p>}</section>
+      <section className="relationship-panel"><div className="eyebrow">ACTIVE RELATIONSHIPS</div>{displayed.relationships.length?displayed.relationships.map((r)=><details key={r.id} open={selectedRelationship===r.id?true:undefined}><summary onClick={()=>setSelectedRelationship(r.id)}>{r.label} <span className={`badge ${r.evidence}`}>{r.evidence}</span></summary><p>{state.actors.find((a)=>a.id===r.from)?.label} {r.direction==='bidirectional'?'↔':'→'} {state.actors.find((a)=>a.id===r.to)?.label} · {r.type}{r.networkId?` · ${catalog.networks.find((n)=>n.id===r.networkId)?.name}`:''}</p><Provenance citations={r.citations}/></details>):<p className="muted">No relationships active in this phase.</p>}</section>
     </section>
 
     <aside className={`profile-sidebar ${mobilePanel==='details'?'mobile-visible':''}`}><EntityCard entity={entity}/><section className="roles"><div className="eyebrow">SCENARIO ROLES</div>{state.actors.filter((a)=>a.entityId===selected).map((a)=><p key={a.id}><strong>{a.label}</strong><br/>{a.role}</p>)}{!state.actors.some((a)=>a.entityId===selected)&&<p className="muted">This library record is not assigned to the current scenario.</p>}</section></aside>
