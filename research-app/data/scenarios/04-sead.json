@@ -59,7 +59,7 @@
       "id": "sead-isr",
       "entityId": "rc135",
       "label": "ISR element",
-      "role": "Near-real-time intelligence collection and dissemination research role",
+      "role": "RC-135 orbit, conceptual position",
       "keyframes": [
         {
           "t": 0,
@@ -80,7 +80,7 @@
       "id": "sead-ew",
       "entityId": "ea37b",
       "label": "Electronic-attack element",
-      "role": "Airborne electronic-attack support",
+      "role": "EA-37B electronic attack support",
       "keyframes": [
         {
           "t": 0,
@@ -104,7 +104,7 @@
       "id": "sead-fighter",
       "entityId": "f35a",
       "label": "Crewed fighter element",
-      "role": "Illustrative crewed strike-support actor",
+      "role": "Crewed aircraft stand-in; exact SEAD type unspecified",
       "keyframes": [
         {
           "t": 0,
@@ -126,9 +126,9 @@
     },
     {
       "id": "sead-cca",
-      "entityId": "cca-concept",
+      "entityId": "cca-11",
       "label": "CCA SEAD element",
-      "role": "Abstract CCA element representing stimulation, electronic attack and strike support",
+      "role": "Expendable EA CCA in conceptual SEAD support",
       "keyframes": [
         {
           "t": 0,
@@ -137,6 +137,54 @@
         {
           "t": 37,
           "locationId": "center-area"
+        },
+        {
+          "t": 75,
+          "locationId": "south-area"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "sead-isr-cca",
+      "entityId": "cca-10",
+      "label": "CCA-10 ISR concept",
+      "role": "TTX notional recoverable ISR CCA; display track illustrative",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "north-start"
+        },
+        {
+          "t": 37,
+          "locationId": "north-area"
+        },
+        {
+          "t": 75,
+          "locationId": "north-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "sead-strike-cca",
+      "entityId": "cca-9",
+      "label": "CCA-9 strike/decoy",
+      "role": "TTX notional expendable strike/decoy; presentation path illustrative",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "south-start"
+        },
+        {
+          "t": 42,
+          "locationId": "south-area"
         },
         {
           "t": 75,
