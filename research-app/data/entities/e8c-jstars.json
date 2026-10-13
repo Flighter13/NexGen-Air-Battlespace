@@ -30,5 +30,19 @@
         }
       ]
     }
-  ]
+  ],
+  "media": {
+    "src": "assets/entities/e8c-jstars.svg",
+    "alt": "E-8C Joint Surveillance Target Attack Radar System — original schematic top-down aircraft silhouette",
+    "credit": "ACES Technology — original schematic illustration",
+    "rights": "Original project artwork; schematic visualization, not a scale-accurate technical drawing.",
+    "icon": "assets/entities/e8c-jstars.svg",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
+  }
 }
