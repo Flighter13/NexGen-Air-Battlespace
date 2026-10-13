@@ -7,7 +7,7 @@
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "pp. 24–25 (roles only; routes editorial)"
+      "locator": "pp. 24–25 (sustainment roles, not operational tracks)"
     }
   ],
   "keyframes": [
@@ -21,7 +21,7 @@
       "id": "site-n",
       "entityId": "cca-1",
       "label": "North CCA group 1",
-      "role": "TTX sustainment role; illustrative geography",
+      "role": "Conceptual distributed sustainment; routes and spacing illustrative",
       "offsetKm": [
         0,
         0
@@ -31,7 +31,7 @@
       "id": "site-n-2",
       "entityId": "cca-1",
       "label": "North CCA group 2",
-      "role": "TTX sustainment role; illustrative geography",
+      "role": "Conceptual distributed sustainment; routes and spacing illustrative",
       "offsetKm": [
         80,
         -65
