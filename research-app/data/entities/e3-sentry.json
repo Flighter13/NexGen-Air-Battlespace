@@ -1,0 +1,34 @@
+{
+  "id": "e3-sentry",
+  "name": "E-3 Sentry (AWACS)",
+  "shortName": "E-3",
+  "category": "crewed",
+  "domain": "air",
+  "function": "battle-management",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "The U.S. Air Force describes the E-3 Sentry as an airborne warning and control aircraft combining surveillance, detection and tracking with command-and-control battle-management functions.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-e3-sentry",
+          "locator": "Mission section"
+        }
+      ]
+    },
+    {
+      "text": "This research library record does not imply the E-3 participates in any of the site's illustrative scenarios or establish its current fleet status.",
+      "evidence": "analytical",
+      "citations": [
+        {
+          "sourceId": "usaf-e3-sentry",
+          "locator": "Mission and background sections"
+        }
+      ]
+    }
+  ]
+}
