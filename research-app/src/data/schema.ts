@@ -145,6 +145,8 @@ export const scenarioSchema = z.object({
     role: id,
     keyframes,
     motion: motionSchema,
+    // East/north display displacement only; never a real aircraft position.
+    offsetKm: z.tuple([z.number().min(-350).max(350), z.number().min(-350).max(350)]).optional(),
   })),
 });
 
