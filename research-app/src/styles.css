@@ -936,3 +936,18 @@ footer {
 .network .node-function{font-size:9px;fill:#8ea8b7;text-transform:uppercase}
 .edge-command{color:#efc36f}.edge-data{color:#78d8ce}.edge-sensor{color:#8bb7ef}.edge-refueling{color:#d0a0ef}.edge-electronic-warfare{color:#ef8f8f}.edge-autonomy{color:#9fd682}.edge-logistics{color:#d6a574}.edge-coordination,.edge-support{color:#c7d2d8}
 @media(max-width:700px){.library-filters{grid-template-columns:1fr}.relationship-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px}.relationship-filters label{white-space:nowrap;min-height:38px;display:flex;align-items:center}}
+
+/* Small screens: one focused research surface at a time. */
+.mobile-workspace-nav{display:none}
+@media(max-width:700px){
+ .mobile-workspace-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:sticky;top:0;z-index:30;background:#101c28;border-bottom:1px solid #344653;gap:4px;padding:8px;order:0}
+ .mobile-workspace-nav button{font-size:12px;min-width:0;padding:9px 3px;background:#172631}
+ .mobile-workspace-nav button[aria-current=page]{background:#27544f;border-color:#70d9cb;color:#d9fff8}
+ .workspace>.center,.workspace>.research-sidebar,.workspace>.profile-sidebar{display:none}
+ .workspace>.mobile-visible{display:block}
+ .workspace>.research-sidebar.mobile-visible .scenario-panel,.workspace>.research-sidebar.mobile-visible .library-panel{display:none}
+ .workspace>.research-sidebar.mobile-visible .scenario-panel.mobile-visible,.workspace>.research-sidebar.mobile-visible .library-panel.mobile-visible{display:block}
+ .workspace>.center{order:1}.workspace>.research-sidebar{order:1}.workspace>.profile-sidebar{order:1}
+ .visualization{height:min(60vh,520px);min-height:340px}
+ .relationship-filters{max-height:90px;overflow:auto}
+}
