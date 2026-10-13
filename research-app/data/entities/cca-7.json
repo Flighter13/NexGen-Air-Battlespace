@@ -1,0 +1,31 @@
+{
+  "id": "cca-7",
+  "name": "Notional CCA-7",
+  "shortName": "CCA-7",
+  "category": "uncrewed",
+  "domain": "air",
+  "function": "cca",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Notional recoverable strike CCA included in the 2024 TTX and the SEAD team strike phase; not a fielded platform.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "Table 1 (p. 16); Figure 9 (p. 21)"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/uncrewed.svg",
+    "icon": "assets/entities/uncrewed.svg",
+    "alt": "Generic symbol for notional CCA-7",
+    "credit": "NexGen schematic illustration",
+    "rights": "Generic explanatory symbol, not a validated configuration"
+  }
+}
