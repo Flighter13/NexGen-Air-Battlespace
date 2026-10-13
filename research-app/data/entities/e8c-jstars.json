@@ -1,0 +1,34 @@
+{
+  "id": "e8c-jstars",
+  "name": "E-8C Joint Surveillance Target Attack Radar System",
+  "shortName": "E-8C Joint STARS",
+  "category": "crewed",
+  "domain": "air",
+  "function": "battle-management",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "The U.S. Air Force historical E-8C fact sheet describes Joint STARS as an airborne battle-management, command-and-control and intelligence, surveillance and reconnaissance platform providing ground surveillance information.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "usaf-e8-jstars",
+          "locator": "Mission section (historical fact sheet)"
+        }
+      ]
+    },
+    {
+      "text": "This historical library entry is not an assertion of current E-8C operational status and is not assigned to any illustrative site scenario.",
+      "evidence": "analytical",
+      "citations": [
+        {
+          "sourceId": "usaf-e8-jstars",
+          "locator": "General Characteristics; inventory marked current as of September 2015"
+        }
+      ]
+    }
+  ]
+}
