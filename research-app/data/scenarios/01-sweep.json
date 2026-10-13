@@ -1,21 +1,20 @@
 {
   "id": "01-sweep",
-  "title": "Mitchell TTX · counterair sweep",
-  "subtitle": "2024 exercise: three-axis CCA probes, fighter follow-on, between-pulse pressure",
-  "description": "Source-based presentation of the sweep team's 2024 CCA tabletop exercise. Figures 4-5 show three expendable CCA approach axes, a fifth-generation fighter follow-on along one axis, and CCA/F-15EX pressure between maritime strike pulses.",
+  "title": "Mitchell TTX · Counterair sweep",
+  "subtitle": "Three CCA approach axes; fighter follow-on; between-pulse pressure",
+  "description": "Reconstruction of the published 2024 Mitchell Institute tabletop exercise's sweep-team concept (Figures 4–5, report pp. 17–18). The team used three axes of expendable CCA, with a published 3:1 weapons-to-electronic-warfare CCA ratio, and an F-22/F-35 follow-on along one axis. Between strike pulses, recoverable CCA-1 and F-15EX supported persistent counterair pressure.",
   "evidence": "illustrative",
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figures 3–5, pp. 17–18"
+      "locator": "pp. 17–18, Figures 3–5"
     }
   ],
   "assumptions": [
-    "Figure 4 shows a 3:1 ratio of air-to-air weapon CCA to EW CCA across three conceptual axes.",
-    "Figure 5 uses recoverable CCA-1 screens, ISR CCA and standoff F-15EX between strike pulses.",
-    "Published TTX concepts and aggregate exercise results are sourced; the report does not disclose verified aircraft waypoints or flyable mission tracks.",
-    "Map positions, path geometry, animation duration and actor icons are deliberately schematic; presentation seconds are not elapsed operational hours.",
-    "Display actor counts are illustrative and must not be mistaken for the TTX's full force inventories or actual sortie totals."
+    "Published: three CCA attack axes, 3:1 air-to-air-weapon to EW mix, F-22/F-35 follow-on along one axis, CCA-1 screening and F-15EX between pulses (Figures 4–5).",
+    "The notional CCA designations refer to Mitchell Institute 2024 TTX study variants; they are not YFQ-42A or YFQ-44A production specifications.",
+    "All coordinates, flight paths, headings, spacing, displayed numbers of icons, and animation seconds are editorial illustrations, NOT released exercise track logs or sortie counts.",
+    "No launch timing, target positions, weapons employment geometry, engagement outcomes, or adversary reactions are simulated."
   ],
   "duration": 84,
   "phases": [
