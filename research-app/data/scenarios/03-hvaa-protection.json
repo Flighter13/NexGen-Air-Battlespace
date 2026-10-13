@@ -14,7 +14,8 @@
     "Mission tasks and platform roles follow Figures 6-8 and page 20 of the February 2025 report; they describe TTX concepts rather than actual flights.",
     "Figures describe broad areas (Ryukyus, mainland Japan, Guam) but provide no verifiable flight-track coordinates, actual launch times or platform-level observed movements.",
     "The report states LOE 2 could launch up to four reactive waves per day depending on target availability and expendable CCA allocation could be exhausted in two days; playback seconds are not those timings.",
-    "Map actor positions are fictional study points and do not represent actual E-7A or tanker orbits or adversary engagements."
+    "Map actor positions are fictional study points and do not represent actual E-7A or tanker orbits or adversary engagements.",
+    "Additional icons show selected roles described by Figures 6–8, but no source-confirmed aircraft count or actual trajectory. The electronic warfare CCA symbol used here is a category proxy rather than a documented match of a specific design."
   ],
   "duration": 60,
   "phases": [
@@ -50,9 +51,9 @@
   "actors": [
     {
       "id": "hvaa-support",
-      "entityId": "support-concept",
-      "label": "E-7A / tanker HVAA (generic symbol)",
-      "role": "TTX protected airborne asset category; generic symbol because exact E-7A platform icon is not in the catalog",
+      "entityId": "e7a",
+      "label": "E-7A Wedgetail · HVAA",
+      "role": "TTX protected high-value airborne asset, depicted with E-7A catalog entry; geographic position schematic",
       "keyframes": [
         {
           "t": 0,
@@ -82,6 +83,126 @@
         {
           "t": 60,
           "locationId": "north-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "hvaa-f22",
+      "entityId": "f22a",
+      "label": "F-22 shield",
+      "role": "F-22 and CCA in LOE 1; track illustrative",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "center-start"
+        },
+        {
+          "t": 30,
+          "locationId": "center-area"
+        },
+        {
+          "t": 60,
+          "locationId": "center-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "hvaa-f15ex",
+      "entityId": "f15ex",
+      "label": "F-15EX launch element",
+      "role": "Day 1 Guam air-launch concept from Figure 6; path not Guam-based actual route",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "south-start"
+        },
+        {
+          "t": 30,
+          "locationId": "south-area"
+        },
+        {
+          "t": 60,
+          "locationId": "south-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "hvaa-ew",
+      "entityId": "cca-11",
+      "label": "Recoverable EW role (schematic)",
+      "role": "The report describes recoverable EW CCA for HVAA protection; CCA-11 is expendable in Table 1, so this actor is an abstract EW stand-in and NOT a claimed TTX variant assignment",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "north-start"
+        },
+        {
+          "t": 30,
+          "locationId": "north-area"
+        },
+        {
+          "t": 60,
+          "locationId": "north-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "hvaa-isr",
+      "entityId": "cca-10",
+      "label": "ISR CCA role",
+      "role": "Conceptual ISR support for LOE 2/3, variant assignment not specified by exercise",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "center-start"
+        },
+        {
+          "t": 30,
+          "locationId": "center-area"
+        },
+        {
+          "t": 60,
+          "locationId": "center-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "hvaa-threat",
+      "entityId": "kj500",
+      "label": "KJ-500 modeled threat",
+      "role": "The paper names the KJ-500 as a priority counterair threat; point and trajectory illustrative",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "north-area"
+        },
+        {
+          "t": 30,
+          "locationId": "center-area"
+        },
+        {
+          "t": 60,
+          "locationId": "north-area"
         }
       ],
       "motion": {
