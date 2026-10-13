@@ -186,14 +186,15 @@ export function MapView({
         actorIconLayer(state.actors, onSelect),
         new TextLayer<Actor>({
           id: 'actor-labels',
-          data: state.actors.filter(
-            (a) => a.offsetKm[0] === 0 || a.id === selected,
-          ),
+          // At shared staging coordinates, multiple labels render on top of
+          // each other. Label only the selected actor; other icons remain
+          // selectable and expose their names in the details panel/tooltip.
+          data: state.actors.filter((a) => a.id === selected),
           getPosition: (a) => a.position,
           getText: (a) => a.label,
           getSize: 12,
           getColor: [239, 245, 248],
-          getPixelOffset: [0, -23],
+          getPixelOffset: [0, -34],
           background: true,
           getBackgroundColor: [16, 28, 40, 210],
         }),
