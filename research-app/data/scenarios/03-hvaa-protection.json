@@ -50,9 +50,9 @@
   "actors": [
     {
       "id": "hvaa-support",
-      "entityId": "support-concept",
+      "entityId": "e3-sentry",
       "label": "HVAA support element",
-      "role": "Abstract protected/supporting airborne element",
+      "role": "E-7A/tanker HVAA stand-in (E-3 schematic icon only; E-7 imagery not yet provided)",
       "keyframes": [
         {
           "t": 0,
@@ -67,9 +67,9 @@
     },
     {
       "id": "hvaa-cca",
-      "entityId": "cca-concept",
+      "entityId": "cca-5",
       "label": "CCA protection element",
-      "role": "Abstract CCA element representing the report's protection concepts",
+      "role": "Notional expendable CCA screen",
       "keyframes": [
         {
           "t": 0,
