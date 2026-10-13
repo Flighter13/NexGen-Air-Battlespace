@@ -1,0 +1,38 @@
+{
+  "id": "cca-5",
+  "name": "Expendable counterair CCA-5",
+  "shortName": "CCA-5",
+  "category": "uncrewed",
+  "domain": "air",
+  "function": "cca",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Expendable counterair CCA used for air-to-air effects and defensive stimulation. This is a notional Mitchell Institute 2024 TTX variant, not a verified production aircraft.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "Table 1 (p. 16), TTX notional CCA; Figures 4-9"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/uncrewed.svg",
+    "icon": "assets/entities/uncrewed.svg",
+    "alt": "Schematic category icon for Expendable counterair CCA-5; not a physical configuration",
+    "credit": "NexGen schematic category illustration",
+    "rights": "Project illustration; not a validated aircraft silhouette",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
+  }
+}
