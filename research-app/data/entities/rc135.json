@@ -20,5 +20,19 @@
         }
       ]
     }
-  ]
+  ],
+  "media": {
+    "src": "assets/entities/rc135.svg",
+    "alt": "RC-135V/W Rivet Joint — original schematic top-down aircraft silhouette",
+    "credit": "ACES Technology — original schematic illustration",
+    "rights": "Original project artwork; schematic visualization, not a scale-accurate technical drawing.",
+    "icon": "assets/entities/rc135.svg",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
+  }
 }
