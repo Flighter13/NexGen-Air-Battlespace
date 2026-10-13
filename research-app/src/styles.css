@@ -951,3 +951,11 @@ footer {
  .visualization{height:min(60vh,520px);min-height:340px}
  .relationship-filters{max-height:90px;overflow:auto}
 }
+
+/* Relationship evidence and phase comparison */
+.relationship-filters select{min-height:30px;width:auto;margin-left:6px;padding:3px 8px;font-size:11px}
+.phase-comparison{margin-top:16px;border:1px solid #314652;border-radius:7px;padding:16px;background:#10202c}
+.phase-comparison label{display:block;color:#aebfc9;font-size:12px;margin-bottom:8px}
+.phase-comparison select{max-width:420px}
+.phase-diff{margin-top:16px;border-top:1px solid #30444f;padding-top:12px;font-size:12px;color:#bed1dc}
+.phase-diff p{margin-bottom:8px}.phase-diff small{color:#8ea9b9}
