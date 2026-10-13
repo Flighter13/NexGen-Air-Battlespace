@@ -1,71 +1,71 @@
 {
   "id": "01-sweep",
   "title": "CCA sweep · mission sequence",
-  "subtitle": "Probe, expose, support and sustain pressure",
-  "description": "A research visualization of the Mitchell Institute CCA sweep concept, organized into mission-oriented phases rather than generic presentation steps.",
+  "subtitle": "2024 TTX · counterair sweep and between-pulse pressure",
+  "description": "Mitchell Institute 2024 tabletop-exercise concepts: three axes of expendable CCA probing defenses, F-22/F-35 follow-on along one axis, and recoverable CCA with F-15EX maintaining pressure between maritime strike pulses (Figures 3–5, pp. 17–18).",
   "evidence": "illustrative",
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figures 4-5; CCA sweep in advance of and between strike pulses"
+      "locator": "Figures 3–5, pp. 17–18"
     }
   ],
   "assumptions": [
-    "The phase sequence is derived from the published conceptual mission flow, but all displayed geography, timings, paths and actor counts remain editorial illustration unless specifically cited.",
-    "Timeline seconds are presentation time only and do not represent aircraft speed, range, sortie duration or readiness.",
-    "Adversary reactions are represented only as abstract mission-context changes; the visualization does not simulate targeting, engagement outcomes or tactical optimization.",
-    "Displayed links indicate explanatory relationships, not verified operational interfaces."
+    "These are tabletop-exercise planning concepts, not observed combat missions or validated flight tracks.",
+    "The report depicts three approach axes and a 3:1 air-to-air/EW CCA mix but does not publish georeferenced tracks or flight headings; map paths, positions, actor quantities and timeline seconds are illustrative.",
+    "The report assumed two notional maritime strike pulses per day early in the scenario; playback is not a real-time sortie schedule.",
+    "The report's schematic figures are not replicated or presented as operational tactics."
   ],
   "duration": 84,
   "phases": [
     {
       "id": "stage",
-      "title": "Stage / Position",
+      "title": "TTX force selection and positioning",
       "start": 0,
       "end": 12,
-      "narrative": "Establish the three CCA approach axes and the crewed follow-on element before the sweep begins."
+      "narrative": "Three planning axes and a crewed follow-on element illustrate the published sweep force package."
     },
     {
       "id": "probe",
-      "title": "CCA Probe",
+      "title": "Three-axis expendable CCA probe",
       "start": 12,
       "end": 26,
-      "narrative": "Expendable CCA advance on multiple axes to stimulate and expose defensive responses in the published sweep concept."
+      "narrative": "Expendable CCA with a reported 3:1 air-to-air-to-EW mix stimulate defenses along three conceptual axes."
     },
     {
       "id": "reveal",
-      "title": "Reveal / React",
+      "title": "Air-defense response",
       "start": 26,
       "end": 38,
-      "narrative": "The visualization highlights the concept's purpose of provoking reactions and revealing defensive activity without modeling the adversary tactically."
+      "narrative": "The TTX concept sought to trigger reactions by PLA fighters and KJ-500; no actual engagements or outcomes are reproduced."
     },
     {
       "id": "follow-on",
-      "title": "Crewed Follow-On",
+      "title": "F-22/F-35 supported sweep",
       "start": 38,
       "end": 52,
-      "narrative": "A crewed fighter element follows one axis with CCA support, reflecting the report's crewed-uncrewed sweep concept."
+      "narrative": "A fifth-generation follow-on force approaches behind one CCA axis using reported ISR and airborne battle-management support."
     },
     {
       "id": "pulse-support",
-      "title": "Strike-Pulse Support",
+      "title": "Maritime strike-pulse support",
       "start": 52,
       "end": 64,
-      "narrative": "The sweep is shown as support to a larger strike pulse rather than as an isolated mission."
+      "narrative": "Counterair sweep supports the report's notional bomber/F-35A/F-15EX maritime strike pulse."
     },
     {
       "id": "between-pulses",
-      "title": "Between-Pulse Pressure",
+      "title": "CCA-1 and F-15EX pressure",
       "start": 64,
       "end": 76,
-      "narrative": "Recoverable and expendable CCA concepts continue pressure between major strike pulses, including screening and support relationships."
+      "narrative": "Recoverable CCA-1 screen stand-off F-15EX, with ISR cueing and expendable CCA-5 supporting between-pulse pressure."
     },
     {
       "id": "reset",
-      "title": "Reset / Reposition",
+      "title": "Next notional pulse",
       "start": 76,
       "end": 84,
-      "narrative": "Recoverable elements reposition for the next illustrative cycle. This transition is presentation logic, not a claim about actual operational timing."
+      "narrative": "Replay depicts the recurring concept, not a published timing or route."
     }
   ],
   "actors": []
