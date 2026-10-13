@@ -15,7 +15,8 @@
     "The published team's 3:1 air-to-air weapon versus EW CCA mix is a reported planning ratio, not a direct count of displayed icons.",
     "All path positions, offsets, headings and timeline seconds are editorial visualization, NOT exercise tracks, real airbase locations, performance, engagement geometry, or elapsed mission time.",
     "Illustration renders one symbol per selected mission role, not the number of aircraft planned. The source's 3:1 air-to-air to electronic-warfare ratio is not represented by icon count.",
-    "Expendable CCA icons use conceptual outbound paths only, not recovery legs; any final stationary display is a visualization artifact, not evidence of survival or loitering."
+    "Expendable CCA icons use conceptual outbound paths only, not recovery legs; any final stationary display is a visualization artifact, not evidence of survival or loitering.",
+    "Independent aircraft are visually separated by editorial east/north offsets (kilometers) to keep silhouettes legible. These offsets do NOT represent recorded formation spacing, basing locations, or TTX tactical geometry."
   ],
   "duration": 84,
   "phases": [
@@ -88,7 +89,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -170,
+        155
+      ]
     },
     {
       "id": "sweep-center",
@@ -108,7 +113,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -180,
+        155
+      ]
     },
     {
       "id": "sweep-south",
@@ -128,7 +137,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -175,
+        145
+      ]
     },
     {
       "id": "sweep-f22",
@@ -152,7 +165,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        210,
+        75
+      ]
     },
     {
       "id": "sweep-f35",
@@ -176,7 +193,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        210,
+        -70
+      ]
     },
     {
       "id": "sweep-cca1",
@@ -200,7 +221,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        190,
+        190
+      ]
     },
     {
       "id": "sweep-f15ex",
@@ -224,7 +249,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        195,
+        -175
+      ]
     },
     {
       "id": "sweep-isr",
@@ -248,7 +277,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -190,
+        -165
+      ]
     }
   ]
 }
