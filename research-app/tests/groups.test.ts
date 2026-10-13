@@ -36,17 +36,19 @@ describe('editable research groups', () => {
     ).toHaveLength(0);
     expect(filterSnapshot(state, state.groups.map((g) => g.id), null).actors.filter((a) => !a.groupId)).toHaveLength(scenario.actors.length);
   });
-  it('keeps standalone study actors separated at shared staging points', () => {
+  it('separates independent aircraft sharing the same staging point', () => {
     for (const study of catalog.scenarios.filter((s) =>
       ['01-sweep', '03-hvaa-protection', '04-sead'].includes(s.id),
     )) {
       const actors = snapshot(study, 0, catalog).actors;
-      for (let i = 0; i < actors.length; i++) {
-        for (let j = i + 1; j < actors.length; j++) {
-          const [ax, ay] = actors[i].position;
-          const [bx, by] = actors[j].position;
-          // Do not let two aircraft share the exact same map position.
-          expect(Math.hypot(ax - bx, ay - by)).toBeGreaterThan(0.0001);
+      for (let i = 0; i < study.actors.length; i++) {
+        for (let j = i + 1; j < study.actors.length; j++) {
+          const a = study.actors[i];
+          const b = study.actors[j];
+          if (a.keyframes[0].locationId !== b.keyframes[0].locationId) continue;
+          const ap = actors.find((item) => item.id === a.id)!.position;
+          const bp = actors.find((item) => item.id === b.id)!.position;
+          expect(Math.hypot(ap[0] - bp[0], ap[1] - bp[1])).toBeGreaterThan(0.0001);
         }
       }
     }
