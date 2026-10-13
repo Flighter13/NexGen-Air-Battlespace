@@ -50,9 +50,9 @@
   "actors": [
     {
       "id": "hvaa-support",
-      "entityId": "e3-sentry",
-      "label": "HVAA support element",
-      "role": "E-7A/tanker HVAA stand-in (E-3 schematic icon only; E-7 imagery not yet provided)",
+      "entityId": "support-concept",
+      "label": "E-7A / tanker HVAA (generic symbol)",
+      "role": "TTX protected airborne asset category; generic symbol because exact E-7A platform icon is not in the catalog",
       "keyframes": [
         {
           "t": 0,
