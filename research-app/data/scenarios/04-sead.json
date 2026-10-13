@@ -16,7 +16,8 @@
     "Report text p. 20 identifies three orbits of CCA-10/EA-37B and one RC-135 orbit; Figure 9 additionally names CCA-11 with continuous ISR. Both are recorded here without asserting a resolved exact orbit composition.",
     "TTX CCA-12 was a team-modified concept based on CCA-8; no confirmed physical silhouette or flight path is published. All map placement is editorial.",
     "Additional CCA-4, CCA-7 and CCA-12 symbols visualize platform participation explicitly documented in Figure 9 and pp. 20–21, not aircraft quantities, tactical formations, actual flight paths or engagement results.",
-    "Expendable CCA icons use conceptual outbound paths only, not recovery legs; any final stationary display is a visualization artifact, not evidence of survival or loitering."
+    "Expendable CCA icons use conceptual outbound paths only, not recovery legs; any final stationary display is a visualization artifact, not evidence of survival or loitering.",
+    "Independent aircraft are visually separated by editorial east/north offsets (kilometers) to keep silhouettes legible. These offsets do NOT represent recorded formation spacing, basing locations, or TTX tactical geometry."
   ],
   "duration": 75,
   "phases": [
@@ -76,7 +77,11 @@
         "path": "linear",
         "heading": "fixed",
         "fixedHeading": 0
-      }
+      },
+      "offsetKm": [
+        0,
+        0
+      ]
     },
     {
       "id": "sead-ew",
@@ -100,7 +105,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -155,
+        150
+      ]
     },
     {
       "id": "sead-fighter",
@@ -124,7 +133,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -180,
+        155
+      ]
     },
     {
       "id": "sead-cca",
@@ -144,7 +157,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -170,
+        160
+      ]
     },
     {
       "id": "sead-isr-cca",
@@ -168,7 +185,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        165,
+        175
+      ]
     },
     {
       "id": "sead-strike-cca",
@@ -188,7 +209,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        160,
+        -160
+      ]
     },
     {
       "id": "sead-cca4",
@@ -212,7 +237,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        190,
+        -115
+      ]
     },
     {
       "id": "sead-cca7",
@@ -236,7 +265,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -155,
+        -135
+      ]
     },
     {
       "id": "sead-cca12",
@@ -256,7 +289,11 @@
       "motion": {
         "path": "smooth",
         "heading": "path"
-      }
+      },
+      "offsetKm": [
+        -175,
+        -165
+      ]
     }
   ]
 }
