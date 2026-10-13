@@ -7,7 +7,11 @@
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "pp. 17–18, Figures 4–5; actor types sourced, geometry editorial"
+      "locator": "Figures 4-5, pp. 17-18, F-22/F-35 sweep follow-on and F-15EX between-pulse concept"
+    },
+    {
+      "sourceId": "editorial",
+      "locator": "Map coordinates, icon offsets, movement and actor multiplicities are fictional presentation geometry"
     }
   ],
   "keyframes": [
@@ -28,8 +32,8 @@
     {
       "id": "crewed",
       "entityId": "f22a",
-      "label": "F22A · illustrative",
-      "role": "TTX sourced platform type; placement illustrative",
+      "label": "F-22 follow-on (concept)",
+      "role": "Fifth-generation sweep follow-on per Figure 4",
       "offsetKm": [
         0,
         0
@@ -38,8 +42,8 @@
     {
       "id": "crewed-2",
       "entityId": "f35a",
-      "label": "F35A · illustrative",
-      "role": "TTX sourced platform type; placement illustrative",
+      "label": "F-35 follow-on (concept)",
+      "role": "Fifth-generation sweep follow-on per Figure 4",
       "offsetKm": [
         80,
         -65
