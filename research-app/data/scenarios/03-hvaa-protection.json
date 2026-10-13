@@ -15,7 +15,8 @@
     "Figures describe broad areas (Ryukyus, mainland Japan, Guam) but provide no verifiable flight-track coordinates, actual launch times or platform-level observed movements.",
     "The report states LOE 2 could launch up to four reactive waves per day depending on target availability and expendable CCA allocation could be exhausted in two days; playback seconds are not those timings.",
     "Map actor positions are fictional study points and do not represent actual E-7A or tanker orbits or adversary engagements.",
-    "Additional symbols visualize selected roles described in Figures 6–8 without asserting source-confirmed counts, coordinates or aircraft assignments. CCA-4 is a labeled recoverable EW-capable proxy, not a verified HVAA team selection."
+    "Additional symbols visualize selected roles described in Figures 6–8 without asserting source-confirmed counts, coordinates or aircraft assignments. CCA-4 is a labeled recoverable EW-capable proxy, not a verified HVAA team selection.",
+    "Expendable CCA icons use conceptual outbound paths only, not recovery legs; any final stationary display is a visualization artifact, not evidence of survival or loitering."
   ],
   "duration": 60,
   "phases": [
@@ -77,12 +78,8 @@
           "locationId": "north-start"
         },
         {
-          "t": 30,
-          "locationId": "north-area"
-        },
-        {
           "t": 60,
-          "locationId": "north-start"
+          "locationId": "north-area"
         }
       ],
       "motion": {
