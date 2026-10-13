@@ -20,5 +20,19 @@
         }
       ]
     }
-  ]
+  ],
+  "media": {
+    "src": "assets/entities/kc46a.svg",
+    "alt": "KC-46A Pegasus — original schematic top-down aircraft silhouette",
+    "credit": "ACES Technology — original schematic illustration",
+    "rights": "Original project artwork; schematic visualization, not a scale-accurate technical drawing.",
+    "icon": "assets/entities/kc46a.svg",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
+  }
 }
