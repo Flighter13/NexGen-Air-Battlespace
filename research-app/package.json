@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "editor:dev": "vite --config editor/vite.config.ts --host 127.0.0.1",
+    "editor:build": "vite build --config editor/vite.config.ts"
   },
   "dependencies": {
     "@deck.gl/core": "^9.1.0",
