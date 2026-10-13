@@ -1,0 +1,31 @@
+{
+  "id": "cca-4",
+  "name": "Notional CCA-4",
+  "shortName": "CCA-4",
+  "category": "uncrewed",
+  "domain": "air",
+  "function": "cca",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Recoverable notional CCA used in the SEAD strike phase.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "Table 1 (p. 16), Figure 9 (p. 21)"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/uncrewed.svg",
+    "icon": "assets/entities/uncrewed.svg",
+    "alt": "Schematic category symbol for Notional CCA-4",
+    "credit": "NexGen schematic illustration",
+    "rights": "Generic explanatory symbol, not a platform-accurate silhouette"
+  }
+}
