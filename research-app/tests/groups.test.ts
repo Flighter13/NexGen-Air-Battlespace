@@ -6,7 +6,9 @@ describe('editable research groups', () => {
   const scenario = catalog.scenarios[0];
   it('expands group members with shared tracks and distinct positions', () => {
     const state = snapshot(scenario, 20, catalog);
-    expect(state.actors).toHaveLength(8);
+    expect(state.actors.filter((a) => a.groupId)).toHaveLength(8);
+    expect(state.actors.filter((a) => !a.groupId)).toHaveLength(scenario.actors.length);
+    expect(state.actors).toHaveLength(8 + scenario.actors.length);
     const north = state.actors.filter((a) => a.groupId === '01-sweep-north');
     expect(north).toHaveLength(2);
     expect(north[0].keyframes).toEqual(north[1].keyframes);
@@ -18,7 +20,8 @@ describe('editable research groups', () => {
       ['01-sweep-center'],
       null,
     );
-    expect(filtered.actors).toHaveLength(6);
+    expect(filtered.actors.filter((a) => a.groupId)).toHaveLength(6);
+    expect(filtered.actors.filter((a) => !a.groupId)).toHaveLength(scenario.actors.length);
     expect(filtered.relationships).toHaveLength(0);
   });
   it('focus isolates a group and allows all groups to be hidden', () => {
@@ -29,8 +32,9 @@ describe('editable research groups', () => {
         state,
         state.groups.map((g) => g.id),
         null,
-      ).actors,
+      ).actors.filter((a) => a.groupId),
     ).toHaveLength(0);
+    expect(filterSnapshot(state, state.groups.map((g) => g.id), null).actors.filter((a) => !a.groupId)).toHaveLength(scenario.actors.length);
   });
   it('validates group member entity references and scenario-wide unique member ids', () => {
     const copy = structuredClone(catalog);
