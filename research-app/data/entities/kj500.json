@@ -22,10 +22,17 @@
     }
   ],
   "media": {
-    "src": "assets/entities/support.svg",
-    "icon": "assets/entities/support.svg",
-    "alt": "Schematic category symbol for KJ-500 AEW&C",
-    "credit": "NexGen schematic illustration",
-    "rights": "Generic explanatory symbol, not a platform-accurate silhouette"
+    "src": "assets/entities/kj500.svg",
+    "icon": "assets/entities/kj500.svg",
+    "alt": "Original schematic top-down depiction of KJ-500 AEW&C; not a scale technical drawing",
+    "credit": "NexGen original schematic artwork",
+    "rights": "Original project illustration; approximate aircraft silhouette, not an operational source",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
   }
 }
