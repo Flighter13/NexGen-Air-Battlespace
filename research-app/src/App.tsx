@@ -26,6 +26,7 @@ export default function App(){
 function Workspace({scenario,onScenario}:{scenario:Scenario;onScenario:(id:string)=>void;}){
   const clock=useTimeline(scenario.duration), state=snapshot(scenario,clock.time,catalog);
   const [view,setView]=useState<'map'|'network'>('map');
+  const [mobilePanel,setMobilePanel]=useState<'explore'|'scenario'|'library'|'details'>('explore');
   const [selected,setSelected]=useState(state.actors[0].entityId);
   const [query,setQuery]=useState('');
   const [showLinks,setShowLinks]=useState(true);
@@ -44,21 +45,22 @@ function Workspace({scenario,onScenario}:{scenario:Scenario;onScenario:(id:strin
   const library=catalog.entities.filter((e)=>e.name.toLowerCase().includes(query.toLowerCase())&&(domain==='all'||e.domain===domain)&&(functionFilter==='all'||e.function===functionFilter));
 
   return <main className="workspace">
-    <aside className="research-sidebar">
-      <div className="eyebrow">01 / RESEARCH SCENARIOS</div><label className="field-label" htmlFor="scenario">Explore a concept</label>
+    <nav className="mobile-workspace-nav" aria-label="Research sections">{([['explore','Explore'],['scenario','Scenario'],['library','Library'],['details','Details']] as const).map(([id,label])=><button type="button" key={id} aria-current={mobilePanel===id?'page':undefined} onClick={()=>setMobilePanel(id)}>{label}</button>)}</nav>
+    <aside className={`research-sidebar ${mobilePanel==='scenario'||mobilePanel==='library'?'mobile-visible':''}`}>
+      <div className={`scenario-panel ${mobilePanel==='scenario'?'mobile-visible':''}`}><div className="eyebrow">01 / RESEARCH SCENARIOS</div><label className="field-label" htmlFor="scenario">Explore a concept</label>
       <select id="scenario" value={scenario.id} onChange={(e)=>onScenario(e.target.value)}>{catalog.scenarios.map((s)=><option key={s.id} value={s.id}>{s.title}</option>)}</select>
       <p className="scenario-description">{scenario.description}</p><span className="badge illustrative">Illustrative scenario</span><Provenance citations={scenario.citations}/>
       <details className="assumptions"><summary>Reading this visualization</summary><ul>{scenario.assumptions.map((a)=><li key={a}>{a}</li>)}</ul></details>
-      <div className="section-divider"/><div className="eyebrow">02 / ENTITY LIBRARY</div>
+      </div><div className={`library-panel ${mobilePanel==='library'?'mobile-visible':''}`}><div className="section-divider"/><div className="eyebrow">02 / ENTITY LIBRARY</div>
       <input aria-label="Search entities" placeholder="Search research records…" value={query} onChange={(e)=>setQuery(e.target.value)}/>
       <div className="library-filters">
         <select aria-label="Filter by domain" value={domain} onChange={(e)=>setDomain(e.target.value)}><option value="all">All domains</option><option value="air">Air</option><option value="network">Network</option><option value="space">Space</option><option value="ground">Ground</option><option value="maritime">Maritime</option></select>
         <select aria-label="Filter by function" value={functionFilter} onChange={(e)=>setFunctionFilter(e.target.value)}><option value="all">All functions</option>{[...new Set(catalog.entities.map((e)=>e.function))].sort().map((f)=><option key={f} value={f}>{f}</option>)}</select>
       </div>
-      <div className="entity-list">{library.map((e)=><button key={e.id} className={selected===e.id?'entity-row selected':'entity-row'} onClick={()=>{setSelected(e.id);setSelectedActor('');}}><EntityImage small entity={e}/><span>{e.shortName}<small>{e.domain} · {e.function}{state.actors.some((a)=>a.entityId===e.id)?' · in scenario':' · library'}</small></span><span className="row-arrow">↗</span></button>)}</div>
+      <div className="entity-list">{library.map((e)=><button key={e.id} className={selected===e.id?'entity-row selected':'entity-row'} onClick={()=>{setSelected(e.id);setSelectedActor('');setMobilePanel('details');}}><EntityImage small entity={e}/><span>{e.shortName}<small>{e.domain} · {e.function}{state.actors.some((a)=>a.entityId===e.id)?' · in scenario':' · library'}</small></span><span className="row-arrow">↗</span></button>)}</div></div>
     </aside>
 
-    <section className="center">
+    <section className={`center ${mobilePanel==='explore'?'mobile-visible':''}`}>
       <div className="view-heading"><div><div className="eyebrow">CONCEPT EXPLORER</div><h2>{scenario.subtitle}</h2></div><div className="segmented" aria-label="Visualization view"><button aria-pressed={view==='map'} className={view==='map'?'active':''} onClick={()=>setView('map')}>Geographic</button><button aria-pressed={view==='network'} className={view==='network'?'active':''} onClick={()=>setView('network')}>Network</button></div></div>
       <div className="relationship-filters" aria-label="Relationship layers">{RELATIONSHIP_TYPES.map((type)=><label key={type}><input type="checkbox" checked={relationshipTypes.includes(type)} onChange={()=>setRelationshipTypes((current)=>current.includes(type)?current.filter((t)=>t!==type):[...current,type])}/>{type}</label>)}</div>
       <div className="visualization">
@@ -71,6 +73,6 @@ function Workspace({scenario,onScenario}:{scenario:Scenario;onScenario:(id:strin
       <section className="relationship-panel"><div className="eyebrow">ACTIVE RELATIONSHIPS</div>{displayed.relationships.length?displayed.relationships.map((r)=><details key={r.id}><summary>{r.label} <span className={`badge ${r.evidence}`}>{r.evidence}</span></summary><p>{state.actors.find((a)=>a.id===r.from)?.label} {r.direction==='bidirectional'?'↔':'→'} {state.actors.find((a)=>a.id===r.to)?.label} · {r.type}{r.networkId?` · ${catalog.networks.find((n)=>n.id===r.networkId)?.name}`:''}</p><Provenance citations={r.citations}/></details>):<p className="muted">No relationships active in this phase.</p>}</section>
     </section>
 
-    <aside className="profile-sidebar"><EntityCard entity={entity}/><section className="roles"><div className="eyebrow">SCENARIO ROLES</div>{state.actors.filter((a)=>a.entityId===selected).map((a)=><p key={a.id}><strong>{a.label}</strong><br/>{a.role}</p>)}{!state.actors.some((a)=>a.entityId===selected)&&<p className="muted">This library record is not assigned to the current scenario.</p>}</section></aside>
+    <aside className={`profile-sidebar ${mobilePanel==='details'?'mobile-visible':''}`}><EntityCard entity={entity}/><section className="roles"><div className="eyebrow">SCENARIO ROLES</div>{state.actors.filter((a)=>a.entityId===selected).map((a)=><p key={a.id}><strong>{a.label}</strong><br/>{a.role}</p>)}{!state.actors.some((a)=>a.entityId===selected)&&<p className="muted">This library record is not assigned to the current scenario.</p>}</section></aside>
   </main>;
 }
