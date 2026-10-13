@@ -1,0 +1,38 @@
+{
+  "id": "cca-10",
+  "name": "Recoverable ISR CCA-10",
+  "shortName": "CCA-10",
+  "category": "uncrewed",
+  "domain": "air",
+  "function": "isr",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Recoverable ISR CCA used for persistent reconnaissance coverage. This is a notional Mitchell Institute 2024 TTX variant, not a verified production aircraft.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "Table 1 (p. 16), TTX notional CCA; Figures 4-9"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/uncrewed.svg",
+    "icon": "assets/entities/uncrewed.svg",
+    "alt": "Schematic category icon for Recoverable ISR CCA-10; not a physical configuration",
+    "credit": "NexGen schematic category illustration",
+    "rights": "Project illustration; not a validated aircraft silhouette",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
+  }
+}
