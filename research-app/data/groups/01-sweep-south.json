@@ -2,12 +2,12 @@
   "id": "01-sweep-south",
   "scenarioId": "01-sweep",
   "name": "South CCA group",
-  "role": "Southern study axis",
+  "role": "Mitchell TTX sweep force, schematic routes",
   "evidence": "illustrative",
   "citations": [
     {
-      "sourceId": "editorial",
-      "locator": "Starter dataset: group membership and spacing"
+      "sourceId": "mitchell-report",
+      "locator": "Figure 4–5, p. 18 (roles only; routes editorial)"
     }
   ],
   "keyframes": [
@@ -23,17 +23,23 @@
   "members": [
     {
       "id": "south",
-      "entityId": "cca-concept",
+      "entityId": "cca-5",
       "label": "South CCA group 1",
-      "role": "Southern study axis",
-      "offsetKm": [0, 0]
+      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "offsetKm": [
+        0,
+        0
+      ]
     },
     {
       "id": "south-2",
-      "entityId": "cca-concept",
+      "entityId": "cca-11",
       "label": "South CCA group 2",
-      "role": "Southern study axis",
-      "offsetKm": [80, -65]
+      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "offsetKm": [
+        80,
+        -65
+      ]
     }
   ]
 }
