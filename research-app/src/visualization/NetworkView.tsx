@@ -13,10 +13,10 @@ const laneStartY=105;
 const laneSpacing=95;
 const laneBottomPadding=95;
 
-export function NetworkView({state,layoutState,allRelationships,onSelect,selected,relationshipTypes,selectedRelationship,onRelationshipSelect}:{
+export function NetworkView({state,layoutState,allRelationships,onSelect,selected,relationshipTypes,evidenceFilter,selectedRelationship,onRelationshipSelect}:{
   state:Snapshot; layoutState:Snapshot; allRelationships:Relationship[];
   onSelect:(id:string)=>void; selected:string; relationshipTypes:string[];
-  selectedRelationship:string|null; onRelationshipSelect:(id:string)=>void;
+  selectedRelationship:string|null; evidenceFilter:'all'|'documented'|'analytical'|'illustrative'; onRelationshipSelect:(id:string)=>void;
 }) {
   const {nodes,viewBoxHeight}=useMemo(()=>{
     const visibleActors=layoutState.actors.filter((a)=>a.entity.visualization.network);
@@ -43,7 +43,7 @@ export function NetworkView({state,layoutState,allRelationships,onSelect,selecte
     return {nodes,viewBoxHeight:Math.max(viewBoxMinHeight,laneStartY+Math.max(0,maxLaneSize-1)*laneSpacing+laneBottomPadding)};
   },[layoutState.actors.map((a)=>a.id).join('|'),allRelationships]);
 
-  const activeRelationships=state.relationships.filter((r)=>relationshipTypes.includes(r.type));
+  const activeRelationships=state.relationships.filter((r)=>relationshipTypes.includes(r.type)&&(evidenceFilter==='all'||r.evidence===evidenceFilter));
   return <svg className="network" viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`} role="img" aria-label="Mission system-of-systems relationship network">
     <defs><marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
     {activeRelationships.map((r)=>{
