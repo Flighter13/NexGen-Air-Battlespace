@@ -1,20 +1,20 @@
 {
   "id": "04-sead",
-  "title": "SEAD · mission sequence",
-  "subtitle": "2024 TTX · phased counter-SAG SEAD concept over notional 24 hours",
-  "description": "Mitchell Institute SEAD team's four-phase tabletop concept: continuous ISR, stimulation/decoy/electronic attack, maritime surface-action-group strikes, and follow-on harassment/BDA (Figure 9, pp. 20–21).",
+  "title": "Mitchell TTX · SEAD concept",
+  "subtitle": "Continuous ISR · Stimulate/decoy/jam · Strike · Harass/BDA",
+  "description": "Reconstruction of the Mitchell Institute 2024 SEAD team's public four-stage 24-hour operating concept (Figure 9, report pp. 20–21). Published notional CCA-9/11/12 stimulation and electronic effects support CCA-4/7 and crewed strike efforts while EA-37B, RC-135 and ISR CCA support persistent awareness.",
   "evidence": "illustrative",
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figure 9, pp. 20–21"
+      "locator": "pp. 20–21, Figure 9"
     }
   ],
   "assumptions": [
-    "Figure 9 depicts a 24-hour conceptual cycle, but gives no exact georeferenced flight paths, target coordinates or detailed per-phase clock schedule.",
-    "The report's Figure 9 includes CCA-10/CCA-11, EA-37B and RC-135 ISR; the source text specifically identifies three CCA-10/EA-37B orbits and one RC-135 orbit. Presentation counts are not claimed to represent actual sorties.",
-    "CCA-12 was a SEAD team variant adapted from notional CCA-8; its requested quantity is not a fielded inventory.",
-    "Timeline seconds are compressed presentation time, not clock hours, and map routes are editorial illustrations."
+    "Published Figure 9 shows phases over a 24-hour conceptual cycle, including continuous ISR, stimulation/decoy/jamming, strike against SAGs, and harassment/electronic attack with BDA.",
+    "Source discrepancy: narrative p. 20 describes three ISR orbits including CCA-10 and EA-37B plus one RC-135 orbit; Figure 9 additionally labels CCA-11. We retain the source's published labels rather than claiming exact coordinated flight tracks.",
+    "CCA-12 was modified from the Table 1 CCA-8 concept by the SEAD team; it is not listed as a standalone Table 1 design.",
+    "The timeline is scaled for presentation; coordinates, route traces, numbers of icons, headings and interaction lines are illustrative, not exercise telemetry or released mission plans."
   ],
   "duration": 75,
   "phases": [
