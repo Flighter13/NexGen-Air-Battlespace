@@ -1,8 +1,8 @@
 {
   "id": "01-sweep",
-  "title": "Mitchell 2024 TTX · Counterair sweep",
-  "subtitle": "Figure 4 approach axes; Figure 5 between-pulse pressure",
-  "description": "Source-based reenactment of the published 2024 Mitchell Institute TTX sweep team concept: three notional expendable CCA axes ahead of maritime strike pulses, followed on one axis by F-22/F-35, and recoverable CCA with F-15EX between pulses.",
+  "title": "Mitchell TTX · counterair sweep",
+  "subtitle": "Three CCA approach axes, crewed follow-on, between-pulse pressure",
+  "description": "2024 Mitchell Institute tabletop-exercise concept (Figures 3-5): three axes of expendable counterair/EW CCA precede F-22/F-35 follow-on support; recoverable CCA and F-15EX maintain pressure between notional maritime strike pulses.",
   "evidence": "illustrative",
   "citations": [
     {
@@ -11,61 +11,61 @@
     }
   ],
   "assumptions": [
-    "Based on Mitchell Institute 2024 TTX conceptual proposals, not observed combat or verified flight plans.",
-    "The report specifies three approach axes and an air-to-air/EW CCA ratio of 3:1, but does not publish georeferenced waypoints or aircraft-specific tracks. Displayed routes are editorial, not reconstructed operational paths.",
-    "The report describes a two-strike-pulse-per-day planning assumption; playback seconds are not operational hours.",
-    "Illustrated aircraft and CCA symbols represent source-described roles, not verified inventories at particular coordinates."
+    "TTX mission concept and participating platform roles derive from the February 2025 Mitchell Institute report, pages 15-18; this is a proposed wargame concept, not a real combat flight record.",
+    "The report specifies three axes and a 3:1 ratio of weapon-carrying to EW CCA for the advance sweep, but it does not publish precise tracks, positions, aircraft-by-aircraft numbers or event timestamps.",
+    "All map paths, geographic placement, icon spacing and playback seconds are editorial illustration, not operational trajectories or validated mission timing.",
+    "Figure 3 assumes two notional maritime strike pulses per day during the opening conflict stage; this playback does not simulate sortie outcomes or aircraft performance."
   ],
   "duration": 84,
   "phases": [
     {
       "id": "stage",
-      "title": "Configure three study axes",
+      "title": "Notional Maritime Strike Context",
       "start": 0,
       "end": 12,
-      "narrative": "Figure 4: three expendable CCA approach axes ahead of a notional maritime strike pulse."
+      "narrative": "The report's Figure 3 assumes two daily maritime strike pulses, each illustrated by eight standoff bombers, eight penetrating bombers, 16 F-35A and 16 F-15EX; these are planning assumptions, not observed sorties."
     },
     {
       "id": "probe",
-      "title": "Three-axis expendable CCA sweep",
+      "title": "Three Expendable CCA Axes",
       "start": 12,
       "end": 26,
-      "narrative": "Figure 4: expendable air-to-air and EW CCA appear on three axes; the planning mix is 3:1 armed to EW CCA."
+      "narrative": "Figure 4 describes three approach axes with a reported 3:1 mix of air-to-air-armed and EW expendable CCA; plotted directions are editorial, not disclosed tracks."
     },
     {
       "id": "reveal",
-      "title": "Expose and disrupt defensive responses",
+      "title": "Defense Reactions / Cues",
       "start": 26,
       "end": 38,
-      "narrative": "Figure 4: the concept aims to induce and expose adversary reactions, without verified engagement outcomes."
+      "narrative": "The TTX concept seeks to prompt defensive responses and reveal activity, without published observed engagement or targeting results."
     },
     {
       "id": "follow-on",
-      "title": "F-22 / F-35 follow-on",
+      "title": "F-22 / F-35 Follow-On",
       "start": 38,
       "end": 52,
-      "narrative": "Figure 4: one axis is followed by F-22/F-35 aircraft and CCA, with reported E-7A cueing."
+      "narrative": "One CCA axis is followed by F-22s and F-35s, with target-cue concepts involving penetrating CCA and E-7A (Figure 4; p. 17)."
     },
     {
       "id": "pulse-support",
-      "title": "Support maritime strike pulse",
+      "title": "Maritime Strike-Pulse Support",
       "start": 52,
       "end": 64,
-      "narrative": "Figure 3: the strike-pulse baseline assumes two notional maritime strikes each day at campaign opening."
+      "narrative": "The sweep is planned in support of notional strikes on maritime targets in the Taiwan defense scenario; no actual attack path is reported."
     },
     {
       "id": "between-pulses",
-      "title": "CCA-1 and F-15EX pressure",
+      "title": "CCA-1 and F-15EX Pressure",
       "start": 64,
       "end": 76,
-      "narrative": "Figure 5: recoverable CCA-1 and F-15EX support between-pulse pressure; ISR CCA and expendable counterair CCA are discussed."
+      "narrative": "Figure 5 uses recoverable CCA-1 screening and ISR-supported F-15EX standoff elements to maintain pressure between pulses."
     },
     {
       "id": "reset",
-      "title": "Illustrative reset",
+      "title": "Conceptual Next Pulse",
       "start": 76,
       "end": 84,
-      "narrative": "This is an editorial reset, not a reported TTX maneuver or measured turnaround."
+      "narrative": "Figure 4 proposes varying the axes from pulse to pulse. No repeatable geometry or precise reconstitution timing is supplied."
     }
   ],
   "actors": []
