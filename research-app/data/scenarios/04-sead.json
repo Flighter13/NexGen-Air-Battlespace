@@ -1,8 +1,8 @@
 {
   "id": "04-sead",
-  "title": "Mitchell 2024 TTX · SEAD team",
-  "subtitle": "Figure 9: continuous ISR, decoy/jam, strike, harassment and BDA",
-  "description": "TTX SEAD team's reported 24-hour conceptual cycle, described as persistent ISR, stimulation/decoy and electronic attack, anti-ship/air-defense strike, and sustained electronic attack and bomb damage assessment.",
+  "title": "Mitchell TTX · SEAD mission",
+  "subtitle": "24-hour concept: ISR, stimulate, strike, harass and assess",
+  "description": "The Mitchell Institute 2024 SEAD tabletop-exercise concept (Figure 9, pp. 20-21): overlapping ISR, deception, electronic attack and strike activity against notional coastal and surface-action-group air defenses over a 24-hour planning window.",
   "evidence": "illustrative",
   "citations": [
     {
@@ -11,48 +11,47 @@
     }
   ],
   "assumptions": [
-    "Phase names and participating roles follow Figure 9 and pp. 20–21; the report does not provide geolocated tracks or exact phase transition hours.",
-    "Figure 9 is a schematic 24-hour concept. The playback duration uses presentation seconds and does not recreate 24 hours of aircraft performance.",
-    "The report describes CCA-9, CCA-11, team-modified CCA-12, CCA-4 and CCA-7 as notional variants, not specific currently fielded airframes.",
-    "The report's Phase 1 includes EA-37B and RC-135 supporting persistent ISR/electromagnetic effects; the site's generic orbit shape is illustrative.",
-    "No tactical geolocation, specific weapons delivery path or outcome is claimed."
+    "Figure 9 provides a 24-hour conceptual mission sequence, not georeferenced flight tracks or verified engagement results.",
+    "The playback lasts 75 display seconds for navigation; source phases overlap and recur, so screen phase boundaries do not represent actual clock timestamps or strict operational succession.",
+    "Report text p. 20 identifies three orbits of CCA-10/EA-37B and one RC-135 orbit; Figure 9 additionally names CCA-11 with continuous ISR. Both are recorded here without asserting a resolved exact orbit composition.",
+    "TTX CCA-12 was a team-modified concept based on CCA-8; no confirmed physical silhouette or flight path is published. All map placement is editorial."
   ],
   "duration": 75,
   "phases": [
     {
       "id": "continuous-isr",
-      "title": "Phase 1 · Persistent ISR",
+      "title": "Phase 1 · Continuous ISR",
       "start": 0,
       "end": 15,
-      "narrative": "Figure 9 Phase 1: continuous ISR; the text describes CCA-10, EA-37B and a Rivet Joint orbit."
+      "narrative": "The TTX depicts continuing ISR across the 24-hour concept using CCA-10, EA-37B and RC-135, with CCA-11 also listed in Figure 9."
     },
     {
       "id": "stimulate",
-      "title": "Phase 2 · Stimulate, decoy, jam",
+      "title": "Phase 2 · Stimulate, Decoy, Jam",
       "start": 15,
       "end": 32,
-      "narrative": "Figure 9 Phase 2: notional expendable CCA-9, CCA-11 and modified CCA-12 stimulate, decoy and jam SAG air defenses."
+      "narrative": "Notional CCA-9, CCA-11 and CCA-12 pressure and electronically disrupt defensive systems in the exercise concept."
     },
     {
       "id": "strike",
-      "title": "Phase 3 · Counter-SAG strike",
+      "title": "Phase 3 · Strike SAGs",
       "start": 32,
       "end": 49,
-      "narrative": "Figure 9 Phase 3: CCA-4, CCA-7 and crewed aircraft feature in the notional SAG strike concept."
+      "narrative": "The planned mix uses CCA-4 and CCA-7 plus crewed aircraft, with AARGM, LRASM and SiAW described in Figure 9."
     },
     {
       "id": "harass",
-      "title": "Phase 4 · Harass and electronic attack",
+      "title": "Phase 4 · Harass and Electronic Attack",
       "start": 49,
       "end": 63,
-      "narrative": "Figure 9 Phase 4: intermittent expendable CCA and electronic attack maintain pressure."
+      "narrative": "The concept repeats expendable-CCA harassment and electronic attack between strike activities."
     },
     {
       "id": "bda",
-      "title": "Phase 4a · Harass and assess",
+      "title": "Phase 4a · Harass and BDA",
       "start": 63,
       "end": 75,
-      "narrative": "Figure 9 Phase 4a: continued harassment and BDA complete the illustrative sequence."
+      "narrative": "The exercise depicts ongoing harassment and bomb-damage-assessment functions; no actual assessments are published."
     }
   ],
   "actors": [
