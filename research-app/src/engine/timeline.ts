@@ -42,7 +42,7 @@ export function snapshot(scenario: Scenario, t: number, catalog: Catalog) {
     ...scenario.actors.map((a) => ({
       ...a,
       groupId: '',
-      offsetKm: [0, 0] as [number, number],
+      offsetKm: a.offsetKm ?? ([0, 0] as [number, number]),
       motion: a.motion as MotionConfig,
     })),
     ...groups.flatMap((g) =>
