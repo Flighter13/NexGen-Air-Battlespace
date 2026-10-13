@@ -14,7 +14,8 @@
     "Figure 9 provides a 24-hour conceptual mission sequence, not georeferenced flight tracks or verified engagement results.",
     "The playback lasts 75 display seconds for navigation; source phases overlap and recur, so screen phase boundaries do not represent actual clock timestamps or strict operational succession.",
     "Report text p. 20 identifies three orbits of CCA-10/EA-37B and one RC-135 orbit; Figure 9 additionally names CCA-11 with continuous ISR. Both are recorded here without asserting a resolved exact orbit composition.",
-    "TTX CCA-12 was a team-modified concept based on CCA-8; no confirmed physical silhouette or flight path is published. All map placement is editorial."
+    "TTX CCA-12 was a team-modified concept based on CCA-8; no confirmed physical silhouette or flight path is published. All map placement is editorial.",
+    "Additional CCA-4, CCA-7 and CCA-12 symbols visualize platform participation explicitly documented in Figure 9 and pp. 20–21, not aircraft quantities, tactical formations, actual flight paths or engagement results."
   ],
   "duration": 75,
   "phases": [
@@ -37,7 +38,7 @@
       "title": "Phase 3 · Strike SAGs",
       "start": 32,
       "end": 49,
-      "narrative": "The planned mix uses CCA-4 and CCA-7 plus crewed aircraft, with AARGM, LRASM and SiAW described in Figure 9."
+      "narrative": "Figure 9 Phase 3: CCA-4 and CCA-7 alongside crewed penetrating and stand-off aircraft carry the reported strike concept, employing AARGM, LRASM and SiAW against notional surface action groups; depicted positions are illustrative."
     },
     {
       "id": "harass",
@@ -189,6 +190,78 @@
         {
           "t": 75,
           "locationId": "south-area"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "sead-cca4",
+      "entityId": "cca-4",
+      "label": "CCA-4 · strike",
+      "role": "TTX Phase 3 recoverable strike CCA; illustrative track",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "center-start"
+        },
+        {
+          "t": 38,
+          "locationId": "center-area"
+        },
+        {
+          "t": 75,
+          "locationId": "center-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "sead-cca7",
+      "entityId": "cca-7",
+      "label": "CCA-7 · strike",
+      "role": "TTX Phase 3 recoverable strike CCA; illustrative track",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "south-start"
+        },
+        {
+          "t": 38,
+          "locationId": "south-area"
+        },
+        {
+          "t": 75,
+          "locationId": "south-start"
+        }
+      ],
+      "motion": {
+        "path": "smooth",
+        "heading": "path"
+      }
+    },
+    {
+      "id": "sead-cca12",
+      "entityId": "cca-12",
+      "label": "CCA-12 · decoy",
+      "role": "TTX modified expendable loitering-munition concept for Phase 2 and subsequent harassment; no published coordinates",
+      "keyframes": [
+        {
+          "t": 0,
+          "locationId": "north-start"
+        },
+        {
+          "t": 38,
+          "locationId": "center-area"
+        },
+        {
+          "t": 75,
+          "locationId": "north-start"
         }
       ],
       "motion": {
