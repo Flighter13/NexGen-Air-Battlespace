@@ -2,12 +2,12 @@
   "id": "01-sweep-crewed",
   "scenarioId": "01-sweep",
   "name": "Crewed element",
-  "role": "Conceptual teaming",
+  "role": "Mitchell TTX sweep force, schematic routes",
   "evidence": "illustrative",
   "citations": [
     {
-      "sourceId": "editorial",
-      "locator": "Starter dataset: group membership and spacing"
+      "sourceId": "mitchell-report",
+      "locator": "Figure 4–5, p. 18 (roles only; routes editorial)"
     }
   ],
   "keyframes": [
@@ -27,17 +27,23 @@
   "members": [
     {
       "id": "crewed",
-      "entityId": "fighter-concept",
+      "entityId": "f22a",
       "label": "Crewed element 1",
-      "role": "Conceptual teaming",
-      "offsetKm": [0, 0]
+      "role": "Fifth-generation follow-on fighter; illustrative route",
+      "offsetKm": [
+        0,
+        0
+      ]
     },
     {
       "id": "crewed-2",
-      "entityId": "fighter-concept",
+      "entityId": "f35a",
       "label": "Crewed element 2",
-      "role": "Conceptual teaming",
-      "offsetKm": [80, -65]
+      "role": "Fifth-generation follow-on fighter; illustrative route",
+      "offsetKm": [
+        80,
+        -65
+      ]
     }
   ]
 }
