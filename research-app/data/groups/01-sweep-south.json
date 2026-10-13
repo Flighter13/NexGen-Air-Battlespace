@@ -7,7 +7,11 @@
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figure 4–5, p. 18 (roles only; routes editorial)"
+      "locator": "Figure 4, p. 18; three conceptual expendable CCA axes; exact tracks not published"
+    },
+    {
+      "sourceId": "editorial",
+      "locator": "Map coordinates, icon offsets, movement and actor multiplicities are fictional presentation geometry"
     }
   ],
   "keyframes": [
@@ -24,8 +28,8 @@
     {
       "id": "south",
       "entityId": "cca-5",
-      "label": "South CCA group 1",
-      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "label": "south counterair CCA (concept)",
+      "role": "Weapon/EW CCA functional mix; icon counts do not encode the report's 3:1 ratio",
       "offsetKm": [
         0,
         0
@@ -34,8 +38,8 @@
     {
       "id": "south-2",
       "entityId": "cca-11",
-      "label": "South CCA group 2",
-      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "label": "south EW CCA (concept)",
+      "role": "Weapon/EW CCA functional mix; icon counts do not encode the report's 3:1 ratio",
       "offsetKm": [
         80,
         -65
