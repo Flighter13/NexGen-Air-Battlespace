@@ -1,0 +1,31 @@
+{
+  "id": "f15ex",
+  "name": "F-15EX Eagle II",
+  "shortName": "F15EX",
+  "category": "crewed",
+  "domain": "air",
+  "function": "fighter",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "Crewed fourth-generation fighter used for standoff counterair activities between strike pulses.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "Figure 5 (p. 18)"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/fighter.svg",
+    "icon": "assets/entities/fighter.svg",
+    "alt": "Schematic category symbol for F-15EX Eagle II",
+    "credit": "NexGen schematic illustration",
+    "rights": "Generic explanatory symbol, not a platform-accurate silhouette"
+  }
+}
