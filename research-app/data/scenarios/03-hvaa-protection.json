@@ -15,7 +15,7 @@
     "Figures describe broad areas (Ryukyus, mainland Japan, Guam) but provide no verifiable flight-track coordinates, actual launch times or platform-level observed movements.",
     "The report states LOE 2 could launch up to four reactive waves per day depending on target availability and expendable CCA allocation could be exhausted in two days; playback seconds are not those timings.",
     "Map actor positions are fictional study points and do not represent actual E-7A or tanker orbits or adversary engagements.",
-    "Additional icons show selected roles described by Figures 6–8, but no source-confirmed aircraft count or actual trajectory. The electronic warfare CCA symbol used here is a category proxy rather than a documented match of a specific design."
+    "Additional symbols visualize selected roles described in Figures 6–8 without asserting source-confirmed counts, coordinates or aircraft assignments. CCA-4 is a labeled recoverable EW-capable proxy, not a verified HVAA team selection."
   ],
   "duration": 60,
   "phases": [
@@ -140,9 +140,9 @@
     },
     {
       "id": "hvaa-ew",
-      "entityId": "cca-11",
-      "label": "Recoverable EW role (schematic)",
-      "role": "The report describes recoverable EW CCA for HVAA protection; CCA-11 is expendable in Table 1, so this actor is an abstract EW stand-in and NOT a claimed TTX variant assignment",
+      "entityId": "cca-4",
+      "label": "Recoverable EW support (proxy)",
+      "role": "Abstract recoverable EW support role; CCA-4's Table 1 capability includes moderate EW, but the HVAA team does not specify this CCA variant",
       "keyframes": [
         {
           "t": 0,
