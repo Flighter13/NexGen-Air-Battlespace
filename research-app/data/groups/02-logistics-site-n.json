@@ -2,12 +2,12 @@
   "id": "02-logistics-site-n",
   "scenarioId": "02-logistics",
   "name": "North CCA group",
-  "role": "Distributed study site",
+  "role": "Mitchell TTX dispersed sustainment, schematic routes",
   "evidence": "illustrative",
   "citations": [
     {
-      "sourceId": "editorial",
-      "locator": "Starter dataset: group membership and spacing"
+      "sourceId": "mitchell-report",
+      "locator": "pp. 24–25 (roles only; routes editorial)"
     }
   ],
   "keyframes": [
@@ -19,17 +19,23 @@
   "members": [
     {
       "id": "site-n",
-      "entityId": "cca-concept",
+      "entityId": "cca-1",
       "label": "North CCA group 1",
-      "role": "Distributed study site",
-      "offsetKm": [0, 0]
+      "role": "TTX sustainment role; illustrative geography",
+      "offsetKm": [
+        0,
+        0
+      ]
     },
     {
       "id": "site-n-2",
-      "entityId": "cca-concept",
+      "entityId": "cca-1",
       "label": "North CCA group 2",
-      "role": "Distributed study site",
-      "offsetKm": [80, -65]
+      "role": "TTX sustainment role; illustrative geography",
+      "offsetKm": [
+        80,
+        -65
+      ]
     }
   ]
 }
