@@ -6,8 +6,8 @@
   "evidence": "illustrative",
   "citations": [
     {
-      "sourceId": "editorial",
-      "locator": "Starter dataset: group membership and spacing"
+      "sourceId": "mitchell-report",
+      "locator": "pp. 24–25 (sustainment roles, not operational tracks)"
     }
   ],
   "keyframes": [
@@ -33,8 +33,11 @@
       "id": "transport",
       "entityId": "support-concept",
       "label": "Support element 1",
-      "role": "Illustrative replenishment",
-      "offsetKm": [0, 0]
+      "role": "Conceptual distributed sustainment; routes and spacing illustrative",
+      "offsetKm": [
+        0,
+        0
+      ]
     }
   ]
 }
