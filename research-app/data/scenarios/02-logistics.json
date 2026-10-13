@@ -1,64 +1,64 @@
 {
   "id": "02-logistics",
   "title": "Distributed logistics · mission sequence",
-  "subtitle": "Preposition, disperse, generate and sustain",
-  "description": "A research visualization of the report's distributed CCA sustainment themes, organized around the support cycle rather than a generic stage-support-return sequence.",
+  "subtitle": "2024 TTX · dispersed basing and logistics constraints",
+  "description": "Logistics evidence from Mitchell Institute's 2024 CCA tabletop exercise: disperse CCA, preposition stocks, compare kinetic vs electronic attack sortie planning, and assess theater-airlift risks (pp. 24–25, Figure 12).",
   "evidence": "illustrative",
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Logistics discussion and Figures 11-12; distributed support, prepositioning and constrained logistics"
+      "locator": "pp. 24–25, Figures 11–12"
     }
   ],
   "assumptions": [
-    "The phase structure reflects logistics themes described in the report, while all displayed geography, quantities, routes and timings are editorial illustration.",
-    "Timeline seconds are presentation time only and do not represent actual sortie generation, transit, maintenance or replenishment durations.",
-    "The visualization does not calculate supply consumption, attrition, throughput, vulnerability or optimal basing.",
-    "Support links are conceptual and do not assert real-world access, basing or transportation plans."
+    "The study analyzed potential force postures and logistics; it did not publish actual transport tracks, replenishment schedules, basing access agreements or sortie outcomes.",
+    "Southern Japan/Ryukyus and northern Philippines were broad forward areas considered by teams, not exact coordinates of approved launch sites.",
+    "The constrained-logistics sortie shares in Figure 12 are percentages from TTX team plans, not observed combat statistics.",
+    "Current animated paths, timing and individual actors are editorial illustrations only."
   ],
   "duration": 72,
   "phases": [
     {
       "id": "preposition",
-      "title": "Preposition",
+      "title": "Preposition forward stores",
       "start": 0,
       "end": 12,
-      "narrative": "Introduce forward support resources and replacement capacity positioned before high-risk theater movement becomes more difficult."
+      "narrative": "The teams favored prepositioned replacement CCA and munitions because wartime resupply of forward sites could be high-risk."
     },
     {
       "id": "disperse",
-      "title": "Disperse",
+      "title": "Distributed CCA posture",
       "start": 12,
       "end": 24,
-      "narrative": "Show CCA and support activity distributed across multiple operating locations rather than concentrated at a single site."
+      "narrative": "Road- and rocket-launchable notional variants reduced reliance on airfields in southern Japan and the northern Philippines."
     },
     {
       "id": "generate",
-      "title": "Generate Sorties",
+      "title": "Generate CCA sorties",
       "start": 24,
       "end": 36,
-      "narrative": "Represent the support network enabling repeated mission generation without assigning real sortie rates or readiness values."
+      "narrative": "Low-footprint support concepts are examined alongside projected shortages of air-to-air munitions."
     },
     {
       "id": "replenish",
-      "title": "Replenish",
+      "title": "Theater airlift risk",
       "start": 36,
       "end": 48,
-      "narrative": "Illustrate movement of fuel, munitions, support equipment and replacement capacity as a conceptual logistics relationship."
+      "narrative": "Teams identified high risk for crewed C-130 replenishment near contested operating areas and examined uninhabited cargo options."
     },
     {
       "id": "shift",
-      "title": "Shift / Rebase",
+      "title": "Shift to non-kinetic effects",
       "start": 48,
       "end": 60,
-      "narrative": "Show units and support relationships moving among distributed sites as conditions change."
+      "narrative": "With constrained logistics, the sweep team's weapon-launch share fell from 96% to 68%; the SEAD team's fell from 76% to 33% (Figure 12)."
     },
     {
       "id": "sustain",
-      "title": "Sustain Under Constraint",
+      "title": "Sustain under attack",
       "start": 60,
       "end": 72,
-      "narrative": "Close with constrained sustainment, emphasizing the report's finding that logistics limits can alter force mix and mission support choices."
+      "narrative": "The report emphasizes fuel, local support, munitions commonality and resilient dispersed operations rather than an exact basing plan."
     }
   ],
   "actors": []
