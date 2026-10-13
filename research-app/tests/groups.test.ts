@@ -36,6 +36,21 @@ describe('editable research groups', () => {
     ).toHaveLength(0);
     expect(filterSnapshot(state, state.groups.map((g) => g.id), null).actors.filter((a) => !a.groupId)).toHaveLength(scenario.actors.length);
   });
+  it('keeps standalone study actors separated at shared staging points', () => {
+    for (const study of catalog.scenarios.filter((s) =>
+      ['01-sweep', '03-hvaa-protection', '04-sead'].includes(s.id),
+    )) {
+      const actors = snapshot(study, 0, catalog).actors;
+      for (let i = 0; i < actors.length; i++) {
+        for (let j = i + 1; j < actors.length; j++) {
+          const [ax, ay] = actors[i].position;
+          const [bx, by] = actors[j].position;
+          // Do not let two aircraft share the exact same map position.
+          expect(Math.hypot(ax - bx, ay - by)).toBeGreaterThan(0.0001);
+        }
+      }
+    }
+  });
   it('validates group member entity references and scenario-wide unique member ids', () => {
     const copy = structuredClone(catalog);
     copy.groups[0].members[0].entityId = 'missing';
