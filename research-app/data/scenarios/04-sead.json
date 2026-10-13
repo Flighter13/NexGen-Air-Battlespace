@@ -15,7 +15,8 @@
     "The playback lasts 75 display seconds for navigation; source phases overlap and recur, so screen phase boundaries do not represent actual clock timestamps or strict operational succession.",
     "Report text p. 20 identifies three orbits of CCA-10/EA-37B and one RC-135 orbit; Figure 9 additionally names CCA-11 with continuous ISR. Both are recorded here without asserting a resolved exact orbit composition.",
     "TTX CCA-12 was a team-modified concept based on CCA-8; no confirmed physical silhouette or flight path is published. All map placement is editorial.",
-    "Additional CCA-4, CCA-7 and CCA-12 symbols visualize platform participation explicitly documented in Figure 9 and pp. 20–21, not aircraft quantities, tactical formations, actual flight paths or engagement results."
+    "Additional CCA-4, CCA-7 and CCA-12 symbols visualize platform participation explicitly documented in Figure 9 and pp. 20–21, not aircraft quantities, tactical formations, actual flight paths or engagement results.",
+    "Expendable CCA icons use conceptual outbound paths only, not recovery legs; any final stationary display is a visualization artifact, not evidence of survival or loitering."
   ],
   "duration": 75,
   "phases": [
@@ -136,12 +137,8 @@
           "locationId": "south-start"
         },
         {
-          "t": 37,
-          "locationId": "center-area"
-        },
-        {
           "t": 75,
-          "locationId": "south-area"
+          "locationId": "center-area"
         }
       ],
       "motion": {
@@ -182,10 +179,6 @@
         {
           "t": 0,
           "locationId": "south-start"
-        },
-        {
-          "t": 42,
-          "locationId": "south-area"
         },
         {
           "t": 75,
@@ -256,12 +249,8 @@
           "locationId": "north-start"
         },
         {
-          "t": 38,
-          "locationId": "center-area"
-        },
-        {
           "t": 75,
-          "locationId": "north-start"
+          "locationId": "center-area"
         }
       ],
       "motion": {
