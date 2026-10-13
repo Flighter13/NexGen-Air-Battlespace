@@ -1,8 +1,8 @@
 {
   "id": "02-logistics",
-  "title": "Mitchell TTX · logistics under attack",
-  "subtitle": "Dispersed CCA sustainment and constrained seven-day sortie mix",
-  "description": "Source-based visualization of the TTX logistics assessment: CCA prepositioning, distributed operating sites, theater airlift risks, missile-threat exposure, and the effect of munitions limits on seven-day CCA sortie plans.",
+  "title": "Mitchell TTX · CCA sustainment",
+  "subtitle": "Forward dispersion and constrained logistics · Figures 11–12",
+  "description": "Study of Mitchell's 2024 TTX logistics findings: forward CCA posture, prepositioning and sustainment risks; constrained munitions inventories shift sortie allocations toward electronic attack and decoys.",
   "evidence": "illustrative",
   "citations": [
     {
@@ -11,55 +11,54 @@
     }
   ],
   "assumptions": [
-    "The report locates notional forward operating areas in southern Japan and the northern Philippines, not named runways or precise bases.",
-    "Figure 12 compares seven-day plans: sweep weapon-launch sorties 96% unconstrained versus 68% constrained; SEAD 76% versus 33%.",
-    "Published TTX concepts and aggregate exercise results are sourced; the report does not disclose verified aircraft waypoints or flyable mission tracks.",
-    "Map positions, path geometry, animation duration and actor icons are deliberately schematic; presentation seconds are not elapsed operational hours.",
-    "Display actor counts are illustrative and must not be mistaken for the TTX's full force inventories or actual sortie totals."
+    "Published mission concepts and qualitative force-mix findings are taken from Mitchell Institute 2025 report (2024 TTX); these are hypothetical tabletop exercise plans, not observed combat operations.",
+    "Actor trajectories, coordinates, formation separations, icons, scene timing and visual counts are editorial illustrations. The report does not publish precise flight tracks or combat outcomes.",
+    "Scenario timeline is presentation seconds, not the exercise's operational day or campaign duration.",
+    "Notional CCA-1 through CCA-12 are study constructs; do not equate them with actual YFQ-designated prototypes."
   ],
   "duration": 72,
   "phases": [
     {
       "id": "preposition",
-      "title": "Preposition stocks before conflict",
+      "title": "Preposition resources",
       "start": 0,
       "end": 12,
-      "narrative": "The report locates notional forward operating areas in southern Japan and the northern Philippines, not named runways or precise bases. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
+      "narrative": "The HVAA team prepositioned CCA and munitions in the Ryukyus; subsequent crewed resupply near Taiwan was judged high-risk."
     },
     {
       "id": "disperse",
-      "title": "Disperse to forward sites",
+      "title": "Disperse forward CCA",
       "start": 12,
       "end": 24,
-      "narrative": "Figure 12 compares seven-day plans: sweep weapon-launch sorties 96% unconstrained versus 68% constrained; SEAD 76% versus 33%. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
+      "narrative": "TTX teams favored dispersed launch/recovery options in southern Japan and the northern Philippines, with reduced runway and ground-footprint requirements."
     },
     {
       "id": "generate",
       "title": "Generate CCA sorties",
       "start": 24,
       "end": 36,
-      "narrative": "The report locates notional forward operating areas in southern Japan and the northern Philippines, not named runways or precise bases. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
+      "narrative": "Fuel, munitions, personnel and equipment determine the ability to generate the proposed sorties; the map shows no simulated sortie rate."
     },
     {
       "id": "replenish",
-      "title": "Constrained resupply and munitions",
+      "title": "Examine resupply exposure",
       "start": 36,
       "end": 48,
-      "narrative": "Figure 12 compares seven-day plans: sweep weapon-launch sorties 96% unconstrained versus 68% constrained; SEAD 76% versus 33%. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
+      "narrative": "The report identifies theater airlift and munition replenishment risks and considers alternative uncrewed logistics support."
     },
     {
       "id": "shift",
-      "title": "Reduce airlift exposure",
+      "title": "Adapt posture and force mix",
       "start": 48,
       "end": 60,
-      "narrative": "The report locates notional forward operating areas in southern Japan and the northern Philippines, not named runways or precise bases. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
+      "narrative": "Under constraints the teams considered greater reliance on air-launched expendable CCA and nonkinetic mission systems."
     },
     {
       "id": "sustain",
-      "title": "Shift toward non-kinetic missions",
+      "title": "Constrained logistics finding",
       "start": 60,
       "end": 72,
-      "narrative": "Figure 12 compares seven-day plans: sweep weapon-launch sorties 96% unconstrained versus 68% constrained; SEAD 76% versus 33%. This visualization is an interpretation of published TTX mission roles, not a replay of recorded aircraft movements."
+      "narrative": "Figure 12: sweep team's weapon-launch share declined from 96% to 68%; SEAD team's from 76% to 33%, with a corresponding increase in EW/decoy sorties."
     }
   ],
   "actors": []
