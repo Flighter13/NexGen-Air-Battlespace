@@ -1,50 +1,50 @@
 {
   "id": "03-hvaa-protection",
   "title": "HVAA protection · mission sequence",
-  "subtitle": "Pulse support, ambush alert and decoy operations",
-  "description": "A source-structured visualization of the Mitchell Institute high-value airborne asset protection concept.",
+  "subtitle": "2024 TTX · pulse support, ambush alert, decoy lines of effort",
+  "description": "Mitchell Institute HVAA protection TTX team planned three distinct lines of effort to protect E-7A and tanker aircraft from long-range counterair threats (Figures 6–8, pp. 19–20).",
   "evidence": "illustrative",
   "citations": [
     {
       "sourceId": "mitchell-report",
-      "locator": "Figures 6-8; HVAA protection lines of effort"
+      "locator": "Figures 6–8, pp. 19–20"
     }
   ],
   "assumptions": [
-    "This starter scenario preserves the report's three lines of effort but uses abstract actors and fictional presentation geography.",
-    "Displayed timing is for explanation only and does not represent real alert cycles, launch timelines or aircraft performance.",
-    "Threat behavior and engagement outcomes are not simulated.",
-    "Additional actors and routes should be added only when supported by cited research."
+    "Figures 6–8 are notional planning diagrams rather than timestamped real aircraft tracks.",
+    "The team envisioned first-day F-15EX air launches and subsequent ground launches from the Ryukyus for some recoverable EW CCA, but no precise coordinates or per-flight headings were published.",
+    "The report described up to four reactive waves per day depending on target availability; current timeline seconds and moving actors are illustrative.",
+    "Displayed threat relationships do not establish real sensor connectivity, kill chains or engagement results."
   ],
   "duration": 60,
   "phases": [
     {
       "id": "pulse-support",
-      "title": "Pulse Support",
+      "title": "LOE 1 · HVAA pulse support",
       "start": 0,
       "end": 20,
-      "narrative": "Frame the first line of effort: CCA and crewed aircraft support high-value airborne assets during major strike pulses."
+      "narrative": "CCA and F-22s were proposed to counter KJ-500 and airborne threats to E-7A and tankers during strikes."
     },
     {
       "id": "ambush-alert",
-      "title": "Ambush Alert",
+      "title": "LOE 2 · Ambush alert",
       "start": 20,
       "end": 40,
-      "narrative": "Frame the second line of effort: reactive waves between strike pulses intended to complicate threats to high-value airborne assets."
+      "narrative": "Reactive expendable air-to-air CCA supported by recoverable EW/ISR CCA would maintain pressure between strikes."
     },
     {
       "id": "decoy-operations",
-      "title": "Decoy Operations",
+      "title": "LOE 3 · Decoy operations",
       "start": 40,
       "end": 54,
-      "narrative": "Frame the third line of effort: decoy, ISR and electronic-attack effects used between pulses to keep defenses uncertain and help identify targets."
+      "narrative": "Recoverable EW and ISR CCA were intended to compel PLA defensive responses and identify targets of opportunity."
     },
     {
       "id": "reconstitute",
-      "title": "Reconstitute / Repeat",
+      "title": "LOEs recur intermittently",
       "start": 54,
       "end": 60,
-      "narrative": "Reset the explanatory cycle. This transition is illustrative rather than a sourced operational timeline."
+      "narrative": "Cycle reset visualizes concurrent and repeated concepts, not actual sortie timing."
     }
   ],
   "actors": [
