@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import * as maplibregl from 'maplibre-gl';
-import mapWorkerUrl from 'maplibre-gl/dist/maplibre-gl-csp-worker.js?url';
+import mapWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 
 // Resolve the worker through Vite so the production asset is emitted under the
 // GitHub Pages base path rather than requested as a missing root-level file.
