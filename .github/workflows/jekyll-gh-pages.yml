@@ -49,7 +49,7 @@ jobs:
           test -f _site/research/assets/maps/land.geojson
           test -f _site/research/assets/entities/f35.png
           # The geographic view requires a bundled MapLibre Web Worker.
-          find _site/research/assets -maxdepth 1 -name 'maplibre-gl-worker-*.mjs' | grep -q .
+          find _site/research/assets -maxdepth 1 -name 'maplibre-gl-worker-*.js' | grep -q .
           # Ensure mobile research navigation ships in the compiled app.
           grep -R -q 'mobile-workspace-nav' _site/research/assets/*.js
       - name: Upload Pages artifact
