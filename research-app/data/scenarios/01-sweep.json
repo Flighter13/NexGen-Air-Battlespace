@@ -14,7 +14,8 @@
     "Source-grounded mission roles and three-axis concept from pp. 17-18, Figures 3-5. The three axis lines on this map are conceptual and DO NOT reproduce tabletop team flight coordinates, tactical geometry, or exact force counts.",
     "The published team's 3:1 air-to-air weapon versus EW CCA mix is a reported planning ratio, not a direct count of displayed icons.",
     "All path positions, offsets, headings and timeline seconds are editorial visualization, NOT exercise tracks, real airbase locations, performance, engagement geometry, or elapsed mission time.",
-    "Illustration renders one symbol per selected mission role, not the number of aircraft planned. The source's 3:1 air-to-air to electronic-warfare ratio is not represented by icon count."
+    "Illustration renders one symbol per selected mission role, not the number of aircraft planned. The source's 3:1 air-to-air to electronic-warfare ratio is not represented by icon count.",
+    "Expendable CCA icons use conceptual outbound paths only, not recovery legs; any final stationary display is a visualization artifact, not evidence of survival or loitering."
   ],
   "duration": 84,
   "phases": [
@@ -80,12 +81,8 @@
           "locationId": "north-start"
         },
         {
-          "t": 44,
-          "locationId": "north-area"
-        },
-        {
           "t": 84,
-          "locationId": "north-start"
+          "locationId": "north-area"
         }
       ],
       "motion": {
@@ -104,12 +101,8 @@
           "locationId": "center-start"
         },
         {
-          "t": 44,
-          "locationId": "center-area"
-        },
-        {
           "t": 84,
-          "locationId": "center-start"
+          "locationId": "center-area"
         }
       ],
       "motion": {
@@ -128,12 +121,8 @@
           "locationId": "south-start"
         },
         {
-          "t": 44,
-          "locationId": "south-area"
-        },
-        {
           "t": 84,
-          "locationId": "south-start"
+          "locationId": "south-area"
         }
       ],
       "motion": {
