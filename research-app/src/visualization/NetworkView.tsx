@@ -13,9 +13,10 @@ const laneStartY=105;
 const laneSpacing=95;
 const laneBottomPadding=95;
 
-export function NetworkView({state,layoutState,allRelationships,onSelect,selected,relationshipTypes}:{
+export function NetworkView({state,layoutState,allRelationships,onSelect,selected,relationshipTypes,selectedRelationship,onRelationshipSelect}:{
   state:Snapshot; layoutState:Snapshot; allRelationships:Relationship[];
   onSelect:(id:string)=>void; selected:string; relationshipTypes:string[];
+  selectedRelationship:string|null; onRelationshipSelect:(id:string)=>void;
 }) {
   const {nodes,viewBoxHeight}=useMemo(()=>{
     const visibleActors=layoutState.actors.filter((a)=>a.entity.visualization.network);
@@ -48,7 +49,7 @@ export function NetworkView({state,layoutState,allRelationships,onSelect,selecte
     {activeRelationships.map((r)=>{
       const a=nodes.find((n)=>n.id===r.from), b=nodes.find((n)=>n.id===r.to); if(!a||!b)return null;
       const dash=r.type==='logistics'||r.type==='refueling'?'7 6':r.type==='data'||r.type==='sensor'?'3 4':undefined;
-      return <g key={r.id} className={`edge edge-${r.type}`}>
+      return <g key={r.id} className={`edge edge-${r.type}`} role="button" tabIndex={0} aria-label={`Inspect relationship: ${r.label}, ${r.evidence}`} onClick={()=>onRelationshipSelect(r.id)} onKeyDown={(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onRelationshipSelect(r.id);}}} style={{cursor:'pointer',opacity:selectedRelationship&&selectedRelationship!==r.id?0.5:1}}>
         <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="currentColor" strokeWidth="2" strokeDasharray={dash} markerEnd="url(#arrow)"/>
         {r.direction==='bidirectional'&&<line x1={b.x} y1={b.y} x2={a.x} y2={a.y} stroke="currentColor" strokeWidth="1" strokeDasharray={dash} markerEnd="url(#arrow)" opacity="0.55"/>}
         <text x={(a.x!+b.x!)/2} y={(a.y!+b.y!)/2-12} textAnchor="middle" className="edge-label">{r.label}</text>
