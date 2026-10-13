@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import * as maplibregl from 'maplibre-gl';
-import mapWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
+import MapLibreWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker';
 
-// Resolve the worker through Vite so the production asset is emitted under the
-// GitHub Pages base path rather than requested as a missing root-level file.
-maplibregl.setWorkerUrl(mapWorkerUrl);
+// Bundle the worker (including its shared module) through Vite rather than
+// copying only its entry file to a Pages path.
+maplibregl.setWorkerClass(MapLibreWorker);
 import { MapboxOverlay } from '@deck.gl/mapbox';
 import {
   IconLayer,
