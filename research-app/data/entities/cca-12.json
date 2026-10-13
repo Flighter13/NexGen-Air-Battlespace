@@ -1,0 +1,38 @@
+{
+  "id": "cca-12",
+  "name": "Notional loitering munition CCA-12",
+  "shortName": "CCA-12",
+  "category": "uncrewed",
+  "domain": "air",
+  "function": "cca",
+  "visualization": {
+    "map": true,
+    "network": true
+  },
+  "claims": [
+    {
+      "text": "SEAD team adaptation of the notional CCA-8, not a separate Table 1 design. This is a notional Mitchell Institute 2024 TTX variant, not a verified production aircraft.",
+      "evidence": "documented",
+      "citations": [
+        {
+          "sourceId": "mitchell-report",
+          "locator": "p. 20, SEAD Example 3"
+        }
+      ]
+    }
+  ],
+  "media": {
+    "src": "assets/entities/uncrewed.svg",
+    "icon": "assets/entities/uncrewed.svg",
+    "alt": "Schematic category icon for Notional loitering munition CCA-12; not a physical configuration",
+    "credit": "NexGen schematic category illustration",
+    "rights": "Project illustration; not a validated aircraft silhouette",
+    "iconCalibration": {
+      "width": 160,
+      "height": 170,
+      "anchorX": 80,
+      "anchorY": 85,
+      "noseHeading": 0
+    }
+  }
+}
