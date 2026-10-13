@@ -1,8 +1,8 @@
 {
   "id": "02-logistics",
-  "title": "Mitchell TTX · CCA sustainment",
-  "subtitle": "Forward dispersion and constrained logistics · Figures 11–12",
-  "description": "Study of Mitchell's 2024 TTX logistics findings: forward CCA posture, prepositioning and sustainment risks; constrained munitions inventories shift sortie allocations toward electronic attack and decoys.",
+  "title": "Mitchell TTX · logistics under attack",
+  "subtitle": "Dispersal, prepositioning and constrained force design",
+  "description": "Research visualization of the logistics judgments from the Mitchell Institute 2024 TTX: fuel, weapons, personnel, lift, alternate operating surfaces and the shift toward EW/decoy CCA when missile and logistics supplies constrain a notional Pacific campaign.",
   "evidence": "illustrative",
   "citations": [
     {
@@ -11,54 +11,54 @@
     }
   ],
   "assumptions": [
-    "Published mission concepts and qualitative force-mix findings are taken from Mitchell Institute 2025 report (2024 TTX); these are hypothetical tabletop exercise plans, not observed combat operations.",
-    "Actor trajectories, coordinates, formation separations, icons, scene timing and visual counts are editorial illustrations. The report does not publish precise flight tracks or combat outcomes.",
-    "Scenario timeline is presentation seconds, not the exercise's operational day or campaign duration.",
-    "Notional CCA-1 through CCA-12 are study constructs; do not equate them with actual YFQ-designated prototypes."
+    "Grounded in pages 24-25 and Figures 11-12 of the February 2025 report; these were TTX team assessments, not validated field logistics movements.",
+    "TTX planners considered southern Japan and northern Philippines for dispersed CCA operations but did not publish particular coordinates, base inventories or resupply routes; all displayed movement is fictional.",
+    "The report found initial unconstrained plans risked consuming all in-theater air-to-air missile inventory in less than a week; the visualization does not calculate inventory burn rates.",
+    "Figure 12 shows weapon-sortie and EW/decoy-sortie proportions under constrained and unconstrained logistics; those published percentages are research findings, not simulated site-by-site rates."
   ],
   "duration": 72,
   "phases": [
     {
       "id": "preposition",
-      "title": "Preposition resources",
+      "title": "Preposition CCA and Munitions",
       "start": 0,
       "end": 12,
-      "narrative": "The HVAA team prepositioned CCA and munitions in the Ryukyus; subsequent crewed resupply near Taiwan was judged high-risk."
+      "narrative": "Teams proposed prepositioning replacements at dispersed forward sites because high-risk C-130 resupply near the battlespace would be difficult (p. 24)."
     },
     {
       "id": "disperse",
-      "title": "Disperse forward CCA",
+      "title": "Distributed Launch Posture",
       "start": 12,
       "end": 24,
-      "narrative": "TTX teams favored dispersed launch/recovery options in southern Japan and the northern Philippines, with reduced runway and ground-footprint requirements."
+      "narrative": "Teams considered locations in southern Japan and northern Philippines, shorter runways and road/rocket launch options; site markers are not disclosed TTX coordinates."
     },
     {
       "id": "generate",
-      "title": "Generate CCA sorties",
+      "title": "Sortie Generation Requirements",
       "start": 24,
       "end": 36,
-      "narrative": "Fuel, munitions, personnel and equipment determine the ability to generate the proposed sorties; the map shows no simulated sortie rate."
+      "narrative": "Fuel, personnel, munitions and support equipment were assessed as necessary for sustaining high-tempo CCA operations."
     },
     {
       "id": "replenish",
-      "title": "Examine resupply exposure",
+      "title": "Resupply Risk and Theater Lift",
       "start": 36,
       "end": 48,
-      "narrative": "The report identifies theater airlift and munition replenishment risks and considers alternative uncrewed logistics support."
+      "narrative": "The TTX identified risky C-130 replenishment and considered air-launched CCA and uninhabited mobility concepts instead (p. 24)."
     },
     {
       "id": "shift",
-      "title": "Adapt posture and force mix",
+      "title": "Adapt Under Munitions Constraints",
       "start": 48,
       "end": 60,
-      "narrative": "Under constraints the teams considered greater reliance on air-launched expendable CCA and nonkinetic mission systems."
+      "narrative": "Figure 12 records a shift toward EW/decoy sortie concepts as weapons inventories constrained plans; it is not a tactical basing movement model."
     },
     {
       "id": "sustain",
-      "title": "Constrained logistics finding",
+      "title": "Constrained Logistics Findings",
       "start": 60,
       "end": 72,
-      "narrative": "Figure 12: sweep team's weapon-launch share declined from 96% to 68%; SEAD team's from 76% to 33%, with a corresponding increase in EW/decoy sorties."
+      "narrative": "Figure 11 reports combined requests for expendable CCA at 145% of the TTX notional available inventory; the exercise highlights limits rather than a validated sustainable sortie rate."
     }
   ],
   "actors": []
