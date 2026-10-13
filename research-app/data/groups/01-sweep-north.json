@@ -2,12 +2,12 @@
   "id": "01-sweep-north",
   "scenarioId": "01-sweep",
   "name": "North CCA group",
-  "role": "Northern study axis",
+  "role": "Mitchell TTX sweep force, schematic routes",
   "evidence": "illustrative",
   "citations": [
     {
-      "sourceId": "editorial",
-      "locator": "Starter dataset: group membership, spacing and motion"
+      "sourceId": "mitchell-report",
+      "locator": "Figure 4–5, p. 18 (roles only; routes editorial)"
     }
   ],
   "motion": {
@@ -36,17 +36,23 @@
   "members": [
     {
       "id": "north",
-      "entityId": "cca-concept",
+      "entityId": "cca-5",
       "label": "North CCA group 1",
-      "role": "Northern study axis",
-      "offsetKm": [0, 0]
+      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "offsetKm": [
+        0,
+        0
+      ]
     },
     {
       "id": "north-2",
-      "entityId": "cca-concept",
+      "entityId": "cca-11",
       "label": "North CCA group 2",
-      "role": "Northern study axis",
-      "offsetKm": [80, -65]
+      "role": "TTX three-axis expendable CCA concept; illustrative route",
+      "offsetKm": [
+        80,
+        -65
+      ]
     }
   ]
 }
